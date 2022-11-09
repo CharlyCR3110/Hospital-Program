@@ -12,5 +12,6 @@ public:
 	//setters
 	void setHead(NodoCitas*);
 	//metodos
+	bool isEmpty();
 };
 

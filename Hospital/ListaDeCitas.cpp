@@ -18,3 +18,8 @@ void ListaDeCitas::setHead(NodoCitas*)
 {
 	this->head = head;
 }
+
+bool ListaDeCitas::isEmpty()
+{
+	return head == NULL;
+}
