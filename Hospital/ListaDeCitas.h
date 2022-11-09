@@ -15,5 +15,6 @@ public:
 	bool isEmpty();
 	bool insertarCita(Cita*);
 	string buscarYMostarCita(string);
+	bool eliminarCita(string);
 };
 

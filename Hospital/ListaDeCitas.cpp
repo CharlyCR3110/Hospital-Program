@@ -58,3 +58,31 @@ string ListaDeCitas::buscarYMostarCita(string codigo)
 	}
 	return "No fue posible encontrar la cita";
 }
+
+bool ListaDeCitas::eliminarCita(string codigo)
+{
+	NodoCitas* aux = head;
+	NodoCitas* anterior = NULL;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getCodigoCita() == codigo)
+		{
+			//por si es el primero
+			if (aux == head)
+			{
+				head = aux->getSiguiente();
+				delete aux;
+				return true;
+			}
+			else
+			{
+				anterior->setSiguiente(aux->getSiguiente());
+				delete aux;
+				return true;
+			}
+		}
+		anterior = aux;
+		aux = aux->getSiguiente();
+	}
+	return false;
+}
