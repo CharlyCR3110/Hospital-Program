@@ -51,3 +51,8 @@ string Profesor::toString()
 		<< "Anios Laborados: " << aniosLaborados << endl;
 	return ss.str();
 }
+
+string Profesor::getIdentificacion()
+{
+	return this->getCedula();
+}

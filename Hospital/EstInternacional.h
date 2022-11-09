@@ -20,4 +20,5 @@ public:
 	void setCondicion(string);
 	//metodos
 	string toString();
+	string getIdentificacion();
 };

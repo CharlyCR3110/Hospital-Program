@@ -13,5 +13,6 @@ public:
 	void setUniversidad(string);
 	//metodos
 	virtual string toString();
+	virtual string getIdentificacion() = 0;
 };
 

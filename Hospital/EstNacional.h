@@ -16,5 +16,6 @@ public:
 	void setEstado(string);
 	//metodos
 	string toString();
+	string getIdentificacion() = 0;
 };
 

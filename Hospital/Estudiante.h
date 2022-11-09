@@ -20,5 +20,5 @@ public:
 	void setNumeroDeTelefono(string);
 	//metodos
 	virtual string toString();
+	virtual string getIdentificacion() = 0;
 };
-

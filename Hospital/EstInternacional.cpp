@@ -54,3 +54,8 @@ string EstInternacional::toString()
 		<< "Condicion: " << condicion << endl;
 	return ss.str();
 }
+
+string EstInternacional::getIdentificacion()
+{
+	return this->getPasaporte();
+}

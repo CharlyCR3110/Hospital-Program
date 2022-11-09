@@ -41,3 +41,8 @@ string EstNacional::toString()
 		<< "Estado: " << estado << endl;
 	return ss.str();
 }
+
+string EstNacional::getIdentificacion()
+{
+	return this->getCedula();
+}

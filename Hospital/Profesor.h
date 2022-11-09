@@ -20,5 +20,6 @@ public:
 	void setAniosLaborados(int);
 	//metodos
 	virtual string toString();
+	string getIdentificacion();
 };
 
