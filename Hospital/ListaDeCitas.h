@@ -16,5 +16,7 @@ public:
 	bool insertarCita(Cita*);
 	string buscarYMostarCita(string);
 	bool eliminarCita(string);
+	//este string puede ser la cedula del paciente o el pasaporte del paciente
+	string mostarCitasDeUnPaciente(string);
 };
 

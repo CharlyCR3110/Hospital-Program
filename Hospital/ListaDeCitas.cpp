@@ -86,3 +86,21 @@ bool ListaDeCitas::eliminarCita(string codigo)
 	}
 	return false;
 }
+
+string ListaDeCitas::mostarCitasDeUnPaciente(string identificacion)
+{
+	//este string puede ser la cedula del paciente o el pasaporte del paciente
+	//esto depende de si es un paciente nacional o extranjero
+	//Nacionales: Profesores o EstNacional
+	//Internacionales: EstInternacional
+	NodoCitas* aux = head;
+	stringstream ss;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getPaciente()->getIdentificacion() == identificacion)
+		{
+			ss << aux->getCita()->toString() << endl;
+		}
+		aux = aux->getSiguiente();
+	}
+}
