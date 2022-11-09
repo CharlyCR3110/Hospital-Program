@@ -74,3 +74,19 @@ void Cita::setTransporte(Transporte* transporte)
 {
 	this->transporte = transporte;
 }
+
+string Cita::toString()
+{
+	stringstream ss;
+	ss << "Codigo de cita: " << codigoCita << endl;
+	ss << "-------------------PACIENTE-------------------" << endl;
+	ss << paciente->toString() << endl;
+	ss << "-------------------MEDICO-------------------" << endl;
+	ss << medico->toString() << endl;
+	ss << "-------------------FECHA-------------------" << endl;
+	ss << "Hora: " << hora->toString() << endl;
+	ss << "Fecha: " << fecha->toString() << endl;
+	ss << "-------------------TRANSPORTE-------------------" << endl;
+	ss << transporte->toString() << endl;
+	return ss.str();
+}
