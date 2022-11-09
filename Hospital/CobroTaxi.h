@@ -21,6 +21,6 @@ public:
 	void setTaxi(Taxi*);
 	//metodos
 	double calcularCosto();
-	string toString()
+	string toString();
 };
 
