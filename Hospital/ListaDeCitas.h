@@ -13,5 +13,6 @@ public:
 	void setHead(NodoCitas*);
 	//metodos
 	bool isEmpty();
+	bool insertarCita(Cita*);
 };
 
