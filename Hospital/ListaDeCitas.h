@@ -14,5 +14,6 @@ public:
 	//metodos
 	bool isEmpty();
 	bool insertarCita(Cita*);
+	string buscarYMostarCita(string);
 };
 

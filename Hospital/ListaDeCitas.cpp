@@ -44,3 +44,17 @@ bool ListaDeCitas::insertarCita(Cita* cita)
 	}
 	return false;
 }
+
+string ListaDeCitas::buscarYMostarCita(string codigo)
+{
+	NodoCitas* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getCodigoCita() == codigo)
+		{
+			return aux->getCita()->toString();
+		}
+		aux = aux->getSiguiente();
+	}
+	return "No fue posible encontrar la cita";
+}
