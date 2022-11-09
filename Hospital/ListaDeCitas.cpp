@@ -103,4 +103,5 @@ string ListaDeCitas::mostarCitasDeUnPaciente(string identificacion)
 		}
 		aux = aux->getSiguiente();
 	}
+	return ss.str();
 }
