@@ -13,5 +13,6 @@ public:
 	void setHead(NodoMedico*);
 	//metodos
 	bool isEmpty();
+	bool insertarMedico(Medico*);
 };
 
