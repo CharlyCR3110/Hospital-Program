@@ -18,3 +18,8 @@ void ListaDeMedicos::setHead(NodoMedico* head)
 {
 	this->head = head;
 }
+
+bool ListaDeMedicos::isEmpty()
+{
+	return head == NULL;
+}

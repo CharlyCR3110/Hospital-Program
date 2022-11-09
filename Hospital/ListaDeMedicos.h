@@ -12,5 +12,6 @@ public:
 	//setters
 	void setHead(NodoMedico*);
 	//metodos
+	bool isEmpty();
 };
 
