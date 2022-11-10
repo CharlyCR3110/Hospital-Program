@@ -13,5 +13,6 @@ public:
 	void setHead(NodoPaciente*);
 	//metodos
 	bool isEmpty();
+	bool insertarPaciente(Paciente*);
 };
 
