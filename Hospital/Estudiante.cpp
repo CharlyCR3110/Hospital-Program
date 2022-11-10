@@ -6,6 +6,7 @@ Estudiante::Estudiante(string nombre, string apellido, int edad, string universi
 	this->codigoDeCarrera = codigoDeCarrera;
 	this->ultNivelCursado = ultNivelCursado;
 	this->numeroDeTelefono = numeroDeTelefono;
+	this->tipo = "Estudiante";
 }
 
 Estudiante::~Estudiante()
