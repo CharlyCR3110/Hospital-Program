@@ -15,6 +15,11 @@ string Paciente::getUniversidad()
 	return universidad;
 }
 
+string Paciente::getTipo()
+{
+	return tipo;
+}
+
 void Paciente::setUniversidad(string universidad)
 {
 	this->universidad = universidad;

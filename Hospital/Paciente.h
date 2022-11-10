@@ -10,6 +10,7 @@ public:
 	virtual ~Paciente();
 	//getters
 	string getUniversidad();
+	string getTipo();
 	//setters
 	void setUniversidad(string);
 	//metodos
