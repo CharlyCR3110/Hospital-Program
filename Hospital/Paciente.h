@@ -4,8 +4,9 @@ class Paciente : public Persona
 {
 protected:
 	string universidad; //Universidad de procedencia
+	string tipo; //Profesor o estudiante
 public:
-	Paciente(string = "", string = "", int = 0, string = "");
+	Paciente(string = "", string = "", int = 0, string = "", string = "");
 	virtual ~Paciente();
 	//getters
 	string getUniversidad();

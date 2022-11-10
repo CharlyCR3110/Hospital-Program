@@ -1,8 +1,9 @@
 #include "Paciente.h"
 
-Paciente::Paciente(string nombre, string apellido, int edad, string universidad) : Persona(nombre, apellido, edad)
+Paciente::Paciente(string nombre, string apellido, int edad, string universidad, string tipo) : Persona(nombre, apellido, edad)
 {
 	this->universidad = universidad;
+	this->tipo = tipo;
 }
 
 Paciente::~Paciente()
