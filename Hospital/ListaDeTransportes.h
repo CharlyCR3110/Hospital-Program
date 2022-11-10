@@ -14,5 +14,6 @@ public:
 	//metodos
 	bool isEmpty();
 	bool insertarTransporte(Transporte*);
+	bool eliminarTransporte(string);
 };
 
