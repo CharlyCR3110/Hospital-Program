@@ -7,6 +7,12 @@ ListaDeTransportes::ListaDeTransportes(NodoTransporte* head)
 
 ListaDeTransportes::~ListaDeTransportes()
 {
+	while (head != NULL)
+	{
+		NodoTransporte* aux = head;
+		head = head->getSiguiente();
+		delete aux;
+	}
 }
 
 NodoTransporte* ListaDeTransportes::getHead()
