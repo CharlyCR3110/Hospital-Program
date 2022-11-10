@@ -17,5 +17,6 @@ public:
 	string mostrarPacientesProfesores();
 	string mostrarPacientesEstudiantes();
 	string mostrarPacientes();
+	string buscarYMostrarPaciente(string identificacion);
 };
 

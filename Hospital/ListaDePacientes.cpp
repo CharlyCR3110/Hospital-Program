@@ -101,3 +101,17 @@ string ListaDePacientes::mostrarPacientes()
 	ss << mostrarPacientesEstudiantes() << endl;
 	return ss.str();
 }
+
+string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
+{
+	NodoPaciente* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getPaciente()->getIdentificacion() == identificacion)
+		{
+			return aux->toString();
+		}
+		aux = aux->getSiguiente();
+	}
+	return "No se encontro el paciente";
+}
