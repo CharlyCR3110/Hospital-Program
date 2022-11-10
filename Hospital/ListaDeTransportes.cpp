@@ -24,3 +24,8 @@ void ListaDeTransportes::setHead(NodoTransporte* head)
 {
 	this->head = head;
 }
+
+bool ListaDeTransportes::isEmpty()
+{
+	return head == NULL;
+}

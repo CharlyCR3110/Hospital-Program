@@ -12,5 +12,6 @@ public:
 	//setters
 	void setHead(NodoTransporte*);
 	//metodos
+	bool isEmpty();
 };
 
