@@ -1,12 +1,12 @@
 #include "Transporte.h"
 
-Transporte::Transporte(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos)
+Transporte::Transporte(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, string tipo)
 {
 	this->placa = placa;
 	this->marca = marca;
 	this->tipoDeViaje = tipoDeViaje;
 	this->kilometrosRecorridos = kilometrosRecorridos;
-	
+	this->tipo = tipo;
 }
 
 Transporte::~Transporte()

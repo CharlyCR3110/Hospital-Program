@@ -10,8 +10,9 @@ protected:
 	string marca;
 	string tipoDeViaje; //ida, vuelta o ida y vuelta
 	double kilometrosRecorridos;
+	string tipo; //taxi o ambulancia
 public:
-	Transporte(string = "", string = "", string = "", double = 0);
+	Transporte(string = "", string = "", string = "", double = 0, string = "");
 	virtual ~Transporte();
 	//getters
 	string getPlaca();
