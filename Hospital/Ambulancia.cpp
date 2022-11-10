@@ -5,6 +5,7 @@ Ambulancia::Ambulancia(string placa, string marca, string tipoDeViaje, double ki
 {
 	this->codigo = codigo;
 	this->ocupado = ocupado;
+	this->tipo = "Ambulancia";
 }
 
 Ambulancia::~Ambulancia()
