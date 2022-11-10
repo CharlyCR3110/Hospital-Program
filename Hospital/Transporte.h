@@ -19,6 +19,7 @@ public:
 	string getMarca();
 	string getTipoDeViaje();
 	double getKilometrosRecorridos();
+	string getTipo();
 	//setters
 	void setPlaca(string);
 	void setMarca(string);

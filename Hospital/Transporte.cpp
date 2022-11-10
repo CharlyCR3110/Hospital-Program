@@ -33,6 +33,11 @@ double Transporte::getKilometrosRecorridos()
 	return kilometrosRecorridos;
 }
 
+string Transporte::getTipo()
+{
+	return tipo;
+}
+
 void Transporte::setPlaca(string placa)
 {
 	this->placa = placa;
