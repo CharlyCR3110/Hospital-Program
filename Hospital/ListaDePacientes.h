@@ -14,5 +14,6 @@ public:
 	//metodos
 	bool isEmpty();
 	bool insertarPaciente(Paciente*);
+	string mostrarPacientesProfesores();
 };
 

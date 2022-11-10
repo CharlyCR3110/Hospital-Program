@@ -61,3 +61,18 @@ bool ListaDePacientes::insertarPaciente(Paciente* paciente)
 	}
 	return false;
 }
+
+string ListaDePacientes::mostrarPacientesProfesores()
+{
+	stringstream ss;
+	NodoPaciente* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getPaciente()->getTipo() == "Profesor")
+		{
+			ss << aux->toString() << endl;
+		}
+		aux = aux->getSiguiente();
+	}
+	return ss.str();
+}
