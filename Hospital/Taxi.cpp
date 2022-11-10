@@ -5,6 +5,7 @@ Taxi::Taxi(string placa, string marca, string tipoDeViaje, double kilometrosReco
 {
 	this->costoDelViaje = costoDelViaje;
 	this->numeroDePasajeros = numeroDePasajeros;
+	this->tipo = "Taxi";
 }
 
 Taxi::~Taxi()
