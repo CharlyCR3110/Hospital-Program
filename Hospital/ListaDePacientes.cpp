@@ -26,3 +26,8 @@ void ListaDePacientes::setHead(NodoPaciente* head)
 {
 	this->head = head;
 }
+
+bool ListaDePacientes::isEmpty()
+{
+	return head == NULL;
+}
