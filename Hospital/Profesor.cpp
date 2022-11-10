@@ -6,6 +6,7 @@ Profesor::Profesor(string nombre, string apellido, int edad, string universidad,
 	this->cedula = cedula;
 	this->titulo = titulo;
 	this->aniosLaborados = aniosLaborados;
+	this->tipo = "Profesor";
 }
 
 Profesor::~Profesor()
