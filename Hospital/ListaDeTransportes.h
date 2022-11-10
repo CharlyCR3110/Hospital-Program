@@ -13,5 +13,6 @@ public:
 	void setHead(NodoTransporte*);
 	//metodos
 	bool isEmpty();
+	bool insertarTransporte(Transporte*);
 };
 
