@@ -91,3 +91,13 @@ string ListaDePacientes::mostrarPacientesEstudiantes()
 	}
 	return ss.str();
 }
+
+string ListaDePacientes::mostrarPacientes()
+{
+	stringstream ss;
+	ss << "Pacientes Profesores" << endl;
+	ss << mostrarPacientesProfesores() << endl;
+	ss << "Pacientes Estudiantes" << endl;
+	ss << mostrarPacientesEstudiantes() << endl;
+	return ss.str();
+}
