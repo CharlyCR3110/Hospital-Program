@@ -7,6 +7,12 @@ ListaDeMedicos::ListaDeMedicos(NodoMedico* head)
 
 ListaDeMedicos::~ListaDeMedicos()
 {
+	while (head != NULL)
+	{
+		NodoMedico* aux = head;
+		head = head->getSiguiente();
+		delete aux;
+	}
 }
 
 NodoMedico* ListaDeMedicos::getHead()

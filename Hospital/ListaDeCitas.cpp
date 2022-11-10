@@ -7,6 +7,12 @@ ListaDeCitas::ListaDeCitas(NodoCitas* head)
 
 ListaDeCitas::~ListaDeCitas()
 {
+	while (head != NULL)
+	{
+		NodoCitas* aux = head;
+		head = head->getSiguiente();
+		delete aux;
+	}
 }
 
 NodoCitas* ListaDeCitas::getHead()
