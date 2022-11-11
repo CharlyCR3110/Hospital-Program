@@ -54,18 +54,27 @@ bool ListaDeCitas::insertarCita(Cita* cita)
 	return false;
 }
 
-string ListaDeCitas::buscarYMostarCita(string codigo)
+Cita* ListaDeCitas::buscarCita(string codigoCita)
 {
-	NodoCitas* aux = head;
-	while (aux != NULL)
-	{
-		if (aux->getCita()->getCodigoCita() == codigo)
+	if (!isEmpty()) {
+		NodoCitas* aux = head;
+		while (aux != NULL)
 		{
-			return aux->getCita()->toString();
+			if (aux->getCita()->getCodigoCita() == codigoCita) {
+				return aux->getCita();
+			}
+			aux = aux->getSiguiente();
 		}
-		aux = aux->getSiguiente();
 	}
-	return "No fue posible encontrar la cita";
+	return NULL;
+}
+
+string ListaDeCitas::MostarCitaEspecifica(string codigoCita)
+{
+	if (buscarCita(codigoCita) != NULL) {
+		return buscarCita(codigoCita)->toString();
+	}
+	return "No se encontro la cita";
 }
 
 bool ListaDeCitas::eliminarCita(string codigo)

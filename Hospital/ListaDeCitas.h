@@ -14,8 +14,10 @@ public:
 	//metodos
 	bool isEmpty();
 	bool insertarCita(Cita*);
-	string buscarYMostarCita(string);
+	Cita* buscarCita(string);
+	string MostarCitaEspecifica(string);
 	bool eliminarCita(string);
+	
 	//este string puede ser la cedula del paciente o el pasaporte del paciente
 	string mostarCitasDeUnPaciente(string);
 	bool existeCita(string);
