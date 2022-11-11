@@ -112,14 +112,16 @@ string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
 
 bool ListaDePacientes::existePaciente(string identificacion)
 {
-	NodoPaciente* aux = head;
-	while (aux != NULL)
-	{
-		if (aux->getPaciente()->getIdentificacion() == identificacion)
+	if (!isEmpty) {
+		NodoPaciente* aux = head;
+		while (aux != NULL)
 		{
-			return true;
+			if (aux->getPaciente()->getIdentificacion() == identificacion)
+			{
+				return true;
+			}
+			aux = aux->getSiguiente();
 		}
-		aux = aux->getSiguiente();
 	}
 	return false;
 }
