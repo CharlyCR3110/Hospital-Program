@@ -40,6 +40,9 @@ bool ListaDeCitas::insertarCita(Cita* cita)
 	}
 	else
 	{
+		if (this->existeCita(cita->getCodigoCita())) {
+			return false;
+		}
 		NodoCitas* aux = head;
 		while (aux->getSiguiente() != NULL)
 		{
