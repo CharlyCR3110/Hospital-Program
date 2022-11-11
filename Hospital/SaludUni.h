@@ -36,5 +36,6 @@ public:
 	string toString();
 	//metodos
 	bool insertarMedico(Medico*);
+	bool insertarPaciente(Paciente*);
 };
 
