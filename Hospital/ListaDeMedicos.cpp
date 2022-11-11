@@ -56,14 +56,15 @@ bool ListaDeMedicos::insertarMedico(Medico* medico)
 
 bool ListaDeMedicos::existeMedico(string cedula)
 {
-	NodoMedico* aux = head;
-	while (aux != NULL)
-	{
-		if (aux->getMedico()->getCedula() == cedula)
+	if (!isEmpty()) {
+		NodoMedico* aux = head;
+		while (aux != NULL)
 		{
-			return true;
+			if (aux->getMedico()->getCedula() == cedula) {
+				return true;
+			}
+			aux = aux->getSiguiente();
 		}
-		aux = aux->getSiguiente();
 	}
 	return false;
 }
