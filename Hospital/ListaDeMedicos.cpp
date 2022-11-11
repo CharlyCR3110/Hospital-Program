@@ -59,3 +59,17 @@ bool ListaDeMedicos::insertarMedico(Medico* medico)
 	}
 	return false;
 }
+
+bool ListaDeMedicos::existeMedico(string cedula)
+{
+	NodoMedico* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getMedico()->getCedula() == cedula)
+		{
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+	return false;
+}

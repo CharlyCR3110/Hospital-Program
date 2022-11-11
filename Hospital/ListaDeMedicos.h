@@ -14,5 +14,6 @@ public:
 	//metodos
 	bool isEmpty();
 	bool insertarMedico(Medico*);
+	bool existeMedico(string);
 };
 
