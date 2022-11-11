@@ -95,3 +95,8 @@ bool SaludUni::insertarPaciente(Paciente* paciente)
 {
 	return listaDePacientes->insertarPaciente(paciente);
 }
+
+bool SaludUni::insertarTransporte(Transporte* transporte)
+{
+	return listaDeTransportes->insertarTransporte(transporte);
+}

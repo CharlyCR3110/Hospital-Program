@@ -37,5 +37,6 @@ public:
 	//metodos
 	bool insertarMedico(Medico*);
 	bool insertarPaciente(Paciente*);
+	bool insertarTransporte(Transporte*);
 };
 
