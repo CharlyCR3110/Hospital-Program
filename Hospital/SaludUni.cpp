@@ -85,3 +85,8 @@ string SaludUni::toString()
 		<< "Nombre: " << nombre << endl;
 	return ss.str();
 }
+
+bool SaludUni::insertarMedico(Medico* medico)
+{
+	return listaDeMedicos->insertarMedico(medico);
+}

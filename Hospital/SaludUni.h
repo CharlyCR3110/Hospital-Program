@@ -34,6 +34,7 @@ public:
 	void setNombre(string);
 	//toString
 	string toString();
-	
+	//metodos
+	bool insertarMedico(Medico*);
 };
 
