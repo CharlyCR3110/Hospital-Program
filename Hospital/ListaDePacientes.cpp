@@ -115,3 +115,17 @@ string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
 	}
 	return "No se encontro el paciente";
 }
+
+bool ListaDePacientes::existePaciente(string identificacion)
+{
+	NodoPaciente* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getPaciente()->getIdentificacion() == identificacion)
+		{
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+	return false;
+}

@@ -18,5 +18,6 @@ public:
 	string mostrarPacientesEstudiantes();
 	string mostrarPacientes();
 	string buscarYMostrarPaciente(string identificacion);
+	bool pacienteRepetido(string identificacion);
 };
 
