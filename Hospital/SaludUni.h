@@ -38,5 +38,6 @@ public:
 	bool insertarMedico(Medico*);
 	bool insertarPaciente(Paciente*);
 	bool insertarTransporte(Transporte*);
+	bool insertarCita(Cita*);
 };
 

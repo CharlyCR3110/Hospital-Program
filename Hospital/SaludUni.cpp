@@ -100,3 +100,8 @@ bool SaludUni::insertarTransporte(Transporte* transporte)
 {
 	return listaDeTransportes->insertarTransporte(transporte);
 }
+
+bool SaludUni::insertarCita(Cita* cita)
+{
+	return listaDeCitas->insertarCita(cita);
+}
