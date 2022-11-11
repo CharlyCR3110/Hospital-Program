@@ -117,14 +117,16 @@ string ListaDeCitas::mostarCitasDeUnPaciente(string identificacion)
 
 bool ListaDeCitas::existeCita(string codigoCita)
 {
-	NodoCitas* aux = head;
-	while (aux != NULL)
-	{
-		if (aux->getCita()->getCodigoCita() == codigoCita)
+	if (!isEmpty()) {
+		NodoCitas* aux = head;
+		while (aux != NULL)
 		{
-			return true;
+			if (aux->getCita()->getCodigoCita() == codigoCita)
+			{
+				return true;
+			}
+			aux = aux->getSiguiente();
 		}
-		aux = aux->getSiguiente();
 	}
 	return false;
 }
