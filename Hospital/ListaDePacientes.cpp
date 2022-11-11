@@ -42,18 +42,12 @@ bool ListaDePacientes::insertarPaciente(Paciente* paciente)
 	}
 	else
 	{
-		NodoPaciente* aux = head;
-		// se debe de comprobar aqui en caso de que solo exista un paciente registrado
-		if (aux->getPaciente()->getIdentificacion() == paciente->getIdentificacion())
-		{
+		if (this->existePaciente(paciente->getIdentificacion())) {
 			return false;
 		}
+		NodoPaciente* aux = head;
 		while (aux->getSiguiente() != NULL)
 		{
-			if (aux->getPaciente()->getIdentificacion() == paciente->getIdentificacion())
-			{
-				return false;
-			}
 			aux = aux->getSiguiente();
 		}
 		aux->setSiguiente(nuevo);
