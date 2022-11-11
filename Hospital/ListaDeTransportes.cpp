@@ -54,38 +54,13 @@ bool ListaDeTransportes::insertarTransporte(Transporte* transporte)
 				{
 					return false;
 				}
+			while (aux->getSiguiente() != NULL)
+			{
 				aux = aux->getSiguiente();
 			}
 			aux->setSiguiente(nuevo);
 		}
 		return true;
-	}
-	return false;
-}
-
-bool ListaDeTransportes::eliminarTransporte(string placa)
-{
-	if (!isEmpty())
-	{
-		NodoTransporte* aux = head;
-		// si el primer elemento es el que se desea eliminar
-		if (aux->getTransporte()->getPlaca() == placa)
-		{
-			head = head->getSiguiente();
-			delete aux;
-			return true;
-		}
-		while (aux->getSiguiente() != NULL)
-		{
-			if (aux->getSiguiente()->getTransporte()->getPlaca() == placa)
-			{
-				NodoTransporte* aux2 = aux->getSiguiente();
-				aux->setSiguiente(aux->getSiguiente()->getSiguiente());
-				delete aux2;
-				return true;
-			}
-			aux = aux->getSiguiente();
-		}
 	}
 	return false;
 }
