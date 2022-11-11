@@ -89,3 +89,20 @@ bool ListaDeTransportes::eliminarTransporte(string placa)
 	}
 	return false;
 }
+
+bool ListaDeTransportes::existeTransporte(string placa)
+{
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getPlaca() == placa)
+			{
+				return true;
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return false;
+}
