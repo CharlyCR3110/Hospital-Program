@@ -111,3 +111,17 @@ string ListaDeCitas::mostarCitasDeUnPaciente(string identificacion)
 	}
 	return ss.str();
 }
+
+bool ListaDeCitas::existeCita(string codigoCita)
+{
+	NodoCitas* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getCodigoCita() == codigoCita)
+		{
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+	return false;
+}
