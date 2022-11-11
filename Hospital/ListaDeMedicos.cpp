@@ -40,18 +40,12 @@ bool ListaDeMedicos::insertarMedico(Medico* medico)
 	}
 	else
 	{
-		NodoMedico* aux = head;
-		// se debe de comprobar aqui en caso de que solo exista un medico registrado
-		if (aux->getMedico()->getCedula() == medico->getCedula())
-		{
+		if (this->existeMedico(medico->getCedula())) {
 			return false;
 		}
+		NodoMedico* aux = head;
 		while (aux->getSiguiente() != NULL)
 		{
-			if (aux->getMedico()->getCedula() == medico->getCedula())
-			{
-				return false;
-			}
 			aux = aux->getSiguiente();
 		}
 		aux->setSiguiente(nuevo);
