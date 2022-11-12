@@ -5,6 +5,6 @@ class cobroTaxi {
 public:
 	//metodos
 	static double calcularCosto(double, int);
-	string toString();
+	static string toString(double, int);
 };
 
