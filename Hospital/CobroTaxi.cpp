@@ -1,24 +1,5 @@
 #include "CobroTaxi.h"
 
-cobroTaxi::cobroTaxi(Taxi* taxi)
-{
-	this->taxi = taxi;
-}
-
-cobroTaxi::~cobroTaxi()
-{
-}
-
-Taxi* cobroTaxi::getTaxi()
-{
-	return taxi;
-}
-
-void cobroTaxi::setTaxi(Taxi* taxi)
-{
-	this->taxi = taxi;
-}
-
 double cobroTaxi::calcularCosto(double kilometrosRecorridos, int numeroDePasajeros)
 {
 	double costo = 0;
