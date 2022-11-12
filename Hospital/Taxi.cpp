@@ -1,9 +1,9 @@
 #include "Taxi.h"
 
-Taxi::Taxi(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, double costoDelViaje, int numeroDePasajeros)
+Taxi::Taxi(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, int numeroDePasajeros)
 	:Transporte(placa, marca, tipoDeViaje, kilometrosRecorridos)
 {
-	this->costoDelViaje = costoDelViaje;
+	this->costoDelViaje = cobroTaxi::calcularCosto(kilometrosRecorridos, numeroDePasajeros);
 	this->numeroDePasajeros = numeroDePasajeros;
 	this->tipo = "Taxi";
 }
