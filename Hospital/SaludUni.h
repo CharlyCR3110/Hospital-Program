@@ -39,5 +39,6 @@ public:
 	bool insertarPaciente(Paciente*);
 	bool insertarTransporte(Transporte*);
 	bool insertarCita(Cita*);
+	string mostrarCita(string);
 };
 

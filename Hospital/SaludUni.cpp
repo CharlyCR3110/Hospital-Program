@@ -105,3 +105,8 @@ bool SaludUni::insertarCita(Cita* cita)
 {
 	return listaDeCitas->insertarCita(cita);
 }
+
+string SaludUni::mostrarCita(string codigoCita)
+{
+	return listaDeCitas->MostarCitaEspecifica(codigoCita);
+}
