@@ -19,26 +19,26 @@ void cobroTaxi::setTaxi(Taxi* taxi)
 	this->taxi = taxi;
 }
 
-double cobroTaxi::calcularCosto()
+double cobroTaxi::calcularCosto(double kilometrosRecorridos, int numeroDePasajeros)
 {
 	double costo = 0;
-	if (taxi->getKilometrosRecorridos() >= 0.5 && taxi->getKilometrosRecorridos() <= 2)
+	if (kilometrosRecorridos >= 0.5 && kilometrosRecorridos <= 2)
 	{
-		costo = taxi->getKilometrosRecorridos() * 950;
+		costo = kilometrosRecorridos * 950;
 	}
-	else if (taxi->getKilometrosRecorridos() > 2 && taxi->getKilometrosRecorridos() <= 5)
+	else if (kilometrosRecorridos > 2 && kilometrosRecorridos <= 5)
 	{
-		costo = taxi->getKilometrosRecorridos() * 700;
+		costo = kilometrosRecorridos * 700;
 	}
-	else if (taxi->getKilometrosRecorridos() > 5)
+	else if (kilometrosRecorridos > 5)
 	{
-		costo = taxi->getKilometrosRecorridos() * 600;
+		costo = kilometrosRecorridos * 600;
 	}
-	if (taxi->getNumeroDePasajeros() > 1)
+	if (numeroDePasajeros > 1)
 	{
 		//se suma un 10% por cada pasajero adicional
 		//incluyendo al pasajero 1
-		costo += costo * 0.1 * (taxi->getNumeroDePasajeros());
+		costo += costo * 0.1 * (numeroDePasajeros);
 	}
 	return costo;
 }
