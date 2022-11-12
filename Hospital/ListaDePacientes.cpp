@@ -112,7 +112,7 @@ string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
 
 bool ListaDePacientes::existePaciente(string identificacion)
 {
-	if (!isEmpty) {
+	if (!isEmpty()) {
 		NodoPaciente* aux = head;
 		while (aux != NULL)
 		{
