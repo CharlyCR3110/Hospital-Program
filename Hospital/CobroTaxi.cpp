@@ -24,7 +24,7 @@ double cobroTaxi::calcularCosto(double kilometrosRecorridos, int numeroDePasajer
 	return costo;
 }
 
-string cobroTaxi::toString()
+string cobroTaxi::toString(double kilometrosRecorridos, int numeroDePasajeros)
 {
-	return "Costo del viaje: " + to_string(calcularCosto());
+	return "Costo del viaje: " + to_string(calcularCosto(kilometrosRecorridos, numeroDePasajeros));
 }
