@@ -20,7 +20,7 @@ public:
 	//setters
 	void setTaxi(Taxi*);
 	//metodos
-	double calcularCosto();
+	static double calcularCosto(double, int);
 	string toString();
 };
 
