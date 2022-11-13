@@ -104,6 +104,7 @@ Paciente* ListaDePacientes::buscarPaciente(string identificacion)
 string ListaDePacientes::mostrarProfesoresInterinos()
 {
 	stringstream ss;
+	bool hayProfesoresInterinos = false;
 	if (!isEmpty()) {
 		NodoPaciente* aux = head;
 		while (aux != NULL)
@@ -111,12 +112,13 @@ string ListaDePacientes::mostrarProfesoresInterinos()
 			if (aux->getPaciente()->getTipo() == "Interino")
 			{
 				ss << aux->getPaciente()->toString();
+				hayProfesoresInterinos = true;
 			}
 			aux = aux->getSiguiente();
 		}
 	}
-	else {
-		ss << "No hay profesores interinos registrados";
+	if (!hayProfesoresInterinos) {
+		ss << "No hay profesores interinos registrados" << endl;
 	}
 	return ss.str();
 
