@@ -14,11 +14,12 @@ public:
 	//metodos
 	bool isEmpty();
 	bool insertarPaciente(Paciente*);
-	bool eliminarPaciente(string identificaion);
+	bool eliminarPaciente(string);
+	Paciente* buscarPaciente(string);
 	string mostrarPacientesProfesores();
 	string mostrarPacientesEstudiantes();
 	string mostrarPacientes();
-	string buscarYMostrarPaciente(string identificacion);
-	bool existePaciente(string identificacion);
+	string buscarYMostrarPaciente(string);
+	bool existePaciente(string);
 };
 

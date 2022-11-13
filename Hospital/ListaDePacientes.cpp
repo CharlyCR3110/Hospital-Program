@@ -85,6 +85,22 @@ bool ListaDePacientes::eliminarPaciente(string identificaion)
 	return false;
 }
 
+Paciente* ListaDePacientes::buscarPaciente(string identificacion)
+{
+	if (!isEmpty()) {
+		NodoPaciente* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getPaciente()->getIdentificacion() == identificacion)
+			{
+				return aux->getPaciente();
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return NULL;
+}
+
 string ListaDePacientes::mostrarPacientesProfesores()
 {
 	stringstream ss;
