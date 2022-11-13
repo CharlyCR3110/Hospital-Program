@@ -37,6 +37,10 @@ void Paciente::setNumeroDeTelefono(string numeroDeTelefono)
 {
 }
 
-void Paciente::setCodigoCarrera(string codigoCarrera)
+void Paciente::setCodigoDeCarrera(string codigoCarrera)
 {	
+}
+
+void Paciente::setUltNivelCursado(string)
+{
 }
