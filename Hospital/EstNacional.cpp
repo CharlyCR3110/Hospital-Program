@@ -7,6 +7,7 @@ EstNacional::EstNacional(string nombre, string apellido, int edad, string univer
 {
 	this->cedula = cedula;
 	this->estado = estado;
+	this->tipo = "Nacional";
 }
 
 EstNacional::~EstNacional()
