@@ -183,6 +183,7 @@ string ListaDePacientes::mostrarEstudiantesNacionales()
 string ListaDePacientes::mostrarEstudiantesInternacionales()
 {
 	stringstream ss;
+	bool hayEstudiantesInternacionales = false;
 	if (!isEmpty()) {
 		NodoPaciente* aux = head;
 		while (aux != NULL)
@@ -190,12 +191,13 @@ string ListaDePacientes::mostrarEstudiantesInternacionales()
 			if (aux->getPaciente()->getTipo() == "Internacional")
 			{
 				ss << aux->getPaciente()->toString();
+				hayEstudiantesInternacionales = true;
 			}
 			aux = aux->getSiguiente();
 		}
 	}
-	else {
-		ss << "No hay estudiantes internacionales registrados";
+	if (!hayEstudiantesInternacionales) {
+		ss << "No hay estudiantes internacionales registrados" << endl;
 	}
 	return ss.str();
 }
