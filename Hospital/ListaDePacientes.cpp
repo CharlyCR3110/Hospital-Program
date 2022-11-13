@@ -184,6 +184,16 @@ string ListaDePacientes::mostrarEstudiantesInternacionales()
 	return ss.str();
 }
 
+string ListaDePacientes::mostrarTodosLosEstudiantes()
+{
+	stringstream ss;
+	ss << "--------Estudiantes nacionales--------" << endl;
+	ss << mostrarEstudiantesNacionales() << endl;
+	ss << "--------Estudiantes internacionales--------" << endl;
+	ss << mostrarEstudiantesInternacionales() << endl;
+	return ss.str();
+}
+
 string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
 {
 	NodoPaciente* aux = head;

@@ -20,6 +20,7 @@ public:
 	string mostrarProfesoresConPropiedad();
 	string mostrarEstudiantesNacionales();
 	string mostrarEstudiantesInternacionales();
+	string mostrarTodosLosEstudiantes();
 	string buscarYMostrarPaciente(string);
 	bool existePaciente(string);
 };
