@@ -20,5 +20,6 @@ public:
 	virtual void setNumeroDeTelefono(string);
 	virtual void setCodigoDeCarrera(string);
 	virtual void setUltNivelCursado(string);
+	virtual void setEstado(string);
 };
 

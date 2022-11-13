@@ -44,3 +44,7 @@ void Paciente::setCodigoDeCarrera(string codigoCarrera)
 void Paciente::setUltNivelCursado(string)
 {
 }
+
+void Paciente::setEstado(string)
+{
+}
