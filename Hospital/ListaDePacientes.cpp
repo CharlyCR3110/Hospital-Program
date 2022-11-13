@@ -101,46 +101,6 @@ Paciente* ListaDePacientes::buscarPaciente(string identificacion)
 	return NULL;
 }
 
-string ListaDePacientes::mostrarPacientesProfesores()
-{
-	stringstream ss;
-	NodoPaciente* aux = head;
-	while (aux != NULL)
-	{
-		if (aux->getPaciente()->getTipo() == "Profesor")
-		{
-			ss << aux->toString() << endl;
-		}
-		aux = aux->getSiguiente();
-	}
-	return ss.str();
-}
-
-string ListaDePacientes::mostrarPacientesEstudiantes()
-{
-	stringstream ss;
-	NodoPaciente* aux = head;
-	while (aux != NULL)
-	{
-		if (aux->getPaciente()->getTipo() == "Estudiante")
-		{
-			ss << aux->toString() << endl;
-		}
-		aux = aux->getSiguiente();
-	}
-	return ss.str();
-}
-
-string ListaDePacientes::mostrarPacientes()
-{
-	stringstream ss;
-	ss << "Pacientes Profesores" << endl;
-	ss << mostrarPacientesProfesores() << endl;
-	ss << "Pacientes Estudiantes" << endl;
-	ss << mostrarPacientesEstudiantes() << endl;
-	return ss.str();
-}
-
 string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
 {
 	NodoPaciente* aux = head;

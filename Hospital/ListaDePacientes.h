@@ -16,9 +16,6 @@ public:
 	bool insertarPaciente(Paciente*);
 	bool eliminarPaciente(string);
 	Paciente* buscarPaciente(string);
-	string mostrarPacientesProfesores();
-	string mostrarPacientesEstudiantes();
-	string mostrarPacientes();
 	string buscarYMostrarPaciente(string);
 	bool existePaciente(string);
 };
