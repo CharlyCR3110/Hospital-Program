@@ -4,6 +4,7 @@ ConPropiedad::ConPropiedad(string nombre, string apellido, int edad, string univ
 	: Profesor(nombre, apellido, edad, universidad, cedula, titulo, aniosLaborados)
 {
 	this->codigoDePlaza = codigoDePlaza;
+	this->tipo = "Con Propiedad";
 }
 
 ConPropiedad::~ConPropiedad()
