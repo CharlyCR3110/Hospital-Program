@@ -122,6 +122,27 @@ string ListaDePacientes::mostrarProfesoresInterinos()
 
 }
 
+string ListaDePacientes::mostrarProfesoresConPropiedad()
+{
+	stringstream ss;
+	if (!isEmpty()) {
+		NodoPaciente* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getPaciente()->getTipo() == "Con Propiedad")
+			{
+				ss << aux->getPaciente()->toString();
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	else {
+		ss << "No hay profesores con propieadad registrados";
+	}
+	return ss.str();
+
+}
+
 string ListaDePacientes::buscarYMostrarPaciente(string identificacion)
 {
 	NodoPaciente* aux = head;
