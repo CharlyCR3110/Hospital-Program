@@ -9,6 +9,7 @@ EstInternacional::EstInternacional(string nombre, string apellido, int edad, str
 	this->nacionalidad = nacionalidad;
 	this->pasaporte = pasaporte;
 	this->condicion = condicion;
+	this->tipo = "Internacional";
 }
 
 EstInternacional::~EstInternacional()
