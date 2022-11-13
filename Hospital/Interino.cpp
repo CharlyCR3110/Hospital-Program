@@ -4,6 +4,7 @@ Interino::Interino(string nombre, string apellido, int edad, string universidad,
 	: Profesor(nombre, apellido, edad, universidad, cedula, titulo, aniosLaborados)
 {
 	this->calificacion = calificacion;
+	this->tipo = "Interino";
 }
 
 Interino::~Interino()
