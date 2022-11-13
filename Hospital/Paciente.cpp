@@ -32,3 +32,8 @@ string Paciente::toString()
 		<< "Universidad: " << universidad << endl;
 	return ss.str();
 }
+
+void Paciente::setNumeroDeTelefono(string numeroDeTelefono)
+{
+	cout << "Metodo para que no sea virtual puro" << endl;
+}

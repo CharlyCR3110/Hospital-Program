@@ -14,7 +14,9 @@ public:
 	//setters
 	void setUniversidad(string);
 	//metodos
+	//metodos virtuales (o sea que se sobreescriben o son definidos en las subclases)
 	virtual string toString();
 	virtual string getIdentificacion() = 0;
+	virtual void setNumeroDeTelefono(string);
 };
 
