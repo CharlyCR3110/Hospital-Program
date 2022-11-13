@@ -160,6 +160,7 @@ string ListaDePacientes::mostrarProfesores()
 string ListaDePacientes::mostrarEstudiantesNacionales()
 {
 	stringstream ss;
+	bool hayEstudiantesNacionales = false;
 	if (!isEmpty()) {
 		NodoPaciente* aux = head;
 		while (aux != NULL)
@@ -167,12 +168,13 @@ string ListaDePacientes::mostrarEstudiantesNacionales()
 			if (aux->getPaciente()->getTipo() == "Nacional")
 			{
 				ss << aux->getPaciente()->toString();
+				hayEstudiantesNacionales = true;
 			}
 			aux = aux->getSiguiente();
 		}
 	}
-	else {
-		ss << "No hay estudiantes nacionales registrados";
+	if (!hayEstudiantesNacionales) {
+		ss << "No hay estudiantes nacionales registrados" << endl;
 	}
 	return ss.str();
 
