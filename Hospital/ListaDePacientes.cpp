@@ -143,6 +143,16 @@ string ListaDePacientes::mostrarProfesoresConPropiedad()
 
 }
 
+string ListaDePacientes::mostrarProfesores()
+{
+	stringstream ss;
+	ss << "--------Profesores Interinos--------" << endl;
+	ss << mostrarProfesoresInterinos() << endl;
+	ss << "--------Profesores Con Propiedad--------" << endl;
+	ss << mostrarProfesoresConPropiedad() << endl;
+	return ss.str();
+}
+
 string ListaDePacientes::mostrarEstudiantesNacionales()
 {
 	stringstream ss;

@@ -18,6 +18,7 @@ public:
 	Paciente* buscarPaciente(string);
 	string mostrarProfesoresInterinos();
 	string mostrarProfesoresConPropiedad();
+	string mostrarProfesores();
 	string mostrarEstudiantesNacionales();
 	string mostrarEstudiantesInternacionales();
 	string mostrarTodosLosEstudiantes();
