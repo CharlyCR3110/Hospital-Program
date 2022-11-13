@@ -35,5 +35,8 @@ string Paciente::toString()
 
 void Paciente::setNumeroDeTelefono(string numeroDeTelefono)
 {
-	cout << "Metodo para que no sea virtual puro" << endl;
+}
+
+void Paciente::setCodigoCarrera(string codigoCarrera)
+{	
 }
