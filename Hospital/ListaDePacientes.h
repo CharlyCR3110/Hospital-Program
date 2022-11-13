@@ -22,6 +22,7 @@ public:
 	string mostrarEstudiantesNacionales();
 	string mostrarEstudiantesInternacionales();
 	string mostrarTodosLosEstudiantes();
+	string mostrarPacientes();
 	string buscarYMostrarPaciente(string);
 	bool existePaciente(string);
 };

@@ -197,10 +197,18 @@ string ListaDePacientes::mostrarEstudiantesInternacionales()
 string ListaDePacientes::mostrarTodosLosEstudiantes()
 {
 	stringstream ss;
-	ss << "--------Estudiantes nacionales--------" << endl;
+	ss << "--------Estudiantes Nacionales--------" << endl;
 	ss << mostrarEstudiantesNacionales() << endl;
-	ss << "--------Estudiantes internacionales--------" << endl;
+	ss << "--------Estudiantes Internacionales--------" << endl;
 	ss << mostrarEstudiantesInternacionales() << endl;
+	return ss.str();
+}
+
+string ListaDePacientes::mostrarPacientes()
+{
+	stringstream ss;
+	ss << mostrarProfesores();
+	ss << mostrarTodosLosEstudiantes();
 	return ss.str();
 }
 
