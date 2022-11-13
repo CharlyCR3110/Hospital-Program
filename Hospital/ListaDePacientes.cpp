@@ -56,6 +56,35 @@ bool ListaDePacientes::insertarPaciente(Paciente* paciente)
 	return false;
 }
 
+bool ListaDePacientes::eliminarPaciente(string identificaion)
+{
+	if (!isEmpty()) {
+		NodoPaciente* aux = head;
+		NodoPaciente* anterior = NULL;
+		while (aux != NULL)
+		{
+			if (aux->getPaciente()->getIdentificacion() == identificaion)
+			{
+				if (anterior == NULL)
+				{
+					head = head->getSiguiente();
+					delete aux;
+					return true;
+				}
+				else
+				{
+					anterior->setSiguiente(aux->getSiguiente());
+					delete aux;
+					return true;
+				}
+			}
+			anterior = aux;
+			aux = aux->getSiguiente();
+		}
+	}
+	return false;
+}
+
 string ListaDePacientes::mostrarPacientesProfesores()
 {
 	stringstream ss;
