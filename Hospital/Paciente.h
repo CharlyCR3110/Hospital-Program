@@ -18,6 +18,6 @@ public:
 	virtual string toString();
 	virtual string getIdentificacion() = 0;
 	virtual void setNumeroDeTelefono(string);
-	virtual void setCodigoCarrera(string);
+	virtual void setCodigoDeCarrera(string);
 };
 
