@@ -2,7 +2,7 @@
 
 //nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono, nacionalidad, pasaporte, condicion
 EstInternacional::EstInternacional(string nombre, string apellido, int edad, string universidad,
-	string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string nacionalidad,
+	string codigoDeCarrera, string ultNivelCursado, string numeroDeTelefono, string nacionalidad,
 	string pasaporte, string condicion)
 	: Estudiante(nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono) 
 {

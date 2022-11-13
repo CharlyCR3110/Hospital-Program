@@ -2,7 +2,7 @@
 
 //nombre, apellido, edad, universidad
 EstNacional::EstNacional(string nombre, string apellido, int edad, string universidad, 
-	string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string cedula, string estado)
+	string codigoDeCarrera, string ultNivelCursado, string numeroDeTelefono, string cedula, string estado)
 	: Estudiante(nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono)
 {
 	this->cedula = cedula;

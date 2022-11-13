@@ -8,7 +8,7 @@ private:
 	string condicion; //refugiado, exiliado, estudiante, turista, etc.
 public:
 	//nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono, nacionalidad, pasaporte, condicion
-	EstInternacional(string = "", string = "", int = 0, string = "", string = "", int = 0, string = "", string = "", string = "", string = "");
+	EstInternacional(string = "", string = "", int = 0, string = "", string = "", string = "", string = "", string = "", string = "", string = "");
 	virtual ~EstInternacional();
 	//getters
 	string getNacionalidad();

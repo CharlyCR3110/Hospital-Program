@@ -6,7 +6,7 @@ private:
 	string cedula;
 	string estado; //activo, suspendido
 public:
-	EstNacional(string = "", string = "", int = 0, string = "", string = "", int = 0, string = "", string = "", string = "");
+	EstNacional(string = "", string = "", int = 0, string = "", string = "", string = 0, string = "", string = "", string = "");
 	virtual ~EstNacional();
 	//getters
 	string getCedula();

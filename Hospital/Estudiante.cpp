@@ -1,6 +1,6 @@
 #include "Estudiante.h"
 
-Estudiante::Estudiante(string nombre, string apellido, int edad, string universidad, string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono)
+Estudiante::Estudiante(string nombre, string apellido, int edad, string universidad, string codigoDeCarrera, string ultNivelCursado, string numeroDeTelefono)
 	: Paciente(nombre, apellido, edad, universidad)
 {
 	this->codigoDeCarrera = codigoDeCarrera;
@@ -18,7 +18,7 @@ string Estudiante::getCodigoDeCarrera()
 	return codigoDeCarrera;
 }
 
-int Estudiante::getUltNivelCursado()
+string Estudiante::getUltNivelCursado()
 {
 	return ultNivelCursado;
 }
@@ -33,7 +33,7 @@ void Estudiante::setCodigoDeCarrera(string codigoDeCarrera)
 	this->codigoDeCarrera = codigoDeCarrera;
 }
 
-void Estudiante::setUltNivelCursado(int ultNivelCursado)
+void Estudiante::setUltNivelCursado(string ultNivelCursado)
 {
 	this->ultNivelCursado = ultNivelCursado;
 }
