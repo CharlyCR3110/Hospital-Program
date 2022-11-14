@@ -25,5 +25,6 @@ public:
 	virtual void setCondicion(string);
 	//metodos virtual profesor
 	virtual void setTitulo(string);
+	virtual void setAniosLaborados(int);
 };
 

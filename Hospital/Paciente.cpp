@@ -60,3 +60,7 @@ void Paciente::setCondicion(string)
 void Paciente::setTitulo(string)
 {
 }
+
+void Paciente::setAniosLaborados(int)
+{
+}
