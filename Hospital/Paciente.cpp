@@ -56,3 +56,7 @@ void Paciente::setNacionalidad(string)
 void Paciente::setCondicion(string)
 {
 }
+
+void Paciente::setTitulo(string)
+{
+}

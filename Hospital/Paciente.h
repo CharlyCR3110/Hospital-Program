@@ -23,5 +23,7 @@ public:
 	virtual void setEstado(string);
 	virtual void setNacionalidad(string);
 	virtual void setCondicion(string);
+	//metodos virtual profesor
+	virtual void setTitulo(string);
 };
 
