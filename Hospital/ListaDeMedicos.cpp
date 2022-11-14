@@ -71,7 +71,7 @@ bool ListaDeMedicos::existeMedico(string cedula)
 
 bool ListaDeMedicos::eliminarMedico(string cedula)
 {
-	if (!isEmpty) {
+	if (!isEmpty()) {
 		NodoMedico* aux = head;
 		NodoMedico* anterior = NULL;
 		while (aux != NULL)
