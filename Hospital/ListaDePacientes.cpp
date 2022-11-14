@@ -111,7 +111,7 @@ string ListaDePacientes::mostrarProfesoresInterinos()
 		{
 			if (aux->getPaciente()->getTipo() == "Interino")
 			{
-				ss << aux->getPaciente()->toString();
+				ss << aux->getPaciente()->toString() << endl;
 				hayProfesoresInterinos = true;
 			}
 			aux = aux->getSiguiente();
@@ -134,7 +134,7 @@ string ListaDePacientes::mostrarProfesoresConPropiedad()
 		{
 			if (aux->getPaciente()->getTipo() == "Con Propiedad")
 			{
-				ss << aux->getPaciente()->toString();
+				ss << aux->getPaciente()->toString() << endl;
 				hayProfesoresConPropiedad = true;
 			}
 			aux = aux->getSiguiente();
@@ -167,7 +167,7 @@ string ListaDePacientes::mostrarEstudiantesNacionales()
 		{
 			if (aux->getPaciente()->getTipo() == "Nacional")
 			{
-				ss << aux->getPaciente()->toString();
+				ss << aux->getPaciente()->toString() << endl;
 				hayEstudiantesNacionales = true;
 			}
 			aux = aux->getSiguiente();
@@ -190,7 +190,7 @@ string ListaDePacientes::mostrarEstudiantesInternacionales()
 		{
 			if (aux->getPaciente()->getTipo() == "Internacional")
 			{
-				ss << aux->getPaciente()->toString();
+				ss << aux->getPaciente()->toString() << endl;
 				hayEstudiantesInternacionales = true;
 			}
 			aux = aux->getSiguiente();
