@@ -258,6 +258,8 @@ int main() {
 	Paciente* paciente = new Interino("Juan", "Quiros", 28, "UNA", "602900217", "Sistemas", 5, 7.5);
 	//string nombre, string apellido, int edad, string cedula, string especialidad, string numTelefonico
 	Medico* medico = new Medico("Pedro", "Perez", 35, "60390217", "Cardiologia", "2639-2121");
+	Medico* medico2 = new Medico("Juan Jose", "Quiros", 35, "602110211", "Sexologo", "2639-2121");
+	
 	//(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, int numeroDePasajeros
 	Transporte* taxi = new Taxi("P-1234", "Toyota", "Ida", 8, 1);
 	//estNacional
@@ -273,6 +275,7 @@ int main() {
 	Paciente* profesorConPlaza1 = new ConPropiedad("Mario", "Quiros", 28, "UNA", "605590217", "Sistemas", 5, "11111");
 
 	hospital->insertarMedico(medico);
+	hospital->insertarMedico(medico2);
 	hospital->insertarPaciente(estNacional1);
 	hospital->insertarPaciente(paciente);
 	hospital->insertarPaciente(estInternacional1);
@@ -1122,7 +1125,7 @@ int main() {
 
 	cout << hospital->getListaDePacientes()->mostrarPacientes();
 	cout << endl << endl << "MEDICOS" << endl << endl;
-	
+	cout << hospital->getListaDeMedicos()->mostrarMedicos();
 
 	system("pause");
 	return 0;
