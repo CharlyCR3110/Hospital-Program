@@ -25,7 +25,7 @@ void NodoMedico::setMedico(Medico* medico)
 	this->medico = medico;
 }
 
-void NodoMedico::setSiguiente(NodoMedico*)
+void NodoMedico::setSiguiente(NodoMedico* siguiente)
 {
 	this->siguiente = siguiente;
 }
