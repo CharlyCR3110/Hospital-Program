@@ -68,3 +68,7 @@ void Paciente::setAniosLaborados(int)
 void Paciente::setCodigoDePlaza(string)
 {
 }
+
+void Paciente::setCalificacion(double)
+{
+}

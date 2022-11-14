@@ -27,5 +27,6 @@ public:
 	virtual void setTitulo(string);
 	virtual void setAniosLaborados(int);
 	virtual void setCodigoDePlaza(string);
+	virtual void setCalificacion(double);
 };
 
