@@ -109,3 +109,20 @@ Medico* ListaDeMedicos::buscarMedico(string cedula)
 	}
 	return NULL;
 }
+
+string ListaDeMedicos::mostrarMedicos()
+{
+	stringstream ss;
+	if (!isEmpty()) {
+		NodoMedico* aux = head;
+		while (aux != NULL)
+		{
+			ss << aux->getMedico()->toString() << endl;
+			aux = aux->getSiguiente();
+		}
+	}
+	else {
+		ss << "No hay medicos registrados" << endl;
+	}
+	return ss.str();
+}
