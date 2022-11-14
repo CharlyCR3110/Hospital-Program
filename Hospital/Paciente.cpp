@@ -48,3 +48,7 @@ void Paciente::setUltNivelCursado(string)
 void Paciente::setEstado(string)
 {
 }
+
+void Paciente::setNacionalidad(string)
+{
+}

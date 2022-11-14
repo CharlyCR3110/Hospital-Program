@@ -21,5 +21,6 @@ public:
 	virtual void setCodigoDeCarrera(string);
 	virtual void setUltNivelCursado(string);
 	virtual void setEstado(string);
+	virtual void setNacionalidad(string);
 };
 
