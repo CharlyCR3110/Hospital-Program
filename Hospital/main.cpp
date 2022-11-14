@@ -197,7 +197,7 @@ int main() {
 	string tipo = "";
 	//si el paciente es estudiante
 	string codigoDeCarrera = "";
-	int ultNivelCursado = 0;
+	string ultNivelCursado = "";
 	string numeroDeTelefono = "";
 	//para ver si es nacional o internacional
 	string esNacional = "";
@@ -239,17 +239,28 @@ int main() {
 
 	SaludUni* hospital = new SaludUni("CCSS0011", "2639-2121", "Escazu", "Hospital Universitario");
 	//string nombre, string apellido, int edad, string universidad, string cedula, string titulo, int aniosLaborados, double calificacion
-	Paciente* paciente = new Interino("Juan", "Quiros", 28, "UNA", "604890217", "Sistemas", 5, 7.5);
+	Paciente* paciente = new Interino("Juan", "Quiros", 28, "UNA", "602900217", "Sistemas", 5, 7.5);
 	//string nombre, string apellido, int edad, string cedula, string especialidad, string numTelefonico
-	Medico* medico = new Medico("Pedro", "Perez", 35, "604890217", "Cardiologia", "2639-2121");
+	Medico* medico = new Medico("Pedro", "Perez", 35, "60390217", "Cardiologia", "2639-2121");
 	//(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, int numeroDePasajeros
 	Transporte* taxi = new Taxi("P-1234", "Toyota", "Ida", 8, 1);
 	//estNacional
-	//string nombre, string apellido, int edad, string universidad, string cedula, string estado
-	//Paciente* paciente = new EstudianteNacional("Juan", "Quiros", 28, "UNA", "604890217", "Activo");
-	
+	//string nombre, string apellido, int edad, string universidad,
+	//	string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string cedula, string estado
+	Paciente* estNacional1 = new EstNacional("Juan", "Quiros", 28, "UNA", "11111", "Primero", "2639-2121", "601290217", "activo");
+	//string nombre, string apellido, int edad, string universidad,
+	/*string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string nacionalidad,
+		string pasaporte, string condicion*/
+	Paciente* estInternacional1 = new EstInternacional("Carlos", "Quiros", 28, "UNA", "11111", "Cuarto", "2639-2121", "Boliaviano", "604440217", "activo");
+	//string nombre, string apellido, int edad, string universidad, string cedula, string titulo, 
+	//int aniosLaborados, string codigoDePlaza)
+	Paciente* profesorConPlaza1 = new ConPropiedad("Mario", "Quiros", 28, "UNA", "605590217", "Sistemas", 5, "11111");
+
 	hospital->insertarMedico(medico);
+	hospital->insertarPaciente(estNacional1);
 	hospital->insertarPaciente(paciente);
+	hospital->insertarPaciente(estInternacional1);
+	hospital->insertarPaciente(profesorConPlaza1);
 	hospital->insertarTransporte(taxi);
 	
 	
@@ -504,9 +515,71 @@ int main() {
 										cout << menuEditarPacienteNacional();
 										cin >> opcionEditarPaciente;
 										switch (opcionEditarPaciente) {
-										
+									/*		ss << "1) Nombre" << endl;
+											ss << "2) Apellido" << endl;
+											ss << "3) Edad" << endl*/;
+											//ss << "4) Universidad" << endl;
+									/*		ss << "5) Codigo de carrera" << endl;
+											ss << "6) Ultimo nivel cursado" << endl;
+											ss << "7) Numero de telefono" << endl;
+											ss << "8) Estado" << endl;
+											ss << "9) Regresar" << endl;*/
+										case 1:
+											cout << "Digite el nuevo nombre: ";
+											cin >> nombre;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setNombre(nombre);
+											cout << "Nombre modificado" << endl;
+											break;
+										case 2:
+											cout << "Digite el nuevo apellido: ";
+											cin >> apellido;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setApellido(apellido);
+											cout << "Apellido modificado" << endl;
+											break;
+										case 3:
+											cout << "Digite la nueva edad: ";
+											cin >> edad;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setEdad(edad);
+											cout << "Edad modificada" << endl;
+											break;
+										case 4:
+											cout << "Digite la nueva universidad: ";
+											cin >> universidad;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setUniversidad(universidad);
+											cout << "Universidad modificada" << endl;
+											break;
+										case 5:
+											cout << "Digite el nuevo codigo de carrera: ";
+											cin >> codigoDeCarrera;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setCodigoDeCarrera(codigoDeCarrera);
+											cout << "Codigo de carrera modificado" << endl;
+											break;
+										case 6:
+											cout << "Digite el nuevo ultimo nivel cursado: ";
+											cin >> ultNivelCursado;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setUltNivelCursado(ultNivelCursado);
+											cout << "Ultimo nivel cursado modificado" << endl;
+											break;
+										case 7:
+											cout << "Digite el nuevo numero de telefono: ";
+											cin >> numeroDeTelefono;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setNumeroDeTelefono(numeroDeTelefono);
+											cout << "Numero de telefono modificado" << endl;
+											break;
+										case 8:
+											cout << "Digite el nuevo estado: ";
+											cin >> estado;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setEstado(estado);
+											cout << "Estado modificado" << endl;
+											break;
+										case 9:
+											cout << "Regresando..." << endl;
+											break;
+										default:
+											cout << "Opcion invalida" << endl;
+											break;
 										}
-									} while (opcionEditarPaciente != 8);
+									} while (opcionEditarPaciente != 9);
 								}
 								done = true;
 							}
@@ -747,6 +820,10 @@ int main() {
 	} while (opcionPrincipal != 5);
 
 	cout << hospital->getListaDePacientes()->mostrarPacientes();
+	cout << "sexo" << endl;
+	cout << hospital->getListaDePacientes()->buscarPaciente("601290217")->getTipo() << endl;
+	
+
 	system("pause");
 	return 0;
 }
