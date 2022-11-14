@@ -64,3 +64,7 @@ void Paciente::setTitulo(string)
 void Paciente::setAniosLaborados(int)
 {
 }
+
+void Paciente::setCodigoDePlaza(string)
+{
+}

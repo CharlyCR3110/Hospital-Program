@@ -26,5 +26,6 @@ public:
 	//metodos virtual profesor
 	virtual void setTitulo(string);
 	virtual void setAniosLaborados(int);
+	virtual void setCodigoDePlaza(string);
 };
 
