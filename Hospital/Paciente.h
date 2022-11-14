@@ -22,5 +22,6 @@ public:
 	virtual void setUltNivelCursado(string);
 	virtual void setEstado(string);
 	virtual void setNacionalidad(string);
+	virtual void setCondicion(string);
 };
 
