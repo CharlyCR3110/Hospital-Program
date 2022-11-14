@@ -16,5 +16,6 @@ public:
 	bool insertarMedico(Medico*);
 	bool existeMedico(string);
 	bool eliminarMedico(string);
+	Medico* buscarMedico(string);
 };
 
