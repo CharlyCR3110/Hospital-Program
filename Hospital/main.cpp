@@ -66,7 +66,7 @@ string menuEditarPaciente() {
 	return ss.str();
 }
 
-string menuEditarPacienteNacional() {
+string menuEditarEstudianteNacional() {
 	stringstream ss;
 	ss << menuEditarPaciente();
 	ss << "5) Codigo de carrera" << endl;
@@ -78,7 +78,7 @@ string menuEditarPacienteNacional() {
 	return ss.str();
 }
 
-string menuEditarPacienteInternacional() {
+string menuEditarEstudianteInternacional() {
 	stringstream ss;
 	ss << menuEditarPaciente();
 	ss << "5) Codigo de carrera" << endl;
@@ -86,7 +86,7 @@ string menuEditarPacienteInternacional() {
 	ss << "7) Numero de telefono" << endl;
 	ss << "8) Nacionalidad" << endl;
 	ss << "9) Condicion" << endl;
-	ss << "8) Regresar" << endl;
+	ss << "10) Regresar" << endl;
 	ss << "Ingrese una opcion: ";
 	return ss.str();
 }
@@ -119,6 +119,18 @@ string menuMantenimientoMedicos() {
 	ss << "2) Eliminar Medico" << endl;
 	ss << "3) Modificar Medico" << endl;
 	ss << "4) Regresar" << endl;
+	ss << "Ingrese una opcion: ";
+	return ss.str();
+}
+// (string nombre, string apellido, int edad, string cedula, string especialidad, string numTelefonico
+string menuEditarMedico() {
+	stringstream ss;
+	ss << "1) Nombre" << endl;
+	ss << "2) Apellido" << endl;
+	ss << "3) Edad" << endl;
+	ss << "4) Especialidad" << endl;
+	ss << "5) Numero telefonico" << endl;
+	ss << "6) Regresar" << endl;
 	ss << "Ingrese una opcion: ";
 	return ss.str();
 }
@@ -221,12 +233,16 @@ int main() {
 	//datos necesarios para la opcion 2.1.2 (eliminar paciente)
 	string identificacion = ""; //puede ser la cedula o el pasaporte
 
-
 	//miscelaneos 
 	bool done = false;
 	string volverAIntentar = "";
 	//datos necesarios para la opcion 2.1.3 (editar paciente)
 	int opcionEditarPaciente = 0;
+	//datos necesarios para la opcion 2.2.1
+	string especialidad = "";
+	//datos necesarios para la opcion 2.2.3 (editar medico)
+	int opcionEditarMedico = 0;
+
 	
 
 	//prueba
@@ -389,7 +405,7 @@ int main() {
 								cin >> estado;
 								//se crea el estNacional y se agrega a la lista de pacientes
 								Paciente* estNacional = new EstNacional(nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono, cedula, estado);
-								hospital->getListaDePacientes()->insertarPaciente(estNacional);
+								hospital->insertarPaciente(estNacional);
 							} else if (esNacional == "no" || esNacional == "No") {
 								cout << "Digite la nacionalidad: ";
 								cin >> nacionalidad;
@@ -420,7 +436,7 @@ int main() {
 								cin >> condicion;
 								//se crea el estInternacional y se agrega a la lista de pacientes
 								Paciente* estInternacional = new EstInternacional(nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono, nacionalidad, pasaporte, condicion);
-								hospital->getListaDePacientes()->insertarPaciente(estInternacional);
+								hospital->insertarPaciente(estInternacional);
 							} else {
 								cout << "Opcion invalida" << endl;
 							}
@@ -459,11 +475,13 @@ int main() {
 								cin >> codigoDePlaza;
 								// se crea el profesor con propiedad y se agrega a la lista de pacientes
 								Paciente* profesorConPropiedad = new ConPropiedad(nombre, apellido, edad, universidad, cedula, titulo, aniosLaborados, codigoDePlaza);
+								hospital->insertarPaciente(profesorConPropiedad);
 							} else if (tienePropiedad == "no" || tienePropiedad == "No") {
 								cout << "Digite la calificacion del profesor (1-10): ";
 								cin >> calificacion;
 								// se crea el profesor interino y se agrega a la lista de pacientes
 								Paciente* profesorInterino = new Interino(nombre, apellido, edad, universidad, cedula, titulo, aniosLaborados, calificacion);
+								hospital->insertarPaciente(profesorInterino);
 							} else {
 								cout << "Opcion invalida" << endl;
 							}
@@ -512,8 +530,9 @@ int main() {
 							if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
 								if (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Nacional") {
 									do {
-										cout << menuEditarPacienteNacional();
+										cout << menuEditarEstudianteNacional();
 										cin >> opcionEditarPaciente;
+										pausarYLimpiar();
 										switch (opcionEditarPaciente) {
 										case 1:
 											cout << "Digite el nuevo nombre: ";
@@ -570,11 +589,13 @@ int main() {
 											cout << "Opcion invalida" << endl;
 											break;
 										}
+										pausarYLimpiar();
 									} while (opcionEditarPaciente != 9);
 								} else if (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Internacional") {
 									do {
-										cout << menuEditarPacienteInternacional();
+										cout << menuEditarEstudianteInternacional();
 										cin >> opcionEditarPaciente;
+										pausarYLimpiar();
 										switch (opcionEditarPaciente) {
 										case 1:
 											cout << "Digite el nuevo nombre: ";
@@ -637,8 +658,123 @@ int main() {
 											cout << "Opcion invalida" << endl;
 											break;
 										}
+										pausarYLimpiar();
 									} while (opcionEditarPaciente != 10);
-								} 
+								}
+								else if (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Con Propiedad") {
+									do {
+										cout << menuEditarPacienteProfesorConPropiedad();
+										cin >> opcionEditarPaciente;
+										pausarYLimpiar();
+										switch (opcionEditarPaciente) {
+										case 1:
+											cout << "Digite el nuevo nombre: ";
+											cin >> nombre;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setNombre(nombre);
+											cout << "Nombre modificado" << endl;
+											break;
+										case 2:
+											cout << "Digite el nuevo apellido: ";
+											cin >> apellido;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setApellido(apellido);
+											cout << "Apellido modificado" << endl;
+											break;
+										case 3:
+											cout << "Digite la nueva edad: ";
+											cin >> edad;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setEdad(edad);
+											cout << "Edad modificada" << endl;
+											break;
+										case 4:
+											cout << "Digite la nueva universidad: ";
+											cin >> universidad;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setUniversidad(universidad);
+											cout << "Universidad modificada" << endl;
+											break;	
+										case 5:
+											cout << "Digite el nuevo titulo: ";
+											cin >> titulo;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setTitulo(titulo);
+											cout << "Titulo modificado" << endl;
+											break;
+										case 6:
+											cout << "Digite los nuevos anios laborados: ";
+											cin >> aniosLaborados;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setAniosLaborados(aniosLaborados);
+											cout << "Anios laborados modificados" << endl;
+											break;
+										case 7:
+											cout << "Digite el nuevo numero de propiedad: ";
+											cin >> codigoDePlaza;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setCodigoDePlaza(codigoDePlaza);
+											cout << "Numero de propiedad modificado" << endl;
+											break;
+										case 8:
+											cout << "Regresando..." << endl;
+											break;
+										default:
+											cout << "Opcion invalida" << endl;
+											break;
+										}
+										pausarYLimpiar();
+									} while (opcionEditarPaciente != 8);
+								} else {
+									do {
+										cout << menuEditarPacienteProfesorInterino();
+										cin >> opcionEditarPaciente;
+										pausarYLimpiar();
+										switch (opcionEditarPaciente) {
+										case 1:
+											cout << "Digite el nuevo nombre: ";
+											cin >> nombre;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setNombre(nombre);
+											cout << "Nombre modificado" << endl;
+											break;
+										case 2:
+											cout << "Digite el nuevo apellido: ";
+											cin >> apellido;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setApellido(apellido);
+											cout << "Apellido modificado" << endl;
+											break;
+										case 3:
+											cout << "Digite la nueva edad: ";
+											cin >> edad;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setEdad(edad);
+											cout << "Edad modificada" << endl;
+											break;
+										case 4:
+											cout << "Digite la nueva universidad: ";
+											cin >> universidad;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setUniversidad(universidad);
+											cout << "Universidad modificada" << endl;
+											break;
+										case 5:
+											cout << "Digite el nuevo titulo: ";
+											cin >> titulo;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setTitulo(titulo);
+											cout << "Titulo modificado" << endl;
+											break;
+										case 6:
+											cout << "Digite los nuevos anios laborados: ";
+											cin >> aniosLaborados;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setAniosLaborados(aniosLaborados);
+											cout << "Anios laborados modificados" << endl;
+											break;
+										case 7:
+											cout << "Digite la nueva calificacion: ";
+											cin >> calificacion;
+											hospital->getListaDePacientes()->buscarPaciente(identificacion)->setCalificacion(calificacion);
+											cout << "Calificacion modificada" << endl;
+											break;
+										case 8:
+											cout << "Regresando..." << endl;
+											break;
+										default:
+											cout << "Opcion invalida" << endl;
+											break;
+										}		
+									} while (opcionEditarPaciente != 8);
+								}
 								done = true;
 							} else {
 								cout << "El paciente no existe" << endl;
@@ -677,18 +813,126 @@ int main() {
 					std::system("cls");
 					switch (opcionSubMenuMantenimiento) {
 					case 1:
-						//Agregar Medico
-						cout << "TEST OPCION 1 SUBMENU 2 SUBMENU 2" << endl;
+						//Agregar medico
+						//(string nombre, string apellido, int edad, string cedula, string especialidad, string numTelefonico
+						cout << "AGREGAR MEDICO" << endl;
+						cout << "Digite el nombre: ";
+						cin >> nombre;
+						cout << "Digite el apellido: ";
+						cin >> apellido;
+						cout << "Digite la edad: ";
+						cin >> edad;
+						cout << "Digite la cedula: ";
+						cin >> cedula;
+						cout << "Digite la especialidad: ";
+						cin >> especialidad;
+						cout << "Digite el numero telefonico: ";
+						cin >> numeroDeTelefono;
+						hospital->insertarMedico(new Medico(nombre, apellido, edad, cedula, especialidad, numeroDeTelefono));
+						cout << "MEDICO AGREGADO" << endl;
 						pausarYLimpiar();
 						break;
 					case 2:
 						//Eliminar Medico
-						cout << "TEST OPCION 2 SUBMENU 2 SUBMENU 2" << endl;
+						do {
+							cout << "Digite el numero de cedula del medico a eliminar: ";
+							cin >> identificacion;
+							if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
+								hospital->getListaDeMedicos()->eliminarMedico(identificacion);
+								cout << "Medico eliminado eliminado" << endl;
+								done = true;
+							}
+							else {
+								cout << "El medico no existe" << endl;
+								pausarYLimpiar();
+								cout << "Desea intentarlo de nuevo? (si/no): ";
+								cin >> volverAIntentar;
+								if (volverAIntentar == "si" || volverAIntentar == "Si") {
+									done = false;
+								}
+								else if (volverAIntentar == "no" || volverAIntentar == "No") {
+									done = true;
+								}
+								else {
+									cout << "Opcion invalida" << endl;
+									done = true;
+								}
+							}
+						} while (!done);
 						pausarYLimpiar();
 						break;
 					case 3:
 						//Modificar Medico
-						cout << "TEST OPCION 3 SUBMENU 2 SUBMENU 2" << endl;
+						do {
+							cout << "Digite el numero de cedula o de pasaporte del paciente a eliminar: ";
+							cin >> identificacion;
+							if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
+								done = true;
+							}
+							else {
+								cout << "El medico no existe" << endl;
+								pausarYLimpiar();
+								cout << "Desea intentarlo de nuevo? (si/no): ";
+								cin >> volverAIntentar;
+								if (volverAIntentar == "si" || volverAIntentar == "Si") {
+									done = false;
+								}
+								else if (volverAIntentar == "no" || volverAIntentar == "No") {
+									done = true;
+								}
+								else {
+									cout << "Opcion invalida" << endl;
+									done = true;
+								}
+							}
+						} while (!done);
+						do {
+							cout << menuEditarMedico();
+							cin >> opcionEditarMedico;
+							pausarYLimpiar();
+							switch (opcionEditarMedico) {
+							case 1:
+								//Editar nombre
+								cout << "Digite el nuevo nombre: ";
+								cin >> nombre;
+								hospital->getListaDeMedicos()->buscarMedico(identificacion)->setNombre(nombre);
+								cout << "Nombre editado" << endl;
+								break;
+							case 2:
+								//Editar apellido
+								cout << "Digite el nuevo apellido: ";
+								cin >> apellido;
+								hospital->getListaDeMedicos()->buscarMedico(identificacion)->setApellido(apellido);
+								cout << "Apellido editado" << endl;
+								break;
+							case 3:
+								//Editar edad
+								cout << "Digite la nueva edad: ";
+								cin >> edad;
+								hospital->getListaDeMedicos()->buscarMedico(identificacion)->setEdad(edad);
+								cout << "Edad editada" << endl;
+								break;
+							case 4:
+								cout << "Digite la nueva especialidad: ";
+								cin >> especialidad;
+								hospital->getListaDeMedicos()->buscarMedico(identificacion)->setEspecialidad(especialidad);
+								cout << "Especialidad editada" << endl;
+								break;
+							case 5:
+								cout << "Digite el nuevo numero telefonico: ";
+								cin >> cedula;
+								hospital->getListaDeMedicos()->buscarMedico(identificacion)->setNumTelefonico(cedula);
+								cout << "Numero telefonico editado" << endl;
+								break;
+							case 6:
+								cout << "Regresando..." << endl;
+								break;
+							default:
+								cout << "Opcion invalida" << endl;
+								break;
+							}
+							pausarYLimpiar();
+						} while (opcionEditarMedico != 6);
 						pausarYLimpiar();
 						break;
 					case 4:
@@ -877,8 +1121,7 @@ int main() {
 	} while (opcionPrincipal != 5);
 
 	cout << hospital->getListaDePacientes()->mostrarPacientes();
-	cout << "sexo" << endl;
-	cout << hospital->getListaDePacientes()->buscarPaciente("601290217")->getTipo() << endl;
+	cout << endl << endl << "MEDICOS" << endl << endl;
 	
 
 	system("pause");
