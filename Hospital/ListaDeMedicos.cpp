@@ -68,3 +68,29 @@ bool ListaDeMedicos::existeMedico(string cedula)
 	}
 	return false;
 }
+
+bool ListaDeMedicos::eliminarMedico(string cedula)
+{
+	if (!isEmpty) {
+		NodoMedico* aux = head;
+		NodoMedico* anterior = NULL;
+		while (aux != NULL)
+		{
+			if (aux->getMedico()->getCedula() == cedula) {
+				if (anterior == NULL) {
+					head = aux->getSiguiente();
+					delete aux;
+					return true;
+				}
+				else {
+					anterior->setSiguiente(aux->getSiguiente());
+					delete aux;
+					return true;
+				}
+			}
+			anterior = aux;
+			aux = aux->getSiguiente();
+		}
+	}
+	return false;
+}
