@@ -206,3 +206,13 @@ string ListaDeTransportes::mostrarAmbulancias()
 	}
 	return ss.str();
 }
+
+string ListaDeTransportes::mostrarTransportes()
+{
+	stringstream ss;
+	ss << "--------Ambulancias--------" << endl;
+	ss << this->mostrarAmbulancias() << endl;
+	ss << "--------Taxis--------" << endl;
+	ss << this->mostrarTaxis() << endl;
+	return ss.str();
+}
