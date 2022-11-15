@@ -145,13 +145,32 @@ string menuMantenimientoAmbulancias() {
 	return ss.str();
 }
 
+string menuEditarAmbulancia() {
+	stringstream ss;
+	ss << "1) Numero de placa" << endl;
+	ss << "2) Marca" << endl;
+	ss << "3) Codigo" << endl;
+	ss << "4) Regresar" << endl;
+	ss << "Ingrese una opcion: ";
+	return ss.str();
+}
+
 string menuMantenimientoTaxis() {
 	stringstream ss;
 	ss << "1) Agregar Taxi" << endl;
 	ss << "2) Eliminar Taxi" << endl;
 	ss << "3) Modificar Taxi" << endl;
-	ss << "4) Extra" << endl;
-	ss << "5) Regresar" << endl;
+	ss << "4) Regresar" << endl;
+	ss << "Ingrese una opcion: ";
+	return ss.str();
+}
+
+string menuEditarTaxi() {
+	stringstream ss;
+	ss << "1) Numero de placa" << endl;
+	ss << "2) Marca" << endl;
+	ss << "3) Codigo" << endl;
+	ss << "4) Regresar" << endl;
 	ss << "Ingrese una opcion: ";
 	return ss.str();
 }
@@ -242,8 +261,16 @@ int main() {
 	string especialidad = "";
 	//datos necesarios para la opcion 2.2.3 (editar medico)
 	int opcionEditarMedico = 0;
-
-	
+	//datos necesarios para la opcion 2.3.1 (agregar ambulancia)
+	string placa = "";
+	string marca = "";
+	string codigo = "";
+	//datos necesarios para la opcion 2.3.3 (editar ambulancia)
+	int opcionEditarAmbulancia = 0;
+	string placaNueva = "";
+	//datos necesarios para la opcion 2.4.3 (editar taxi)
+	double kilometrosRecorridos = 0.0;
+	int opcionEditarTaxi = 0;
 
 	//prueba
 	//string codigoCita;
@@ -261,7 +288,7 @@ int main() {
 	Medico* medico2 = new Medico("Juan Jose", "Quiros", 35, "602110211", "Sexologo", "639-2121");
 	Medico* medico3 = new Medico("Kevin", "Rodriguez", 35, "1123", "Sexologo", "239-2121");
 	//(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, int numeroDePasajeros
-	Transporte* taxi = new Taxi("P-1234", "Toyota", "Ida", 8, 1);
+	Transporte* taxi = new Taxi("P-1234", "Toyota", 8, 1);
 	//estNacional
 	//string nombre, string apellido, int edad, string universidad,
 	//	string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string cedula, string estado
@@ -958,17 +985,156 @@ int main() {
 					switch (opcionSubMenuMantenimiento) {
 					case 1:
 						//Agregar Ambulancia
-						cout << "TEST OPCION 1 SUBMENU 2 SUBMENU 3" << endl;
+						do {
+							//verificar que no exista otra ambulancia con la misma placa
+							cout << "Digite la placa: ";
+							cin >> placa;
+							if (hospital->getListaDeTransportes()->existeTransporte(placa)) {
+								cout << "Ya existe una vehiculo con esa placa" << endl;
+								pausarYLimpiar();
+								cout << "Desea intentarlo de nuevo? (si/no): ";
+								cin >> volverAIntentar;
+								if (volverAIntentar == "si" || volverAIntentar == "Si") {
+									done = false;
+								}
+								else if (volverAIntentar == "no" || volverAIntentar == "No") {
+									done = true;
+								}
+								else {
+									cout << "Opcion invalida" << endl;
+									done = true;
+								}
+							}
+							else {
+								done = true;
+							}
+						} while (!done);
+						cout << "Digite la marca: ";
+						cin >> marca;
+						do {
+							cout << "Digite el codigo de la ambulancia: ";
+							cin >> codigo;
+							if (hospital->getListaDeTransportes()->existeAmbulancia(codigo)) {
+								cout << "Ya existe una ambulancia con ese codigo" << endl;
+								pausarYLimpiar();
+								cout << "Desea intentarlo de nuevo? (si/no): ";
+								cin >> volverAIntentar;
+								if (volverAIntentar == "si" || volverAIntentar == "Si") {
+									done = false;
+								}
+								else if (volverAIntentar == "no" || volverAIntentar == "No") {
+									done = true;
+								}
+								else {
+									cout << "Opcion invalida" << endl;
+									done = true;
+								}
+							}
+							else {
+								done = true;
+							}
+						} while (!done);
+						hospital->getListaDeTransportes()->insertarTransporte(new Ambulancia(placa, marca, 0, codigo, false));
+						cout << "Ambulancia agregada" << endl;
 						pausarYLimpiar();
 						break;
 					case 2:
 						//Eliminar Ambulancia
-						cout << "TEST OPCION 2 SUBMENU 2 SUBMENU 3" << endl;
+						cout << "Digite la placa de la ambulancia a eliminar: ";
+						cin >> placa;
+						if (hospital->getListaDeTransportes()->existeTransporte(placa)) {
+							hospital->getListaDeTransportes()->eliminarTransporte(placa);
+							cout << "Ambulancia eliminada" << endl;
+						}
+						else {
+							cout << "No existe una ambulancia con esa placa" << endl;
+						}
 						pausarYLimpiar();
 						break;
 					case 3:
 						//Modificar Ambulancia
-						cout << "TEST OPCION 3 SUBMENU 2 SUBMENU 3" << endl;
+						cout << "Digite la placa de la ambulancia a modificar: ";
+						cin >> placa;
+						if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Ambulancia") {
+							do {
+								cout << menuEditarAmbulancia();
+								cin >> opcionEditarAmbulancia;
+								//ss << "1) Numero de placa" << endl;
+								//ss << "2) Marca" << endl;
+								//ss << "3) Codigo" << endl;
+								switch (opcionEditarAmbulancia) {
+								case 1:
+									do {
+										cout << "Digite la nueva placa: ";
+										cin >> placaNueva;
+										if (hospital->getListaDeTransportes()->existeTransporte(placaNueva)) {
+											cout << "Ya existe una vehiculo con esa placa" << endl;
+											pausarYLimpiar();
+											cout << "Desea intentarlo de nuevo? (si/no): ";
+											cin >> volverAIntentar;
+											if (volverAIntentar == "si" || volverAIntentar == "Si") {
+												done = false;
+											}
+											else if (volverAIntentar == "no" || volverAIntentar == "No") {
+												done = true;
+											}
+											else {
+												cout << "Opcion invalida" << endl;
+												done = true;
+											}
+										} else {
+											hospital->getListaDeTransportes()->getTransporte(placa)->setPlaca(placaNueva);
+											done = true;
+										}
+									} while (!done);
+									pausarYLimpiar();
+									break;
+								case 2:
+									cout << "Digite la nueva marca: ";
+									cin >> marca;
+									hospital->getListaDeTransportes()->getTransporte(placa)->setMarca(marca);
+									pausarYLimpiar();
+									break;
+								case 3:
+									do {
+										cout << "Digite el nuevo codigo: ";
+										cin >> codigo;
+										if (hospital->getListaDeTransportes()->existeAmbulancia(codigo)) {
+											cout << "Ya existe una ambulancia con ese codigo" << endl;
+											pausarYLimpiar();
+											cout << "Desea intentarlo de nuevo? (si/no): ";
+											cin >> volverAIntentar;
+											if (volverAIntentar == "si" || volverAIntentar == "Si") {
+												done = false;
+											}
+											else if (volverAIntentar == "no" || volverAIntentar == "No") {
+												done = true;
+											}
+											else {
+												cout << "Opcion invalida" << endl;
+												done = true;
+											}
+										} else {
+											hospital->getListaDeTransportes()->getTransporte(placa)->setCodigo(codigo);
+											done = true;
+										}
+									} while (!done);
+									pausarYLimpiar();
+									break;
+								case 4:
+									cout << "Regresando..." << endl;
+									pausarYLimpiar();
+									break;
+								default:
+									cout << "Opcion invalida" << endl;
+									pausarYLimpiar();
+									break;
+								}
+							} while (opcionEditarAmbulancia != 4);
+						}
+						else {
+							cout << "No existe una ambulancia con esa placa" << endl;
+						}
 						pausarYLimpiar();
 						break;
 					case 4:
@@ -989,17 +1155,113 @@ int main() {
 					switch (opcionSubMenuMantenimiento) {
 					case 1:
 						//Agregar Taxi
-						cout << "TEST OPCION 1 SUBMENU 2 SUBMENU 3" << endl;
+						//string placa, string marca, double kilometrosRecorridos, int numeroDePasajeros
+						do {
+							cout << "Digite la placa: ";
+							cin >> placa;
+							if (hospital->getListaDeTransportes()->existeTransporte(placa)) {
+								cout << "Ya existe un vehiculo con esa placa" << endl;
+								pausarYLimpiar();
+								cout << "Desea intentarlo de nuevo? (si/no): ";
+								cin >> volverAIntentar;
+								if (volverAIntentar == "si" || volverAIntentar == "Si") {
+									done = false;
+								}
+								else if (volverAIntentar == "no" || volverAIntentar == "No") {
+									done = true;
+								}
+								else {
+									cout << "Opcion invalida" << endl;
+									done = true;
+								}
+							}
+							else {
+								done = true;
+							}
+						} while (!done);
+						cout << "Digite la marca: ";
+						cin >> marca;
+						hospital->getListaDeTransportes()->insertarTransporte(new Taxi(placa, marca));
 						pausarYLimpiar();
 						break;
 					case 2:
 						//Eliminar Taxi
-						cout << "TEST OPCION 2 SUBMENU 2 SUBMENU 3" << endl;
+						cout << "Digite la placa del taxi a eliminar: ";
+						cin >> placa;
+						if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+							hospital->getListaDeTransportes()->eliminarTransporte(placa);
+							cout << "Taxi eliminado" << endl;
+						}
+						else {
+							cout << "No existe un taxi con esa placa" << endl;
+						}
 						pausarYLimpiar();
 						break;
 					case 3:
 						//Modificar Taxi
-						cout << "TEST OPCION 3 SUBMENU 2 SUBMENU 3" << endl;
+						cout << "Digite la placa del taxi a modificar: ";
+						cin >> placa;
+						if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+							do {
+								cout << menuEditarTaxi();
+								cin >> opcionEditarTaxi;
+								pausarYLimpiar();
+								switch (opcionEditarTaxi) {
+								case 1:
+									//Modificar placa
+									do {
+										cout << "Digite la nueva placa: ";
+										cin >> placaNueva;
+										if (hospital->getListaDeTransportes()->existeTransporte(placaNueva)) {
+											cout << "Ya existe una vehiculo con esa placa" << endl;
+											pausarYLimpiar();
+											cout << "Desea intentarlo de nuevo? (si/no): ";
+											cin >> volverAIntentar;
+											if (volverAIntentar == "si" || volverAIntentar == "Si") {
+												done = false;
+											}
+											else if (volverAIntentar == "no" || volverAIntentar == "No") {
+												done = true;
+											}
+											else {
+												cout << "Opcion invalida" << endl;
+												done = true;
+											}
+										}
+										else {
+											hospital->getListaDeTransportes()->getTransporte(placa)->setPlaca(placaNueva);
+											done = true;
+										}
+									} while (!done);
+									break;
+								case 2:
+									//Modificar marca
+									cout << "Digite la nueva marca: ";
+									cin >> marca;
+									hospital->getListaDeTransportes()->getTransporte(placa)->setMarca(marca);
+									break;
+								case 3:
+									//Modificar kilometros recorridos
+									cout << "Digite los nuevos kilometros recorridos: ";
+									cin >> kilometrosRecorridos;
+									hospital->getListaDeTransportes()->getTransporte(placa)->setKilometrosRecorridos(kilometrosRecorridos);
+									break;
+								case 4:
+									//Regresar
+									cout << "REGRESANDO..." << endl;
+									pausarYLimpiar();
+									break;
+								default:
+									cout << "Opcion invalida" << endl;
+									pausarYLimpiar();
+									break;
+								}
+							} while (opcionEditarTaxi != 4);
+						}
+						else {
+							cout << "No existe un taxi con esa placa" << endl;
+							pausarYLimpiar();
+						}
 						pausarYLimpiar();
 						break;
 					case 4:
@@ -1030,17 +1292,17 @@ int main() {
 				switch (opcionBusquedas) {
 				case 1:
 					//Mostrar todos los pacientes
-					cout << "TEST OPCION 1 SUBMENU 3" << endl;
+					cout << hospital->getListaDePacientes()->mostrarPacientes();
 					pausarYLimpiar();
 					break;
 				case 2:
 					//Mostrar todos los medicos
-					cout << "TEST OPCION 2 SUBMENU 3" << endl;
+					cout << hospital->getListaDeMedicos()->mostrarMedicos();
 					pausarYLimpiar();
 					break;
 				case 3:
 					//Mostrar todos los transportes
-					cout << "TEST OPCION 3 SUBMENU 3" << endl;
+					cout << hospital->getListaDeTransportes()->mostrarTransportes();
 					pausarYLimpiar();
 					break;
 				case 4:
