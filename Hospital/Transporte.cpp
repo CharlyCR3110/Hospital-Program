@@ -35,6 +35,7 @@ string Transporte::getTipo()
 //codigo de las ambulancias
 string Transporte::getCodigo()
 {
+	return "";
 }
 
 void Transporte::setPlaca(string placa)
