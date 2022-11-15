@@ -163,3 +163,21 @@ Transporte* ListaDeTransportes::getAmbulancia(string codigo)
 	}
 	return NULL;
 }
+
+string ListaDeTransportes::mostrarTaxis()
+{
+	stringstream ss;
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getTipo() == "Taxi")
+			{
+				ss << aux->getTransporte()->toString() << endl;
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return ss.str();
+}

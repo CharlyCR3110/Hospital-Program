@@ -19,5 +19,6 @@ public:
 	bool existeAmbulancia(string);
 	Transporte* getTransporte(string);
 	Transporte* getAmbulancia(string);
+	string mostrarTaxis();
 };
 
