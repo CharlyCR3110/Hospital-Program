@@ -42,6 +42,10 @@ void Transporte::setPlaca(string placa)
 	this->placa = placa;
 }
 
+void Transporte::setCodigo(string)
+{
+}
+
 void Transporte::setMarca(string marca)
 {
 	this->marca = marca;

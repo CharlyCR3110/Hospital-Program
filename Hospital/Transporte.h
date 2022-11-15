@@ -22,6 +22,8 @@ public:
 	virtual string getCodigo();
 	//setters
 	void setPlaca(string);
+	//codigo de las ambulancias
+	virtual void setCodigo(string);
 	void setMarca(string);
 	void setKilometrosRecorridos(double);
 	//metodos
