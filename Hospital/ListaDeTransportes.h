@@ -20,5 +20,6 @@ public:
 	Transporte* getTransporte(string);
 	Transporte* getAmbulancia(string);
 	string mostrarTaxis();
+	string mostrarAmbulancias();
 };
 

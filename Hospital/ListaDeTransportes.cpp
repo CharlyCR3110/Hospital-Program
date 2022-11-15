@@ -179,5 +179,30 @@ string ListaDeTransportes::mostrarTaxis()
 			aux = aux->getSiguiente();
 		}
 	}
+	else {
+		ss << "No hay taxis registrados";
+	}
+	return ss.str();
+}
+
+string ListaDeTransportes::mostrarAmbulancias()
+{
+	stringstream ss;
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getTipo() == "Ambulancia")
+			{
+				ss << aux->getTransporte()->toString() << endl;
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+
+	else {
+		ss << "No hay ambulancias registradas";
+	}
 	return ss.str();
 }
