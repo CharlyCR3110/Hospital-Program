@@ -23,5 +23,5 @@ public:
 	bool existeCita(string);
 	//
 	bool existeOtraCitaAlMismoTiempo(Fecha*, Hora*);
+	bool elPacienteYaTieneOtraCitaAlMismoTiempo(Paciente*, Fecha*, Hora*);
 };
-

@@ -156,4 +156,23 @@ bool ListaDeCitas::existeOtraCitaAlMismoTiempo(Fecha* fecha, Hora* hora)
 		}
 		aux = aux->getSiguiente();
 	}
+	return false;
+}
+
+bool ListaDeCitas::elPacienteYaTieneOtraCitaAlMismoTiempo(Paciente* paciente, Fecha* fecha, Hora* hora)
+{
+	NodoCitas* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getFecha()->getDia() == fecha->getDia() &&
+			aux->getCita()->getFecha()->getMes() == fecha->getMes() &&
+			aux->getCita()->getFecha()->getAnio() == fecha->getAnio() &&
+			aux->getCita()->getHora()->getHora() == hora->getHora() &&
+			aux->getCita()->getPaciente()->getIdentificacion() == paciente->getIdentificacion())
+		{
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+	return false;
 }
