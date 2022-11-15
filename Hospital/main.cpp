@@ -186,6 +186,18 @@ string menuBusquedas() {
 	return ss.str();
 }
 
+string menuBusquedasEspecifica() {
+	stringstream ss;
+	ss << "1) Buscar Estudiante" << endl;
+	ss << "2) Buscar Profesor" << endl;
+	ss << "3) Buscar Medico" << endl;
+	ss << "4) Buscar Ambulancia" << endl;
+	ss << "5) Buscar Taxi" << endl;
+	ss << "6) Regresar" << endl;
+	ss << "Ingrese una opcion: ";
+	return ss.str();
+}
+
 string menuExtra() {
 	//reportar = mostrar
 	stringstream ss;
@@ -271,6 +283,8 @@ int main() {
 	//datos necesarios para la opcion 2.4.3 (editar taxi)
 	double kilometrosRecorridos = 0.0;
 	int opcionEditarTaxi = 0;
+
+	int opcionBusquedasEspecifica = 0;
 
 	//prueba
 	//string codigoCita;
@@ -1307,7 +1321,79 @@ int main() {
 					break;
 				case 4:
 					//Buscar elemento especifico
-					cout << "TEST OPCION 4 SUBMENU 3" << endl;
+					cout << menuBusquedasEspecifica();
+					cin >> opcionBusquedasEspecifica;
+					pausarYLimpiar();
+					switch (opcionBusquedasEspecifica) {
+					case 1:
+						//Buscar estudiante
+						cout << "Digite la identificacion del estudiante: ";
+						cin >> identificacion;
+						if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+							cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
+						} else {
+							cout << "No existe un paciente con esa identificacion" << endl;
+						}
+						pausarYLimpiar();
+						break;
+					case 2:
+						//buscar profesor
+						cout << "Digite la identificacion del profesor: ";
+						cin >> identificacion;
+						if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+							cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
+						}
+						else {
+							cout << "No existe un medico con esa identificacion" << endl;
+						}
+						pausarYLimpiar();
+						break;
+					case 3:
+						//buscar medico
+						cout << "Digite la identificacion del medico: ";
+						cin >> identificacion;
+						if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
+							cout << hospital->getListaDeMedicos()->buscarMedico(identificacion)->toString() << endl;
+						}
+						else {
+							cout << "No existe un medico con esa identificacion" << endl;
+						}
+						pausarYLimpiar();
+						break;
+					case 4:
+						//buscar ambulancia
+						cout << "Digite el codigo de la ambulancia: ";
+						cin >> codigo;
+						if (hospital->getListaDeTransportes()->existeTransporte(codigo)) {
+							cout << hospital->getListaDeTransportes()->getAmbulancia(codigo)->toString() << endl;
+						}
+						else {
+							cout << "No existe una ambulancia con ese codigos" << endl;
+						}
+						pausarYLimpiar();
+						break;
+					case 5:
+						//buscar taxi
+						cout << "Digite la placa del taxi: ";
+						cin >> placa;
+						if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+							cout << hospital->getListaDeTransportes()->getTransporte(placa)->toString() << endl;
+						}
+						else {
+							cout << "No existe un taxi con esa placa" << endl;
+						}
+						pausarYLimpiar();
+						break;
+					case 6:
+						//Regresar
+						cout << "REGRESANDO..." << endl;
+						pausarYLimpiar();
+						break;
+					default:
+						cout << "Opcion invalida" << endl;
+						pausarYLimpiar();
+						break;
+					}
 					pausarYLimpiar();
 					break;
 				case 5:
@@ -1335,7 +1421,7 @@ int main() {
 					//ss << "8) Reportar lista de todos los estudiantes internacionales que tengan condici�n de exiliado" << endl;
 				case 1:
 					//Mostrar datos de la empresa 
-					cout << "TEST OPCION 1 SUBMENU 4" << endl;
+					cout << hospital->toString();
 					pausarYLimpiar();
 					break;
 				case 2:
