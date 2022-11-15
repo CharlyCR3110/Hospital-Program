@@ -16,5 +16,6 @@ public:
 	bool insertarTransporte(Transporte*);
 	bool eliminarTransporte(string);
 	bool existeTransporte(string);
+	bool existeAmbulancia(string);
 };
 
