@@ -114,9 +114,12 @@ bool ListaDeTransportes::existeAmbulancia(string codigo)
 		NodoTransporte* aux = head;
 		while (aux != NULL)
 		{
-			if (aux->getTransporte()->getCodigo() == codigo)
+			if (aux->getTransporte()->getTipo() == "Ambulancia")
 			{
-				return true;
+				if (aux->getTransporte()->getCodigo() == codigo)
+				{
+					return true;
+				}
 			}
 			aux = aux->getSiguiente();
 		}
