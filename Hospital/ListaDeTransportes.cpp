@@ -140,3 +140,23 @@ Transporte* ListaDeTransportes::getTransporte(string placa)
 	}
 	return NULL;
 }
+
+Transporte* ListaDeTransportes::getAmbulancia(string codigo)
+{
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getTipo() == "Ambulancia")
+			{
+				if (aux->getTransporte()->getCodigo() == codigo)
+				{
+					return aux->getTransporte();
+				}
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return NULL;
+}
