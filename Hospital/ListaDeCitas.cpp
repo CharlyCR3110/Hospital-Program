@@ -176,3 +176,21 @@ bool ListaDeCitas::elPacienteYaTieneOtraCitaAlMismoTiempo(Paciente* paciente, Fe
 	}
 	return false;
 }
+
+bool ListaDeCitas::elMedicoYaTieneOtraCitaAlMismoTiempo(Medico* medico, Fecha* fecha, Hora* hora)
+{
+	NodoCitas* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getFecha()->getDia() == fecha->getDia() &&
+			aux->getCita()->getFecha()->getMes() == fecha->getMes() &&
+			aux->getCita()->getFecha()->getAnio() == fecha->getAnio() &&
+			aux->getCita()->getHora()->getHora() == hora->getHora() &&
+			aux->getCita()->getMedico()->getCedula() == medico->getCedula())
+		{
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+	return false;
+}
