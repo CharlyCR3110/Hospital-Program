@@ -8,7 +8,7 @@ private:
 	double costoDelViaje;
 	int numeroDePasajeros;
 public:
-	Taxi(string = "", string = "", string = "", double = 0, int = 0);
+	Taxi(string = "", string = "", double = 0, int = 0);
 	virtual ~Taxi();
 	//getters
 	double getCostoDelViaje();

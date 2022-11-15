@@ -1,7 +1,7 @@
 #include "Ambulancia.h"
 
-Ambulancia::Ambulancia(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, string codigo, bool ocupado)
-	:Transporte(placa, marca, tipoDeViaje, kilometrosRecorridos)
+Ambulancia::Ambulancia(string placa, string marca, double kilometrosRecorridos, string codigo, bool ocupado)
+	:Transporte(placa, marca, kilometrosRecorridos)
 {
 	this->codigo = codigo;
 	this->ocupado = ocupado;

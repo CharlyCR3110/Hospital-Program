@@ -7,7 +7,7 @@ private:
 	string codigo; //codigo para identificar las diferentes ambulancias
 	bool ocupado;
 public:
-	Ambulancia(string = "", string = "", string = "", double = 0, string = "", bool = false);
+	Ambulancia(string = "", string = "", double = 0, string = "", bool = false);
 	virtual ~Ambulancia();
 	//getters
 	string getCodigo();

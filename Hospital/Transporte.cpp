@@ -1,10 +1,9 @@
 #include "Transporte.h"
 
-Transporte::Transporte(string placa, string marca, string tipoDeViaje, double kilometrosRecorridos, string tipo)
+Transporte::Transporte(string placa, string marca, double kilometrosRecorridos, string tipo)
 {
 	this->placa = placa;
 	this->marca = marca;
-	this->tipoDeViaje = tipoDeViaje;
 	this->kilometrosRecorridos = kilometrosRecorridos;
 	this->tipo = tipo;
 }
@@ -21,11 +20,6 @@ string Transporte::getPlaca()
 string Transporte::getMarca()
 {
 	return marca;
-}
-
-string Transporte::getTipoDeViaje()
-{
-	return tipoDeViaje;
 }
 
 double Transporte::getKilometrosRecorridos()
@@ -48,11 +42,6 @@ void Transporte::setMarca(string marca)
 	this->marca = marca;
 }
 
-void Transporte::setTipoDeViaje(string tipoDeViaje)
-{
-	this->tipoDeViaje = tipoDeViaje;
-}
-
 void Transporte::setKilometrosRecorridos(double kilometrosRecorridos)
 {
 	this->kilometrosRecorridos = kilometrosRecorridos;
@@ -63,7 +52,6 @@ string Transporte::toString()
 	stringstream ss;
 	ss << "Placa: " << placa << endl;
 	ss << "Marca: " << marca << endl;
-	ss << "Tipo de viaje: " << tipoDeViaje << endl;
 	ss << "Kilometros recorridos: " << kilometrosRecorridos << endl;
 	return ss.str();
 }
