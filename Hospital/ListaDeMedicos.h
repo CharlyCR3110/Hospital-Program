@@ -17,6 +17,7 @@ public:
 	bool existeMedico(string);
 	bool eliminarMedico(string);
 	Medico* buscarMedico(string);
+	Medico* buscarMedicoPorEspecializacion(string codigo);
 	string mostrarMedicos();
 };
 

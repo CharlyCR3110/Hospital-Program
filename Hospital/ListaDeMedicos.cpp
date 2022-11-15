@@ -110,6 +110,21 @@ Medico* ListaDeMedicos::buscarMedico(string cedula)
 	return NULL;
 }
 
+Medico* ListaDeMedicos::buscarMedicoPorEspecializacion(string especialidad)
+{
+	if (!isEmpty()) {
+		NodoMedico* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getMedico()->getEspecialidad() == especialidad) {
+				return aux->getMedico();
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return NULL;
+}
+
 string ListaDeMedicos::mostrarMedicos()
 {
 	stringstream ss;
