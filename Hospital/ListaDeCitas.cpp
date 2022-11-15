@@ -139,3 +139,21 @@ bool ListaDeCitas::existeCita(string codigoCita)
 	}
 	return false;
 }
+
+bool ListaDeCitas::existeOtraCitaAlMismoTiempo(Fecha* fecha, Hora* hora)
+{
+	//entre cita y cita debe de haber al menos una diferenincia de 30 minutos
+	NodoCitas* aux = head;
+	while (aux != NULL)
+	{
+		if (aux->getCita()->getFecha()->getDia() == fecha->getDia() &&
+			aux->getCita()->getFecha()->getMes() == fecha->getMes() &&
+			aux->getCita()->getFecha()->getAnio() == fecha->getAnio() &&
+			aux->getCita()->getHora()->getHora() == hora->getHora() &&
+			aux->getCita()->getHora()->getMinutos() == hora->getMinutos())
+		{
+			return true;
+		}
+		aux = aux->getSiguiente();
+	}
+}
