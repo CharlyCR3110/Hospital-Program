@@ -18,6 +18,8 @@ public:
 	string getMarca();
 	double getKilometrosRecorridos();
 	string getTipo();
+	//codigo de las ambulancias
+	virtual string getCodigo();
 	//setters
 	void setPlaca(string);
 	void setMarca(string);

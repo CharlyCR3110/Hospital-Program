@@ -32,6 +32,11 @@ string Transporte::getTipo()
 	return tipo;
 }
 
+//codigo de las ambulancias
+string Transporte::getCodigo()
+{
+}
+
 void Transporte::setPlaca(string placa)
 {
 	this->placa = placa;
