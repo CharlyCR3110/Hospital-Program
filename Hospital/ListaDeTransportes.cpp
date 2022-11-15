@@ -123,3 +123,20 @@ bool ListaDeTransportes::existeAmbulancia(string codigo)
 	}
 	return false;
 }
+
+Transporte* ListaDeTransportes::getTransporte(string placa)
+{
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getPlaca() == placa)
+			{
+				return aux->getTransporte();
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return NULL;
+}

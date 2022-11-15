@@ -17,5 +17,6 @@ public:
 	bool eliminarTransporte(string);
 	bool existeTransporte(string);
 	bool existeAmbulancia(string);
+	Transporte* getTransporte(string placa);
 };
 
