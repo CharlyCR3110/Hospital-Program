@@ -74,3 +74,16 @@ int Interfaz::menuEditarEstudianteInternacional()
 	cout << "Ingrese una opcion: ";
 	cin >> opcion;
 }
+
+int Interfaz::menuEditarPacienteProfesorConPropiedad()
+{
+	int opcion = 0;
+	menuEditarPaciente();
+	cout << "5) Titulo" << endl;
+	cout << "6) Anios laborados" << endl;
+	cout << "7) Numero de propiedad" << endl;
+	cout << "8) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}

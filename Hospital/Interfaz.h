@@ -7,5 +7,6 @@ class Interfaz
 	static void menuEditarPaciente();
 	static int menuEditarEstudianteNacional();
 	static int menuEditarEstudianteInternacional();
+	static int menuEditarPacienteProfesorConPropiedad();
 };
 
