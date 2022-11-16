@@ -203,12 +203,12 @@ string menuExtra() {
 	stringstream ss;
 	ss << "1) Reportar de los datos de la empresa." << endl;
 	ss << "2) Reportar el monto total a pagar por parte del hospital por concepto de taxis." << endl;
-	ss << "3) Reporte de la persona que ha realizado m�s citas en el hospital." << endl;
-	ss << "4) Reportar la fecha en que han asistido mayor n�mero de pacientes." << endl;
-	ss << "5) Reportar el tipo de transporte m�s utilizado por los paciente (propio, taxi, ambulancia)" << endl;
-	ss << "6) Reportar lista de ambulancias que se encuentran �ocupadas�." << endl;
-	ss << "7) Reportar lista de tres profesores interinos con la mejor calificaci�n." << endl;
-	ss << "8) Reportar lista de todos los estudiantes internacionales que tengan condici�n de exiliado" << endl;
+	ss << "3) Reporte de la persona que ha realizado mas citas en el hospital." << endl;
+	ss << "4) Reportar la fecha en que han asistido mayor numero de pacientes." << endl;
+	ss << "5) Reportar el tipo de transporte mas utilizado por los paciente (propio, taxi, ambulancia)" << endl;
+	ss << "6) Reportar lista de ambulancias que se encuentran ocupadas." << endl;
+	ss << "7) Reportar lista de tres profesores interinos con la mejor calificacion." << endl;
+	ss << "8) Reportar lista de todos los estudiantes internacionales que tengan condicion de exiliado" << endl;
 	ss << "9) Regresar" << endl;
 	ss << "Ingrese una opcion: ";
 	return ss.str();
@@ -296,7 +296,11 @@ int main() {
 
 	SaludUni* hospital = new SaludUni("CCSS0011", "2639-2121", "Escazu", "Hospital Universitario");
 	//string nombre, string apellido, int edad, string universidad, string cedula, string titulo, int aniosLaborados, double calificacion
-	Paciente* paciente1 = new Interino("Juan", "Quiros", 28, "UNA", "602900217", "Sistemas", 5, 7.5);
+	Paciente* interino1 = new Interino("Top 2", "Quiros", 28, "UNA", "111111", "Sistemas", 5, 9.5);
+	// Paciente* interino2 = new Interino("Top 1", "Quiros", 28, "UNA", "222222", "Sistemas", 5, 10);
+	// Paciente* interino3 = new Interino("Top 3", "Quiros", 28, "UNA", "333333", "Sistemas", 5, 9);
+	// Paciente* interino4 = new Interino("Top 4", "Quiros", 28, "UNA", "4454444", "Sistemas", 5, 7.5);
+
 	//string nombre, string apellido, int edad, string cedula, string especialidad, string numTelefonico
 	Medico* medico1 = new Medico("Pedro", "Perez", 35, "60390217", "Cardiologia", "26-2121");
 	Medico* medico2 = new Medico("Juan Jose", "Quiros", 35, "602110211", "Sexologo", "639-2121");
@@ -307,7 +311,7 @@ int main() {
 	//estNacional
 	//string nombre, string apellido, int edad, string universidad,
 	//	string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string cedula, string estado
-	Paciente* estNacional1 = new EstNacional("Juan", "Quiros", 28, "UNA", "11111", "Primero", "2639-2121", "601290217", "activo");
+	Paciente* estNacional1 = new EstNacional("Ramiro", "Quiros", 28, "UNA", "11111", "Primero", "2639-2121", "601290217", "activo");
 	//string nombre, string apellido, int edad, string universidad,
 	/*string codigoDeCarrera, int ultNivelCursado, string numeroDeTelefono, string nacionalidad,
 		string pasaporte, string condicion*/
@@ -315,16 +319,22 @@ int main() {
 	//string nombre, string apellido, int edad, string universidad, string cedula, string titulo, 
 	//int aniosLaborados, string codigoDePlaza)
 	Paciente* profesorConPlaza1 = new ConPropiedad("Mario", "Quiros", 28, "UNA", "605590217", "Sistemas", 5, "11111");
+	Paciente* profesorConPlaza2 = new ConPropiedad("Mario", "Quiros", 28, "UNA", "52452342", "Sistemas", 5, "11111");
 
-	Cita* cita1 = new Cita(paciente1, medico1, new Fecha(10, 10, 2010), new Hora(10, 10), taxi1, "Ida");
+
+	Cita* cita1 = new Cita(interino1, medico1, new Fecha(10, 10, 2010), new Hora(10, 10), taxi1, "Ida");
 	
 	hospital->insertarMedico(medico1); 
 	hospital->insertarMedico(medico2);
 	hospital->insertarMedico(medico3);
 	hospital->insertarPaciente(estNacional1);
-	hospital->insertarPaciente(paciente1);
+	// hospital->insertarPaciente(interino4);
+	hospital->insertarPaciente(interino1);
+	// hospital->insertarPaciente(interino3);
+	// hospital->insertarPaciente(interino2);
 	hospital->insertarPaciente(estInternacional1);
 	hospital->insertarPaciente(profesorConPlaza1);
+	hospital->insertarPaciente(profesorConPlaza2);
 	hospital->insertarTransporte(taxi1);
 	hospital->insertarTransporte(taxi2);
 	hospital->insertarCita(cita1);
@@ -1639,17 +1649,17 @@ int main() {
 					//ss << "8) Reportar lista de todos los estudiantes internacionales que tengan condici�n de exiliado" << endl;
 				case 1:
 					//Mostrar datos de la empresa 
-					cout << hospital->toString();
+					cout << hospital->toString() << endl;
 					pausarYLimpiar();
 					break;
 				case 2:
 					//Monto total a pagar por taxis
-					cout << hospital->mostrarCostoTotalPorTaxis();
+					cout << hospital->mostrarCostoTotalPorTaxis() << endl;
 					pausarYLimpiar();
 					break;
 				case 3:
 					//Persona que ha realizado m�s citas
-					cout << hospital->getListaDeCitas()->mostrarPersonaConMasCitas();
+					cout << hospital->getListaDeCitas()->mostrarPersonaConMasCitas() << endl;
 					pausarYLimpiar();
 					break;
 				case 4:
@@ -1659,23 +1669,25 @@ int main() {
 					break;
 				case 5:
 					//Tipo de transporte m�s utilizado por los pacientes
-					cout << "TEST OPCION 5 SUBMENU 4" << endl;
+					cout << hospital->getListaDeTransportes()->tipoDeTransporteMasUtilizado();
 					pausarYLimpiar();
 					break;
 				case 6:
 					//Lista de ambulancias ocupadas
 					cout << "Ambulancias ocupadas: " << endl;
-					cout << hospital->getListaDeTransportes()->mostrarAmbulanciasOcupadas();
+					cout << hospital->getListaDeTransportes()->mostrarAmbulanciasOcupadas() << endl;
 					pausarYLimpiar();
 					break;
 				case 7:
 					//Lista de tres profesores interinos con la mejor calificaci�n
-					cout << "TEST OPCION 7 SUBMENU 4" << endl;
+					cout << "Los tres profesores interinos con mejor calificacion son: " << endl;
+					cout << hospital->getListaDePacientes()->mostrarLosMejores3ProfesoresInterinos() << endl;
 					pausarYLimpiar();
 					break;
 				case 8:
 					//Lista de todos los estudiantes internacionales que tengan condici�n de exiliado
-					cout << "TEST OPCION 8 SUBMENU 4" << endl;
+					cout << "Exiliados: " << endl;
+					cout << hospital->getListaDePacientes()->mostrarEstInternacionalesExiliados() << endl;
 					pausarYLimpiar();
 					break;
 				case 9:
