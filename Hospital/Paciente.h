@@ -18,11 +18,13 @@ public:
 	virtual string toString();
 	virtual string getIdentificacion() = 0;
 	virtual void setNumeroDeTelefono(string);
+	//metodos virtual estudiantes
 	virtual void setCodigoDeCarrera(string);
 	virtual void setUltNivelCursado(string);
 	virtual void setEstado(string);
 	virtual void setNacionalidad(string);
 	virtual void setCondicion(string);
+	virtual string getCondicion();
 	//metodos virtual profesor
 	virtual void setTitulo(string);
 	virtual void setAniosLaborados(int);

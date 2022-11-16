@@ -57,6 +57,11 @@ void Paciente::setCondicion(string)
 {
 }
 
+string Paciente::getCondicion()
+{
+	return string();
+}
+
 void Paciente::setTitulo(string)
 {
 }
