@@ -455,3 +455,17 @@ void Interfaz::buscarCita()
 	}
 	pausarYLimpiar();
 }
+
+void Interfaz::eliminarCita()
+{
+	string codigoCita = "";
+	cout << "Ingrese el codigo de la cita: ";
+	cin >> codigoCita;
+	if (hospital->getListaDeCitas()->existeCita(codigoCita)) {
+		hospital->getListaDeCitas()->eliminarCita(codigoCita);
+		cout << "Cita eliminada" << endl;
+	}
+	else {
+		cout << "La cita no existe" << endl;
+	}
+}

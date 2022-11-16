@@ -25,5 +25,6 @@ public:
 	//opciones del menu cita
 	static void agregarCita();
 	static void buscarCita();
+	static void eliminarCita();
 };
 
