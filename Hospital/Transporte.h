@@ -30,5 +30,6 @@ public:
 	virtual string toString();
 	virtual bool getOcupado();
 	virtual void setOcupado(bool);
+	virtual	void setNumeroDePasajeros(int);
 };
 

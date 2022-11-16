@@ -74,3 +74,7 @@ bool Transporte::getOcupado()
 void Transporte::setOcupado(bool)
 {
 }
+
+void Transporte::setNumeroDePasajeros(int)
+{
+}
