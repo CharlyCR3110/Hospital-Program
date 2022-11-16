@@ -250,7 +250,6 @@ bool ListaDePacientes::existePaciente(string identificacion)
 	return false;
 }
 
-
 string ListaDePacientes::mostrarEstInternacionalesExiliados()
 {
 	//estInternacional cuya condicion sea exiliado
@@ -287,4 +286,41 @@ ListaDePacientes* ListaDePacientes::listaDeProfesoresInterinos()
 		}
 	}
 	return lista;
+}
+
+string ListaDePacientes::mostrarLosMejores3ProfesoresInterinos()
+{
+	stringstream ss;
+	//Se crea una lista con unicamente los profesores interinos
+	ListaDePacientes* listaDeInterinos = this->listaDeProfesoresInterinos();
+	// buscar los mejores 3 en base a su calificacion
+	// se debe recorrer la lista de interinos y buscar los 3 mejores
+	// se debe mostrar los 3 mejores
+	NodoPaciente* aux = listaDeInterinos->getHead();
+	NodoPaciente* mejor1 = aux;
+	NodoPaciente* mejor2 = aux;
+	NodoPaciente* mejor3 = aux;
+	while (aux != NULL)
+	{
+		if (aux->getPaciente()->getCalificacion() > mejor1->getPaciente()->getCalificacion())
+		{
+			mejor3 = mejor2;
+			mejor2 = mejor1;
+			mejor1 = aux;
+		}
+		else if (aux->getPaciente()->getCalificacion() > mejor2->getPaciente()->getCalificacion())
+		{
+			mejor3 = mejor2;
+			mejor2 = aux;
+		}
+		else if (aux->getPaciente()->getCalificacion() > mejor3->getPaciente()->getCalificacion())
+		{
+			mejor3 = aux;
+		}
+		aux = aux->getSiguiente();
+	}
+	ss << mejor1->getPaciente()->toString() << endl;
+	ss << mejor2->getPaciente()->toString() << endl;
+	ss << mejor3->getPaciente()->toString() << endl;
+	return ss.str();
 }
