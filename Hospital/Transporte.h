@@ -31,5 +31,6 @@ public:
 	virtual bool getOcupado();
 	virtual void setOcupado(bool);
 	virtual	void setNumeroDePasajeros(int);
+	virtual double getCostoDelViaje();
 };
 

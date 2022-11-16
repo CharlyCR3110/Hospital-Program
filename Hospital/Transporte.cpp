@@ -78,3 +78,8 @@ void Transporte::setOcupado(bool)
 void Transporte::setNumeroDePasajeros(int)
 {
 }
+
+double Transporte::getCostoDelViaje()
+{
+	return 0.0;
+}
