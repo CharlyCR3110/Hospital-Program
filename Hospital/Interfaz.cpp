@@ -188,3 +188,17 @@ int Interfaz::menuBusquedas()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuBusquedasEspecifica()
+{
+	int opcion = 0;
+	cout << "1) Buscar Estudiante" << endl;
+	cout << "2) Buscar Profesor" << endl;
+	cout << "3) Buscar Medico" << endl;
+	cout << "4) Buscar Ambulancia" << endl;
+	cout << "5) Buscar Taxi" << endl;
+	cout << "6) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return 0;
+}
