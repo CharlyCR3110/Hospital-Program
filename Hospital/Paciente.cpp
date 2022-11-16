@@ -72,3 +72,8 @@ void Paciente::setCodigoDePlaza(string)
 void Paciente::setCalificacion(double)
 {
 }
+
+double Paciente::getCalificacion()
+{
+	return 0.0;
+}

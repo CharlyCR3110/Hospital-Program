@@ -28,5 +28,6 @@ public:
 	virtual void setAniosLaborados(int);
 	virtual void setCodigoDePlaza(string);
 	virtual void setCalificacion(double);
+	virtual double getCalificacion();
 };
 
