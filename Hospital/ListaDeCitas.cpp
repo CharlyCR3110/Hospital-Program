@@ -194,3 +194,15 @@ bool ListaDeCitas::elMedicoYaTieneOtraCitaAlMismoTiempo(Medico* medico, Fecha* f
 	}
 	return false;
 }
+
+string ListaDeCitas::mostrarCitas()
+{
+	stringstream ss;
+	NodoCitas* aux = head;
+	while (aux != NULL)
+	{
+		ss << aux->getCita()->toString() << endl;
+		aux = aux->getSiguiente();
+	}
+	return ss.str();
+}
