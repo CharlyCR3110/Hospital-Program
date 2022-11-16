@@ -638,3 +638,35 @@ void Interfaz::agregarPaciente()
 		pausarYLimpiar();
 	}
 }
+
+void Interfaz::eliminarPaciente()
+{
+	string identificacion, volverAIntentar = "";
+	bool done = false;
+	do {
+		cout << "Digite el numero de cedula o de pasaporte del paciente a eliminar: ";
+		cin >> identificacion;
+		if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+			hospital->getListaDePacientes()->eliminarPaciente(identificacion);
+			cout << "Paciente eliminado" << endl;
+			done = true;
+		}
+		else {
+			cout << "El paciente no existe" << endl;
+			pausarYLimpiar();
+			cout << "Desea intentarlo de nuevo? (si/no): ";
+			cin >> volverAIntentar;
+			if (volverAIntentar == "si" || volverAIntentar == "Si") {
+				done = false;
+			}
+			else if (volverAIntentar == "no" || volverAIntentar == "No") {
+				done = true;
+			}
+			else {
+				cout << "Opcion invalida" << endl;
+				done = true;
+			}
+		}
+	} while (!done);
+	pausarYLimpiar();
+}
