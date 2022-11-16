@@ -10,6 +10,18 @@ Cita::Cita(string codigo, Paciente* paciente, Medico* medico, Hora* hora, Fecha*
 	//to-do: comprobar que el paciente no tenga transporte propio
 	this->transporte = transporte;
 }
+//constructor en caso de que el paciente requiera ambulancia
+Cita::Cita(Paciente* paciente, Medico* medico, Fecha* fecha, Hora* hora, Transporte* transporte, string tipoDeViaje)
+{
+	//el codigo de la cita se genera automaticamente
+	this->codigoCita = "C" + to_string(fecha->getDia()) + to_string(fecha->getMes()) + to_string(fecha->getAnio()) + to_string(hora->getHora()) + to_string(hora->getMinutos());
+	this->paciente = paciente;
+	this->medico = medico;
+	this->hora = hora;
+	this->fecha = fecha;
+	this->transporte = transporte;
+	this->tipoDeViaje = tipoDeViaje;
+}
 
 Cita::~Cita()
 {
@@ -78,6 +90,7 @@ void Cita::setTransporte(Transporte* transporte)
 string Cita::toString()
 {
 	stringstream ss;
+	ss << "-------------------CITA-------------------" << endl;
 	ss << "Codigo de cita: " << codigoCita << endl;
 	ss << "-------------------PACIENTE-------------------" << endl;
 	ss << paciente->toString() << endl;
@@ -87,6 +100,13 @@ string Cita::toString()
 	ss << "Hora: " << hora->toString() << endl;
 	ss << "Fecha: " << fecha->toString() << endl;
 	ss << "-------------------TRANSPORTE-------------------" << endl;
-	ss << transporte->toString() << endl;
+	if (transporte != NULL)
+	{
+		ss << transporte->toString() << endl;
+	}
+	else
+	{
+		ss << "No se requiere transporte" << endl;
+	}
 	return ss.str();
 }

@@ -18,8 +18,10 @@ private:
 	Hora* hora;
 	Fecha* fecha;
 	Transporte* transporte;
+	string tipoDeViaje;
 public:
 	Cita(string = "", Paciente* = nullptr, Medico* = nullptr, Hora* = nullptr, Fecha* = nullptr, Transporte* = nullptr);
+	Cita(Paciente* = NULL, Medico* = NULL, Fecha* = NULL, Hora* = NULL, Transporte* = NULL, string = "");
 	virtual ~Cita();
 	//getters
 	string getCodigoCita();
