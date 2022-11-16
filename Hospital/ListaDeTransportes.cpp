@@ -216,3 +216,26 @@ string ListaDeTransportes::mostrarTransportes()
 	ss << this->mostrarTaxis() << endl;
 	return ss.str();
 }
+
+string ListaDeTransportes::calcularCostoTotalPorTaxis()
+{
+	stringstream ss;
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		double costoTotal = 0;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getTipo() == "Taxi")
+			{
+				costoTotal += aux->getTransporte()->getCostoDelViaje();
+			}
+			aux = aux->getSiguiente();
+		}
+		ss << "El monto total a pagar por concepto de taxis es: " << costoTotal;
+	}
+	else {
+		ss << "No hay taxis registrados";
+	}
+	return ss.str();
+}
