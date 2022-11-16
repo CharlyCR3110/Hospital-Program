@@ -38,3 +38,11 @@ int Interfaz::menuMantenimientoPacientes()
 	cin >> opcion;
 	return opcion;
 }
+
+void Interfaz::menuEditarPaciente()
+{
+	cout << "1) Nombre" << endl;
+	cout << "2) Apellido" << endl;
+	cout << "3) Edad" << endl;
+	cout << "4) Universidad" << endl;
+}
