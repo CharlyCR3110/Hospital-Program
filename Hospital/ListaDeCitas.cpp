@@ -206,3 +206,38 @@ string ListaDeCitas::mostrarCitas()
 	}
 	return ss.str();
 }
+
+string ListaDeCitas::mostrarPersonaConMasCitas()
+{
+	NodoCitas* aux = head;
+	stringstream ss;
+	int contador = 0;
+	int contadorAux = 0;
+	string cedula = "";
+	string nombre = "";
+	while (aux != NULL)
+	{
+		contadorAux = 0;
+		NodoCitas* aux2 = head;
+		while (aux2 != NULL)
+		{
+			if (aux->getCita()->getPaciente()->getIdentificacion() == aux2->getCita()->getPaciente()->getIdentificacion())
+			{
+				contadorAux++;
+			}
+			aux2 = aux2->getSiguiente();
+		}
+		if (contadorAux > contador)
+		{
+			contador = contadorAux;
+			nombre = aux->getCita()->getPaciente()->getNombre();
+			cedula = aux->getCita()->getPaciente()->getIdentificacion();
+		}
+		aux = aux->getSiguiente();
+	}
+	ss << "La persona con mas citas es: " << endl;
+	ss << "Nombre: " << nombre << endl;
+	ss << "Cedula: " << cedula << endl;
+	ss << "Cantidad de citas: " << contador << endl;
+	return ss.str();
+}
