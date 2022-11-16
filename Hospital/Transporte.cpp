@@ -65,3 +65,12 @@ string Transporte::toString()
 	ss << "Kilometros recorridos: " << kilometrosRecorridos << endl;
 	return ss.str();
 }
+
+bool Transporte::getOcupado()
+{
+	return false;
+}
+
+void Transporte::setOcupado(bool)
+{
+}

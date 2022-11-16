@@ -28,5 +28,7 @@ public:
 	void setKilometrosRecorridos(double);
 	//metodos
 	virtual string toString();
+	virtual bool getOcupado();
+	virtual void setOcupado(bool);
 };
 
