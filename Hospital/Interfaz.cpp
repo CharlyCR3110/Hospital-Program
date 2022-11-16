@@ -112,3 +112,17 @@ int Interfaz::menuMantenimientoMedicos()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuEditarMedico()
+{
+	int opcion = 0;
+	cout << "1) Nombre" << endl;
+	cout << "2) Apellido" << endl;
+	cout << "3) Edad" << endl;
+	cout << "4) Especialidad" << endl;
+	cout << "5) Numero telefonico" << endl;
+	cout << "6) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
