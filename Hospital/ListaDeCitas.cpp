@@ -241,3 +241,36 @@ string ListaDeCitas::mostrarPersonaConMasCitas()
 	ss << "Cantidad de citas: " << contador << endl;
 	return ss.str();
 }
+
+Fecha* ListaDeCitas::fechaConMasCitas()
+{
+	NodoCitas* aux = head;
+	stringstream ss;
+	int contador = 0;
+	int contadorAux = 0;
+	Fecha* fecha = new Fecha();
+	while (aux != NULL)
+	{
+		contadorAux = 0;
+		NodoCitas* aux2 = head;
+		while (aux2 != NULL)
+		{
+			if (aux->getCita()->getFecha()->getDia() == aux2->getCita()->getFecha()->getDia() &&
+				aux->getCita()->getFecha()->getMes() == aux2->getCita()->getFecha()->getMes() &&
+				aux->getCita()->getFecha()->getAnio() == aux2->getCita()->getFecha()->getAnio())
+			{
+				contadorAux++;
+			}
+			aux2 = aux2->getSiguiente();
+		}
+		if (contadorAux > contador)
+		{
+			contador = contadorAux;
+			fecha->setDia(aux->getCita()->getFecha()->getDia());
+			fecha->setMes(aux->getCita()->getFecha()->getMes());
+			fecha->setAnio(aux->getCita()->getFecha()->getAnio());
+		}
+		aux = aux->getSiguiente();
+	}
+	return fecha;
+}
