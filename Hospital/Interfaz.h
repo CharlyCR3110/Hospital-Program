@@ -1,5 +1,11 @@
 #pragma once
 #include "SaludUni.h"
+#include "EstInternacional.h"
+#include "EstNacional.h"
+#include "Interino.h"
+#include "ConPropiedad.h"
+#include "Ambulancia.h"
+#include "Taxi.h"
 #include "Utiles.h"
 class Interfaz
 {	
