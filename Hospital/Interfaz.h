@@ -22,6 +22,8 @@ public:
 	static int menuBusquedas();
 	static int menuBusquedasEspecifica();
 	static int menuExtra();
+	//opciones del menu cita
 	static void agregarCita();
+	static void buscarCita();
 };
 

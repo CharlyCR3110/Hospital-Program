@@ -441,3 +441,17 @@ void Interfaz::agregarCita()
 		cout << "Opcion invalida" << endl;
 	}
 }
+
+void Interfaz::buscarCita()
+{
+	string codigoCita = "";
+	cout << "Ingrese el codigo de la cita: ";
+	cin >> codigoCita;
+	if (hospital->getListaDeCitas()->existeCita(codigoCita)) {
+		cout << hospital->mostrarCita(codigoCita);
+	}
+	else {
+		cout << "La cita no existe" << endl;
+	}
+	pausarYLimpiar();
+}
