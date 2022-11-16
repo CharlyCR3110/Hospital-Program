@@ -37,5 +37,7 @@ public:
 	static void eliminarCita();
 	static void mostrarCitasDeUnPaciente();
 	static void mostrarTodasLasCitasDelHospital();
+	//menu mantenimiento de pacientes
+	static void agregarPaciente();
 };
 

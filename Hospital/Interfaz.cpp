@@ -501,3 +501,140 @@ void Interfaz::mostrarTodasLasCitasDelHospital()
 	cout << hospital->getListaDeCitas()->mostrarCitas();
 	pausarYLimpiar();
 }
+
+void Interfaz::agregarPaciente()
+{
+	string nombre = "";
+	string apellido = "";
+	string universidad = "";
+	string tipo = "";
+	string codigoDeCarrera = "";
+	string ultNivelCursado = "";
+	string numeroDeTelefono = "";
+	string esNacional = "";
+	string cedula = "";
+	string nacionalidad = "";
+	string pasaporte = "";
+	string titulo = "";
+	string tienePropiedad = "";
+	string condicion = "";
+	double calificacion = 0;
+	string codigoDePlaza = "";
+	int aniosLaborados = 0;
+	int edad = 0;
+	bool done = false;
+	string estado = "";
+
+	cout << "Digite el nombre del paciente: ";
+	cin >> nombre;
+	cout << "Digite el apellido del paciente: ";
+	cin >> apellido;
+	cout << "Digite la edad del paciente: ";
+	cin >> edad;
+	cout << "Digite la universidad del paciente: ";
+	cin >> universidad;
+	cout << "Digite el tipo de paciente: (estudiante/profesor)";
+	cin >> tipo;
+	if (tipo == "estudiante") {
+		cout << "Digite el codigo de carrera: ";
+		cin >> codigoDeCarrera;
+		cout << "Digite el ultimo nivel cursado: ";
+		cin >> ultNivelCursado;
+		cout << "Digite el numero de telefono: ";
+		cin >> numeroDeTelefono;
+
+		cout << "El estudiante es nacional? (si/no): ";
+		cin >> esNacional;
+		if (esNacional == "si" || esNacional == "Si") {
+			do {
+				cout << "Digite el numero de cedula: ";
+				cin >> cedula;
+				if (hospital->getListaDePacientes()->existePaciente(cedula)) {
+					cout << "El paciente ya existe" << endl;
+					pausarYLimpiar();
+					cout << "Intente con un numero de cedula diferente" << endl;
+					pausarYLimpiar();
+					done = false;
+				}
+				else {
+					done = true;
+				}
+			} while (!done);
+			cout << "Digite el estado (activo/suspendido): ";
+			cin >> estado;
+			//se crea el estNacional y se agrega a la lista de pacientes
+			Paciente* estNacional = new EstNacional(nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono, cedula, estado);
+			hospital->insertarPaciente(estNacional);
+		}
+		else if (esNacional == "no" || esNacional == "No") {
+			cout << "Digite la nacionalidad: ";
+			cin >> nacionalidad;
+			do {
+				cout << "Digite el numero de pasaporte: ";
+				cin >> pasaporte;
+				if (hospital->getListaDePacientes()->existePaciente(pasaporte)) {
+					cout << "El paciente ya existe" << endl;
+					pausarYLimpiar();
+					cout << "Intente con un numero de pasaporte diferente" << endl;
+					pausarYLimpiar();
+					done = false;
+				}
+				else {
+					done = true;
+				}
+			} while (!done);
+			cout << "Digite la condicion: ";
+			cin >> condicion;
+			//se crea el estInternacional y se agrega a la lista de pacientes
+			Paciente* estInternacional = new EstInternacional(nombre, apellido, edad, universidad, codigoDeCarrera, ultNivelCursado, numeroDeTelefono, nacionalidad, pasaporte, condicion);
+			hospital->insertarPaciente(estInternacional);
+		}
+		else {
+			cout << "Opcion invalida" << endl;
+		}
+	}
+	else if (tipo == "profesor") {
+		do {
+			cout << "Digite el numero de cedula: ";
+			cin >> cedula;
+			if (hospital->getListaDePacientes()->existePaciente(cedula)) {
+				cout << "El paciente ya existe" << endl;
+				pausarYLimpiar();
+				cout << "Intente con un numero de cedula diferente" << endl;
+				pausarYLimpiar();
+				done = false;
+			}
+			else {
+				done = true;
+			}
+		} while (!done);
+		cout << "Digite el titulo del profesor: ";
+		cin >> titulo;
+		cout << "Digite la cantidad de anios de laborados: ";
+		cin >> aniosLaborados;
+
+		cout << "Es un profesor con propiedad? (si/no): ";
+		cin >> tienePropiedad;
+		if (tienePropiedad == "si" || tienePropiedad == "Si") {
+			cout << "Digite el codigo de plaza: ";
+			cin >> codigoDePlaza;
+			// se crea el profesor con propiedad y se agrega a la lista de pacientes
+			Paciente* profesorConPropiedad = new ConPropiedad(nombre, apellido, edad, universidad, cedula, titulo, aniosLaborados, codigoDePlaza);
+			hospital->insertarPaciente(profesorConPropiedad);
+		}
+		else if (tienePropiedad == "no" || tienePropiedad == "No") {
+			cout << "Digite la calificacion del profesor (1-10): ";
+			cin >> calificacion;
+			// se crea el profesor interino y se agrega a la lista de pacientes
+			Paciente* profesorInterino = new Interino(nombre, apellido, edad, universidad, cedula, titulo, aniosLaborados, calificacion);
+			hospital->insertarPaciente(profesorInterino);
+		}
+		else {
+			cout << "Opcion invalida" << endl;
+		}
+	}
+	else {
+		cout << "Tipo de paciente invalido" << endl;
+		pausarYLimpiar();
+	}
+}
