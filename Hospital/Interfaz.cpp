@@ -227,6 +227,12 @@ void Interfaz::regresar()
 	pausarYLimpiar();
 }
 
+void Interfaz::opcionInvalida()
+{
+	cout << "Opcion invalida" << endl;
+	pausarYLimpiar();
+}
+
 void Interfaz::agregarCita()
 {
 	Paciente* paciente = NULL;

@@ -24,6 +24,7 @@ public:
 	static int menuExtra();
 	//globales
 	static void regresar();
+	static void opcionInvalida();
 	//opciones del menu cita
 	static void agregarCita();
 	static void buscarCita();
