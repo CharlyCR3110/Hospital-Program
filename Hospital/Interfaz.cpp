@@ -1,5 +1,4 @@
 #include "Interfaz.h"
-#include "SaludUni.h"
 
 int Interfaz::menuPrincipal()
 {
