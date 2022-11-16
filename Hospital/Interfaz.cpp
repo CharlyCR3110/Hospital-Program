@@ -60,3 +60,17 @@ int Interfaz::menuEditarEstudianteNacional()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuEditarEstudianteInternacional()
+{
+	int opcion = 0;
+	menuEditarPaciente();
+	cout << "5) Codigo de carrera" << endl;
+	cout << "6) Ultimo nivel cursado" << endl;
+	cout << "7) Numero de telefono" << endl;
+	cout << "8) Nacionalidad" << endl;
+	cout << "9) Condicion" << endl;
+	cout << "10) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+}
