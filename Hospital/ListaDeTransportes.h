@@ -24,5 +24,6 @@ public:
 	string mostrarTransportes();
 	string calcularCostoTotalPorTaxis();
 	string mostrarAmbulanciasOcupadas();
+	string tipoDeTransporteMasUtilizado();
 };
 

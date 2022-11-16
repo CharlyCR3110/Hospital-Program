@@ -263,3 +263,40 @@ string ListaDeTransportes::mostrarAmbulanciasOcupadas()
 	}
 	return ss.str();
 }
+
+string ListaDeTransportes::tipoDeTransporteMasUtilizado()
+{
+	stringstream ss;
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		int taxis = 0;
+		int ambulancias = 0;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getTipo() == "Taxi")
+			{
+				taxis++;
+			}
+			else {
+				ambulancias++;
+			}
+			aux = aux->getSiguiente();
+		}
+		if (taxis > ambulancias)
+		{
+			ss << "El tipo de transporte mas utilizado es el taxi";
+		}
+		else if (ambulancias > taxis)
+		{
+			ss << "El tipo de transporte mas utilizado es la ambulancia";
+		}
+		else {
+			ss << "Ambos son igual de utilizados";
+		}
+	}
+	else {
+		ss << "No hay taxis registrados";
+	}
+	return ss.str();
+}
