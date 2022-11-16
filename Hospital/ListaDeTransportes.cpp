@@ -239,3 +239,27 @@ string ListaDeTransportes::calcularCostoTotalPorTaxis()
 	}
 	return ss.str();
 }
+
+string ListaDeTransportes::mostrarAmbulanciasOcupadas()
+{
+	stringstream ss;
+	if (!isEmpty())
+	{
+		NodoTransporte* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getTransporte()->getTipo() == "Ambulancia")
+			{
+				if (aux->getTransporte()->getOcupado() == true)
+				{
+					ss << aux->getTransporte()->toString() << endl;
+				}
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	else {
+		ss << "No hay ambulancias registradas";
+	}
+	return ss.str();
+}

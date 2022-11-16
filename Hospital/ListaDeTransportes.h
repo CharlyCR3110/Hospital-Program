@@ -23,5 +23,6 @@ public:
 	string mostrarAmbulancias();
 	string mostrarTransportes();
 	string calcularCostoTotalPorTaxis();
+	string mostrarAmbulanciasOcupadas();
 };
 
