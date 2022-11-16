@@ -1,9 +1,9 @@
 #pragma once
 #include "SaludUni.h"
-
 class Interfaz
 {	
 public:
+	static SaludUni* hospital;
 	static int menuPrincipal();
 	static int menuMantenimiento();
 	static int menuMantenimientoPacientes();

@@ -1,5 +1,8 @@
 #include "Interfaz.h"
 
+
+SaludUni* Interfaz::hospital = new SaludUni("CCSS0011", "2639-2121", "Alajuelita", "Hospital Universitario");
+
 int Interfaz::menuPrincipal()
 {
     int opcion = 0;
