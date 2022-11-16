@@ -17,5 +17,6 @@ class Interfaz
 	static int menuEditarTaxi();
 	static int menuBusquedas();
 	static int menuBusquedasEspecifica();
+	static int menuExtra();
 };
 

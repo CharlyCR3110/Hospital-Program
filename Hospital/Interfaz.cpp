@@ -202,3 +202,20 @@ int Interfaz::menuBusquedasEspecifica()
 	cin >> opcion;
 	return 0;
 }
+
+int Interfaz::menuExtra()
+{
+	int opcion = 0;
+	cout << "1) Reportar de los datos de la empresa." << endl;
+	cout << "2) Reportar el monto total a pagar por parte del hospital por concepto de taxis." << endl;
+	cout << "3) Reporte de la persona que ha realizado mas citas en el hospital." << endl;
+	cout << "4) Reportar la fecha en que han asistido mayor numero de pacientes." << endl;
+	cout << "5) Reportar el tipo de transporte mas utilizado por los paciente (propio, taxi, ambulancia)" << endl;
+	cout << "6) Reportar lista de ambulancias que se encuentran ocupadas." << endl;
+	cout << "7) Reportar lista de tres profesores interinos con la mejor calificacion." << endl;
+	cout << "8) Reportar lista de todos los estudiantes internacionales que tengan condicion de exiliado" << endl;
+	cout << "9) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
