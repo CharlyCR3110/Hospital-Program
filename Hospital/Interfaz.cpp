@@ -1,6 +1,5 @@
 #include "Interfaz.h"
 
-
 SaludUni* Interfaz::hospital = new SaludUni("CCSS0011", "2639-2121", "Alajuelita", "Hospital Universitario");
 
 int Interfaz::menuPrincipal()
@@ -220,4 +219,225 @@ int Interfaz::menuExtra()
 	cout << "Ingrese una opcion: ";
 	cin >> opcion;
 	return opcion;
+}
+
+void Interfaz::agregarCita()
+{
+	Paciente* paciente = NULL;
+	Medico* medico = NULL;
+	Transporte* transporte = NULL;
+	Fecha* fechaCita = NULL;
+	Hora* horaCita = NULL;
+	//datos necesarios
+	//paciente
+	string identificacion = ""; //puede ser la cedula o el pasaporte
+	//por si ocupa transporte
+	string placa = "";
+	string necesitaTransporte = "";
+	string tipoTransporte = "";
+	double kilometrosRecorridos = 0.0;
+	string tipoDeViaje = "";
+	int numeroDePasajeros = 0;
+	//fecha
+	int dia = 0;
+	int mes = 0;
+	int anio = 0;
+	//hora
+	int hora = 0;
+	int minutos = 0;
+	int segundos = 0;
+	//miscelaneos 
+	bool done = false;
+	string especialidad = ""; //especialidad del doctor
+
+	do {
+		cout << "Digite la cedula del paciente: ";
+		cin >> identificacion;
+		if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+			paciente = hospital->getListaDePacientes()->buscarPaciente(identificacion);
+			done = true;
+		}
+		else {
+			cout << "El paciente " << identificacion << " no esta registrado en el sistema" << endl;
+			cout << "Intente con una identificacion diferente" << endl;
+			pausarYLimpiar();
+			done = false;
+		}
+	} while (!done);
+
+	cout << "Digite la especializacion del medico: ";
+	cin >> especialidad;
+	if (hospital->getListaDeMedicos()->buscarMedicoPorEspecializacion(especialidad) != NULL) {
+		medico = hospital->getListaDeMedicos()->buscarMedicoPorEspecializacion(especialidad);
+	}
+	else {
+		cout << "Actualmente no contamos con esa especialidad, entonces"
+			<< "se le asignara un medico general" << endl;
+		medico = hospital->getListaDeMedicos()->buscarMedicoPorEspecializacion("General");
+	}
+
+	do {
+		cout << "Digite la fecha de la cita (dd/mm/aaaa): " << endl;
+		cout << "Dia: ";
+		cin >> dia;
+		cout << "Mes: ";
+		cin >> mes;
+		cout << "Anio: ";
+		cin >> anio;
+		fechaCita = new Fecha(dia, mes, anio);
+		cout << "Digite la hora de la cita (hh:mm:ss): " << endl;
+		cout << "Hora: ";
+		cin >> hora;
+		cout << "Minutos: ";
+		cin >> minutos;
+		cout << "Segundos: ";
+		cin >> segundos;
+		horaCita = new Hora(hora, minutos, segundos);
+
+		if (hospital->getListaDeCitas()->elPacienteYaTieneOtraCitaAlMismoTiempo(paciente, fechaCita, horaCita)) {
+			cout << "El paciente ya tiene una cita en esa fecha y hora" << endl;
+			cout << "Intente con una fecha diferente" << endl;
+			done = false;
+			pausarYLimpiar();
+		}
+		else {
+			done = true;
+		}
+		if (hospital->getListaDeCitas()->elMedicoYaTieneOtraCitaAlMismoTiempo(medico, fechaCita, horaCita) && done) {
+			cout << "El/La medico(a) ya tiene una cita en esa fecha y hora" << endl;
+			cout << "Intente con una fecha diferente" << endl;
+			done = false;
+			pausarYLimpiar();
+		}
+		else {
+			done = true;
+		}
+	} while (!done);
+
+	cout << "Necesita transporte? (Si/No): ";
+	cin >> necesitaTransporte;
+	if (necesitaTransporte == "si" || necesitaTransporte == "Si") {
+		cout << "Que tipo de transporte necesita? (Ambulancia/Taxi): ";
+		cin >> tipoTransporte;
+		if (tipoTransporte == "Ambulancia" || tipoTransporte == "ambulancia") {
+			do {
+				cout << "Digite la placa de la ambulancia: ";
+				cin >> placa;
+				if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Ambulancia") {
+					transporte = hospital->getListaDeTransportes()->getTransporte(placa);
+					transporte->setOcupado(true);
+					done = true;
+				}
+				else {
+					cout << "No existe una ambulancia con esa placa" << endl;
+					cout << "Intente con una placa diferente" << endl;
+					pausarYLimpiar();
+				}
+			} while (!done);
+			cout << "Ingrese el tipo de viaje (ida / ida y vuelta / vuelta): ";
+			getline(cin >> ws, tipoDeViaje);
+			cout << "Ingrese los kilometros totales que se deben recorrer: ";
+			cin >> kilometrosRecorridos;
+			transporte->setKilometrosRecorridos(kilometrosRecorridos);
+			if (paciente != NULL) {
+				cout << paciente->toString();
+			}
+			else {
+				cout << "No hay" << endl;
+			}
+			if (medico != NULL) {
+				cout << medico->toString();
+			}
+			else {
+				cout << "No hay" << endl;
+			}
+			if (transporte != NULL) {
+				cout << transporte->toString();
+			}
+			else {
+				cout << "No hay" << endl;
+			}
+			if (fechaCita != NULL) {
+				cout << fechaCita->toString();
+			}
+			else {
+				cout << "No hay" << endl;
+			}
+			if (horaCita != NULL) {
+				cout << horaCita->toString();
+			}
+			else {
+				cout << "No hay" << endl;
+			}
+			cout << "Tipo de viaje" << endl;
+			hospital->insertarCita(new Cita(paciente, medico, fechaCita, horaCita, transporte, tipoDeViaje));
+		}
+		else if (tipoTransporte == "Taxi" || tipoTransporte == "taxi") {
+			do {
+				cout << "Digite la placa del taxi: ";
+				cin >> placa;
+				if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+					transporte = hospital->getListaDeTransportes()->getTransporte(placa);
+					transporte->setOcupado(true);
+					done = true;
+				}
+				else {
+					cout << "No existe un taxi con esa placa" << endl;
+					cout << "Intente con una placa diferente" << endl;
+					pausarYLimpiar();
+					done = false;
+				}
+			} while (!done);
+			cout << "Ingrese el tipo de viaje (ida / ida y vuelta / vuelta): ";
+			getline(cin >> ws, tipoDeViaje);
+			cout << "Ingrese los kilometros totales que se deben recorrer: ";
+			cin >> kilometrosRecorridos;
+			cout << "Ingrese el numero de pasajeros: " << endl;
+			cin >> numeroDePasajeros;
+			transporte->setKilometrosRecorridos(kilometrosRecorridos);
+			transporte->setNumeroDePasajeros(numeroDePasajeros);
+
+			if (paciente != NULL) {
+				cout << paciente->toString();
+			}
+			else {
+				cout << "ERROR PACIENTE" << endl;
+			}
+			if (medico != NULL) {
+				cout << medico->toString();
+			}
+			else {
+				cout << "ERROR MEDICO" << endl;
+			}
+			if (transporte != NULL) {
+				cout << transporte->toString();
+			}
+			else {
+				cout << "ERROR TRASNPORTE" << endl;
+			}
+			if (fechaCita != NULL) {
+				cout << fechaCita->toString();
+			}
+			else {
+				cout << "ERROR FECHA" << endl;
+			}
+			if (horaCita != NULL) {
+				cout << horaCita->toString();
+			}
+			else {
+				cout << "ERROR HORA" << endl;
+			}
+			cout << "Tipo de viaje" << tipoDeViaje << endl;
+			hospital->insertarCita(new Cita(paciente, medico, fechaCita, horaCita, transporte, tipoDeViaje));
+		}
+		else {
+			cout << "Opcion invalida" << endl;
+		}
+	}
+	else if (necesitaTransporte == "no" || necesitaTransporte == "No") {
+		hospital->insertarCita(new Cita(paciente, medico, fechaCita, horaCita));
+	}
+	else {
+		cout << "Opcion invalida" << endl;
+	}
 }
