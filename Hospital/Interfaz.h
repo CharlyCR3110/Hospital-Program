@@ -26,5 +26,6 @@ public:
 	static void agregarCita();
 	static void buscarCita();
 	static void eliminarCita();
+	static void mostrarCitasDeUnPaciente();
 };
 

@@ -469,3 +469,17 @@ void Interfaz::eliminarCita()
 		cout << "La cita no existe" << endl;
 	}
 }
+
+void Interfaz::mostrarCitasDeUnPaciente()
+{
+	string identificacion = "";
+	cout << "Ingrese la identificacion del paciente: ";
+	cin >> identificacion;
+	if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+		cout << hospital->getListaDeCitas()->mostarCitasDeUnPaciente(identificacion);
+	}
+	else {
+		cout << "El paciente no esta registrado en el sistema" << endl;
+	}
+	pausarYLimpiar();
+}
