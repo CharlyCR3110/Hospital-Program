@@ -100,3 +100,15 @@ int Interfaz::menuEditarPacienteProfesorInterino()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuMantenimientoMedicos()
+{
+	int opcion = 0;
+	cout << "1) Agregar Medico" << endl;
+	cout << "2) Eliminar Medico" << endl;
+	cout << "3) Modificar Medico" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}

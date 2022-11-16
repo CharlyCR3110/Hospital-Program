@@ -9,5 +9,6 @@ class Interfaz
 	static int menuEditarEstudianteInternacional();
 	static int menuEditarPacienteProfesorConPropiedad();
 	static int menuEditarPacienteProfesorInterino();
+	static int menuMantenimientoMedicos();
 };
 
