@@ -150,3 +150,15 @@ int Interfaz::menuEditarAmbulancia()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuMantenimientoTaxis()
+{
+	int opcion = 0;
+	cout << "1) Agregar Taxi" << endl;
+	cout << "2) Eliminar Taxi" << endl;
+	cout << "3) Modificar Taxi" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
