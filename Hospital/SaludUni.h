@@ -40,5 +40,6 @@ public:
 	bool insertarTransporte(Transporte*);
 	bool insertarCita(Cita*);
 	string mostrarCita(string);
+	string mostrarCostoTotalPorTaxis();
 };
 

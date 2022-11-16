@@ -110,3 +110,8 @@ string SaludUni::mostrarCita(string codigoCita)
 {
 	return listaDeCitas->MostarCitaEspecifica(codigoCita);
 }
+
+string SaludUni::mostrarCostoTotalPorTaxis()
+{
+	return listaDeTransportes->calcularCostoTotalPorTaxis();
+}
