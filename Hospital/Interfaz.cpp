@@ -175,3 +175,16 @@ int Interfaz::menuEditarTaxi()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuBusquedas()
+{
+	int opcion = 0;
+	cout << "1) Mostrar Pacientes" << endl;
+	cout << "2) Mostrar Medicos" << endl;
+	cout << "3) Mostrar Transportes" << endl;
+	cout << "4) Buscar Elemento Especifico" << endl;
+	cout << "5) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
