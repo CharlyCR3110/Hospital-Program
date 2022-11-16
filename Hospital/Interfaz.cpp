@@ -483,3 +483,8 @@ void Interfaz::mostrarCitasDeUnPaciente()
 	}
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarTodasLasCitasDelHospital()
+{
+	cout << hospital->getListaDeCitas()->mostrarCitas();
+}
