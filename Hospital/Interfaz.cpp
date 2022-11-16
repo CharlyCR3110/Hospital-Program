@@ -163,3 +163,15 @@ int Interfaz::menuMantenimientoTaxis()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuEditarTaxi()
+{
+	int opcion = 0;
+	cout << "1) Numero de placa" << endl;
+	cout << "2) Marca" << endl;
+	cout << "3) Codigo" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
