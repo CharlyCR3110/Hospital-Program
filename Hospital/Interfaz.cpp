@@ -26,3 +26,15 @@ int Interfaz::menuMantenimiento()
 	cin >> opcion;
 	return opcion;
 }
+
+int Interfaz::menuMantenimientoPacientes()
+{
+	int opcion = 0;
+	cout << "1) Agregar Paciente" << endl;
+	cout << "2) Eliminar Paciente" << endl;
+	cout << "3) Modificar Paciente" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
