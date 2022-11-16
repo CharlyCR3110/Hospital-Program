@@ -1,6 +1,7 @@
 #pragma once
 class Interfaz
-{
+{	
+public:
 	static int menuPrincipal();
 	static int menuMantenimiento();
 	static int menuMantenimientoPacientes();
