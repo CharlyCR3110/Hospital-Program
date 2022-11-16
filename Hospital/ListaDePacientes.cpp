@@ -250,6 +250,7 @@ bool ListaDePacientes::existePaciente(string identificacion)
 	return false;
 }
 
+
 string ListaDePacientes::mostrarEstInternacionalesExiliados()
 {
 	//estInternacional cuya condicion sea exiliado
@@ -269,4 +270,21 @@ string ListaDePacientes::mostrarEstInternacionalesExiliados()
 		ss << "No hay estudiantes registrados" << endl;
 	}
 	return ss.str();
+}
+
+ListaDePacientes* ListaDePacientes::listaDeProfesoresInterinos()
+{
+	ListaDePacientes* lista = new ListaDePacientes();
+	if (!isEmpty()) {
+		NodoPaciente* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getPaciente()->getTipo() == "Interino")
+			{
+				lista->insertarPaciente(aux->getPaciente());
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	return lista;
 }
