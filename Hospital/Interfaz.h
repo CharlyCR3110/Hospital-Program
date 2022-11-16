@@ -12,5 +12,6 @@ class Interfaz
 	static int menuMantenimientoMedicos();
 	static int menuEditarMedico();
 	static int menuMantenimientoAmbulancias();
+	static int menuEditarAmbulancia();
 };
 
