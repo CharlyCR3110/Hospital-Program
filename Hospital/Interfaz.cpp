@@ -221,6 +221,12 @@ int Interfaz::menuExtra()
 	return opcion;
 }
 
+void Interfaz::regresar()
+{
+	cout << "Regresando..." << endl;
+	pausarYLimpiar();
+}
+
 void Interfaz::agregarCita()
 {
 	Paciente* paciente = NULL;
@@ -487,4 +493,5 @@ void Interfaz::mostrarCitasDeUnPaciente()
 void Interfaz::mostrarTodasLasCitasDelHospital()
 {
 	cout << hospital->getListaDeCitas()->mostrarCitas();
+	pausarYLimpiar();
 }
