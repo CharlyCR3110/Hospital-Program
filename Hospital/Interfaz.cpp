@@ -73,6 +73,7 @@ int Interfaz::menuEditarEstudianteInternacional()
 	cout << "10) Regresar" << endl;
 	cout << "Ingrese una opcion: ";
 	cin >> opcion;
+	return opcion;
 }
 
 int Interfaz::menuEditarPacienteProfesorConPropiedad()
