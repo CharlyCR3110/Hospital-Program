@@ -1,5 +1,6 @@
 #pragma once
 #include "SaludUni.h"
+#include "Utiles.h"
 class Interfaz
 {	
 public:
