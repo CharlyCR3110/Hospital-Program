@@ -249,3 +249,24 @@ bool ListaDePacientes::existePaciente(string identificacion)
 	}
 	return false;
 }
+
+string ListaDePacientes::mostrarEstInternacionalesExiliados()
+{
+	//estInternacional cuya condicion sea exiliado
+	stringstream ss;
+	if (!isEmpty()) {
+		NodoPaciente* aux = head;
+		while (aux != NULL)
+		{
+			if (aux->getPaciente()->getTipo() == "Internacional" && aux->getPaciente()->getCondicion() == "Exiliado")
+			{
+				ss << aux->getPaciente()->toString() << endl;
+			}
+			aux = aux->getSiguiente();
+		}
+	}
+	else {
+		ss << "No hay estudiantes registrados" << endl;
+	}
+	return ss.str();
+}

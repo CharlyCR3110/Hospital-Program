@@ -25,5 +25,6 @@ public:
 	string mostrarPacientes();
 	string buscarYMostrarPaciente(string);
 	bool existePaciente(string);
+	string mostrarEstInternacionalesExiliados();
 };
 
