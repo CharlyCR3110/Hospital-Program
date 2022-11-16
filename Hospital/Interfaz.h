@@ -5,5 +5,6 @@ class Interfaz
 	static int menuMantenimiento();
 	static int menuMantenimientoPacientes();
 	static void menuEditarPaciente();
+	static int menuEditarEstudianteNacional();
 };
 
