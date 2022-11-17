@@ -14,7 +14,9 @@ Taxi::~Taxi()
 
 double Taxi::getCostoDelViaje()
 {
-	return costoDelViaje;
+	
+	return cobroTaxi::calcularCosto(this->getKilometrosRecorridos(), this->getNumeroDePasajeros());
+
 }
 
 int Taxi::getNumeroDePasajeros()
@@ -36,7 +38,7 @@ string Taxi::toString()
 {
 	stringstream ss;
 	ss << Transporte::toString();
-	ss << "Costo del viaje: " << costoDelViaje << endl;
+	ss << "Costo del viaje: " << getCostoDelViaje() << endl;
 	ss << "Numero de pasajeros: " << numeroDePasajeros << endl;
 	return ss.str();
 }
