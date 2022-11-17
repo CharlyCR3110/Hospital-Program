@@ -1271,3 +1271,27 @@ void Interfaz::modificarAmbulancia()
 	}
 	pausarYLimpiar();
 }
+//matenimineto de taxis
+void Interfaz::agregarTaxi()
+{
+	string placa, marca, volverAIntentar = "";
+	bool done = false;
+	do {
+		cout << "Digite el numero de placa: ";
+		cin >> placa;
+		if (hospital->getListaDeTransportes()->existeTransporte(placa)) {
+			cout << "Ya existe un vehiculo con esa placa" << endl;
+			pausarYLimpiar();
+			cout << "Intente con una placa diferente" << endl;
+			pausarYLimpiar();
+			done = false;
+		}
+		else {
+			done = true;
+		}
+	} while (!done);
+	cout << "Digite la marca: ";
+	cin >> marca;
+	hospital->getListaDeTransportes()->insertarTransporte(new Taxi(placa, marca));
+	pausarYLimpiar();
+}

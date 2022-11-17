@@ -49,4 +49,6 @@ public:
 	static void agregarAmbulancia();
 	static void eliminarAmbulancia();
 	static void modificarAmbulancia();
+	//menu matenimineto de taxis
+	static void agregarTaxi();
 };
