@@ -299,6 +299,7 @@ void Controlador::controladorBusquedaEspecifica()
 			break;
 		case 2:
 			Interfaz::buscarProfesor();
+			break;
 		case 3:
 			Interfaz::buscarMedico();
 			break;
