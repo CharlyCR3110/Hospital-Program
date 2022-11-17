@@ -41,4 +41,6 @@ public:
 	static void agregarPaciente();
 	static void eliminarPaciente();
 	static void modificarPaciente();
+	//menu mantenimineto de medicos
+	static void agregarMedico();
 };

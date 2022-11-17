@@ -961,3 +961,40 @@ void Interfaz::modificarPaciente()
 	} while (!done);
 	pausarYLimpiar();
 }
+
+void Interfaz::agregarMedico()
+{
+	string nombre, apellido, universidad, cedula, especialidad, numeroDeTelefono = "";
+	int edad = 0;
+	bool done = false;
+	cout << "Digite el nombre: ";
+	cin >> nombre;
+	cout << "Digite el apellido: ";
+	cin >> apellido;
+	cout << "Digite la edad: ";
+	cin >> edad;
+	cout << "Digite la cedula: ";
+	cin >> cedula;
+	cout << "Digite la especialidad: ";
+	cin >> especialidad;
+	cout << "Digite el numero telefonico: ";
+	cin >> numeroDeTelefono;
+
+	do {
+		cout << "Digite la cedula: ";
+		cin >> cedula;
+		if (hospital->getListaDeMedicos()->buscarMedico(cedula) == NULL) {
+			hospital->getListaDeMedicos()->insertarMedico(new Medico(nombre, apellido, edad, cedula, especialidad, numeroDeTelefono));
+			cout << "Medico agregado" << endl;
+			done = true;
+		}
+		else {
+			cout << "Ya existe un medico con esa cedula registrado en el sistema" << endl;
+			pausarYLimpiar();
+			cout << "Intente con un numero de cedula diferente" << endl;
+			pausarYLimpiar();
+			done = false;
+		}
+	} while (!done);
+	pausarYLimpiar();
+}
