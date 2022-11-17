@@ -53,4 +53,6 @@ public:
 	static void agregarTaxi();
 	static void eliminarTaxi();
 	static void modificarTaxi();
+	//menu busquedas
+	static void mostrarTodosLosPacientes(); //case 1
 };

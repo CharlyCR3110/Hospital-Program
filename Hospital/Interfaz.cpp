@@ -1382,3 +1382,9 @@ void Interfaz::modificarTaxi()
 		pausarYLimpiar();
 	}
 }
+
+void Interfaz::mostrarTodosLosPacientes()
+{
+	cout << hospital->getListaDePacientes()->mostrarPacientes();
+	pausarYLimpiar();
+}
