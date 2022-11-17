@@ -20,6 +20,7 @@ public:
 	//globales
 	static void regresar();
 	static void opcionInvalida();
+	static void salir();
 	//opciones del menu cita
 	static void agregarCita();
 	static void buscarCita();

@@ -94,6 +94,11 @@ void Interfaz::opcionInvalida()
 	cout << "Opcion invalida" << endl;
 	pausarYLimpiar();
 }
+void Interfaz::salir()
+{
+	cout << "Saliendo..." << endl;
+	pausarYLimpiar();
+}
 //menu cita
 void Interfaz::agregarCita()
 {
@@ -1399,7 +1404,7 @@ int Interfaz::menuBusquedasEspecifica()
 	cout << "6) Regresar" << endl;
 	cout << "Ingrese una opcion: ";
 	cin >> opcion;
-	return 0;
+	return opcion;
 }
 
 void Interfaz::buscarEstudiante()
