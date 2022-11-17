@@ -258,7 +258,7 @@ string ListaDePacientes::mostrarEstInternacionalesExiliados()
 		NodoPaciente* aux = head;
 		while (aux != NULL)
 		{
-			if (aux->getPaciente()->getTipo() == "Internacional" && aux->getPaciente()->getCondicion() == "Exiliado")
+			if (aux->getPaciente()->getTipo() == "Internacional" && ( aux->getPaciente()->getCondicion() == "Exiliado" || aux->getPaciente()->getCondicion() == "exiliado"))
 			{
 				ss << aux->getPaciente()->toString() << endl;
 			}
