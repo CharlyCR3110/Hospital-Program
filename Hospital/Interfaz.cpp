@@ -1518,3 +1518,10 @@ void Interfaz::mostrarAmbulanciasOcupadas()
 	cout << hospital->getListaDeTransportes()->mostrarAmbulanciasOcupadas() << endl;
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarTresMejoresInterinos()
+{
+	cout << "Ambulancias ocupadas: " << endl;
+	cout << hospital->getListaDeTransportes()->mostrarAmbulanciasOcupadas() << endl;
+	pausarYLimpiar();
+}
