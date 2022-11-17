@@ -697,7 +697,7 @@ void Interfaz::modificarPaciente()
 		if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
 			if (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Nacional") {
 				do {
-					opcionEditarPaciente << menuEditarEstudianteNacional();
+					opcionEditarPaciente = menuEditarEstudianteNacional();
 					pausarYLimpiar();
 					switch (opcionEditarPaciente) {
 					case 1:
@@ -760,8 +760,7 @@ void Interfaz::modificarPaciente()
 			}
 			else if (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Internacional") {
 				do {
-					cout << menuEditarEstudianteInternacional();
-					cin >> opcionEditarPaciente;
+					opcionEditarPaciente = menuEditarEstudianteInternacional();
 					pausarYLimpiar();
 					switch (opcionEditarPaciente) {
 					case 1:
@@ -830,8 +829,7 @@ void Interfaz::modificarPaciente()
 			}
 			else if (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Con Propiedad") {
 				do {
-					cout << menuEditarPacienteProfesorConPropiedad();
-					cin >> opcionEditarPaciente;
+					opcionEditarPaciente = menuEditarPacienteProfesorConPropiedad();
 					pausarYLimpiar();
 					switch (opcionEditarPaciente) {
 					case 1:
@@ -888,8 +886,7 @@ void Interfaz::modificarPaciente()
 			}
 			else {
 				do {
-					cout << menuEditarPacienteProfesorInterino();
-					cin >> opcionEditarPaciente;
+					opcionEditarPaciente = menuEditarPacienteProfesorInterino();
 					pausarYLimpiar();
 					switch (opcionEditarPaciente) {
 					case 1:
