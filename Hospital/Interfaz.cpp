@@ -998,3 +998,35 @@ void Interfaz::agregarMedico()
 	} while (!done);
 	pausarYLimpiar();
 }
+
+void Interfaz::eliminarMedico()
+{
+	string identificacion, volverAIntentar = "";
+	bool done = false;
+	do {
+		cout << "Digite el numero de cedula del medico a eliminar: ";
+		cin >> identificacion;
+		if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
+			hospital->getListaDeMedicos()->eliminarMedico(identificacion);
+			cout << "Medico eliminado" << endl;
+			done = true;
+		}
+		else {
+			cout << "El medico no existe" << endl;
+			pausarYLimpiar();
+			cout << "Desea intentarlo de nuevo? (si/no): ";
+			cin >> volverAIntentar;
+			if (volverAIntentar == "si" || volverAIntentar == "Si") {
+				done = false;
+			}
+			else if (volverAIntentar == "no" || volverAIntentar == "No") {
+				done = true;
+			}
+			else {
+				cout << "Opcion invalida" << endl;
+				done = true;
+			}
+		}
+	} while (!done);
+	pausarYLimpiar();
+}
