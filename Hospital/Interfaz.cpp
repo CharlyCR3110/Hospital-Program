@@ -1310,3 +1310,75 @@ void Interfaz::eliminarTaxi()
 	}
 	pausarYLimpiar();
 }
+
+void Interfaz::modificarTaxi()
+{
+	string placa, placaNueva, volverAIntentar, marca = "";
+	double kilometrosRecorridos = 0;
+	int opcionEditarTaxi = 0;
+	bool done = false;
+	//Modificar Taxi
+	cout << "Digite la placa del taxi a modificar: ";
+	cin >> placa;
+	if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+		do {
+			cout << menuEditarTaxi();
+			cin >> opcionEditarTaxi;
+			pausarYLimpiar();
+			switch (opcionEditarTaxi) {
+			case 1:
+				//Modificar placa
+				do {
+					cout << "Digite la nueva placa: ";
+					cin >> placaNueva;
+					if (hospital->getListaDeTransportes()->existeTransporte(placaNueva)) {
+						cout << "Ya existe una vehiculo con esa placa" << endl;
+						pausarYLimpiar();
+						cout << "Desea intentarlo de nuevo? (si/no): ";
+						cin >> volverAIntentar;
+						if (volverAIntentar == "si" || volverAIntentar == "Si") {
+							done = false;
+						}
+						else if (volverAIntentar == "no" || volverAIntentar == "No") {
+							done = true;
+						}
+						else {
+							cout << "Opcion invalida" << endl;
+							done = true;
+						}
+					}
+					else {
+						hospital->getListaDeTransportes()->getTransporte(placa)->setPlaca(placaNueva);
+						done = true;
+					}
+				} while (!done);
+				break;
+			case 2:
+				//Modificar marca
+				cout << "Digite la nueva marca: ";
+				cin >> marca;
+				hospital->getListaDeTransportes()->getTransporte(placa)->setMarca(marca);
+				break;
+			case 3:
+				//Modificar kilometros recorridos
+				cout << "Digite los nuevos kilometros recorridos: ";
+				cin >> kilometrosRecorridos;
+				hospital->getListaDeTransportes()->getTransporte(placa)->setKilometrosRecorridos(kilometrosRecorridos);
+				break;
+			case 4:
+				//Regresar
+				cout << "REGRESANDO..." << endl;
+				pausarYLimpiar();
+				break;
+			default:
+				cout << "Opcion invalida" << endl;
+				pausarYLimpiar();
+				break;
+			}
+		} while (opcionEditarTaxi != 4);
+	}
+	else {
+		cout << "No existe un taxi con esa placa" << endl;
+		pausarYLimpiar();
+	}
+}

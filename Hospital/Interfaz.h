@@ -52,4 +52,5 @@ public:
 	//menu matenimineto de taxis
 	static void agregarTaxi();
 	static void eliminarTaxi();
+	static void modificarTaxi();
 };
