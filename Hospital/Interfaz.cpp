@@ -931,8 +931,6 @@ void Interfaz::agregarMedico()
 	cin >> apellido;
 	cout << "Digite la edad: ";
 	cin >> edad;
-	cout << "Digite la cedula: ";
-	cin >> cedula;
 	cout << "Digite la especialidad: ";
 	cin >> especialidad;
 	cout << "Digite el numero telefonico: ";
