@@ -15,6 +15,19 @@ int Interfaz::menuPrincipal()
 	return opcion;
 }
 
+int Interfaz::menuCita()
+{
+	int opcion = 0;
+	cout << "1) Citas" << endl;
+	cout << "2) Mantenimiento" << endl;
+	cout << "3) Busquedas" << endl;
+	cout << "4) Extra" << endl;
+	cout << "5) Salir" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
 int Interfaz::menuMantenimiento()
 {
 	int opcion = 0;
@@ -1191,9 +1204,6 @@ void Interfaz::modificarAmbulancia()
 	if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Ambulancia") {
 		do {
 			opcionEditarAmbulancia = menuEditarAmbulancia();
-			//ss << "1) Numero de placa" << endl;
-			//ss << "2) Marca" << endl;
-			//ss << "3) Codigo" << endl;
 			switch (opcionEditarAmbulancia) {
 			case 1:
 				do {

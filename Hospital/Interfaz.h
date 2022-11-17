@@ -12,6 +12,7 @@ class Interfaz
 public:
 	static SaludUni* hospital;
 	static int menuPrincipal();
+	static int menuCita();
 	static int menuMantenimiento();
 	static int menuMantenimientoPacientes();
 	static void menuEditarPaciente();
