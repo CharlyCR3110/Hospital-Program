@@ -62,4 +62,5 @@ public:
 	static void mostrarDatosDeLaEmpresa();
 	static void mostrarCostoDeLosTaxis();
 	static void mostrarPersonaConMasCitas();
+	static void mostrarFechaQueHanHabidoMasCitas();
 };
