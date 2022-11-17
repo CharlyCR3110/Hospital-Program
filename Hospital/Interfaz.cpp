@@ -591,8 +591,10 @@ void Interfaz::agregarPaciente()
 	}
 	else {
 		cout << "Tipo de paciente invalido" << endl;
+		cout << "Saliendo..." << endl;
 		pausarYLimpiar();
 	}
+	pausarYLimpiar();
 }
 
 void Interfaz::eliminarPaciente()
@@ -1359,6 +1361,7 @@ void Interfaz::modificarTaxi()
 		cout << "No existe un taxi con esa placa" << endl;
 		pausarYLimpiar();
 	}
+	pausarYLimpiar();
 }
 
 int Interfaz::menuBusquedas()
@@ -1461,6 +1464,7 @@ void Interfaz::buscarAmbulancia()
 	else {
 		cout << "No existe una ambulancia con ese codigos" << endl;
 	}
+	pausarYLimpiar();
 }
 
 void Interfaz::buscarTaxi()
