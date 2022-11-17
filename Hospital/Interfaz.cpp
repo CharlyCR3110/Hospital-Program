@@ -1412,11 +1412,11 @@ void Interfaz::buscarEstudiante()
 	string identificacion = "";
 	cout << "Digite la identificacion del estudiante: ";
 	cin >> identificacion;
-	if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+	if (hospital->getListaDePacientes()->existePaciente(identificacion) && (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Nacional" || hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Internacional")) {
 		cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
 	}
 	else {
-		cout << "No existe un paciente con esa identificacion" << endl;
+		cout << "No existe un estudiante con esa identificacion" << endl;
 	}
 	pausarYLimpiar();
 }
@@ -1426,7 +1426,7 @@ void Interfaz::buscarProfesor()
 	string identificacion = "";
 	cout << "Digite la identificacion del profesor: ";
 	cin >> identificacion;
-	if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+	if (hospital->getListaDePacientes()->existePaciente(identificacion) && (hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Con Propiedad" || hospital->getListaDePacientes()->buscarPaciente(identificacion)->getTipo() == "Interino")) {
 		cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
 	}
 	else {
