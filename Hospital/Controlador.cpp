@@ -238,3 +238,53 @@ void Controlador::controladorBusquedaEspecifica()
 		}
 	} while (opcion != 6);
 }
+
+void Controlador::controladorExtra()
+{
+	// "1) Reportar de los datos de la empresa." << endl;
+	// "2) Reportar el monto total a pagar por parte del hospital por concepto de taxis." << endl;
+	// "3) Reporte de la persona que ha realizado mas citas en el hospital." << endl;
+	// "4) Reportar la fecha en que han asistido mayor numero de pacientes." << endl;
+	// "5) Reportar el tipo de transporte mas utilizado por los paciente (propio, taxi, ambulancia)" << endl;
+	// "6) Reportar lista de ambulancias que se encuentran ocupadas." << endl;
+	// "7) Reportar lista de tres profesores interinos con la mejor calificacion." << endl;
+	// "8) Reportar lista de todos los estudiantes internacionales que tengan condicion de exiliado" << endl;
+	// "9) Regresar" << endl;
+	int opcion = 0;
+	do {
+		opcion = Interfaz::menuExtra();
+		switch (opcion)
+		{
+		case 1:
+			Interfaz::mostrarDatosDeLaEmpresa();
+			break;
+		case 2:
+			Interfaz::mostrarCostoDeLosTaxis();
+			break;
+		case 3:
+			Interfaz::mostrarPersonaConMasCitas();
+			break;
+		case 4:
+			Interfaz::mostrarFechaQueHanHabidoMasCitas();
+			break;
+		case 5:
+			Interfaz::mostrarTipoDeTransporteMasUtilizado();
+			break;
+		case 6:
+			Interfaz::mostrarAmbulanciasOcupadas();
+			break;
+		case 7:
+			Interfaz::mostrarTresMejoresInterinos();
+			break;
+		case 8:
+			Interfaz::mostrarEstInternacionales();
+			break;
+		case 9:
+			Interfaz::regresar();
+			break;
+		default:
+			Interfaz::opcionInvalida();
+			break;
+		}
+	} while (opcion != 9);
+}

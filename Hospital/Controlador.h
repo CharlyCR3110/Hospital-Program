@@ -18,7 +18,8 @@ public:
 	//case 3 (menu busquedas)
 	void controladorBusquedas();
 	void controladorBusquedaEspecifica();
-	
+	//case 5 (menu extra)
+	void controladorExtra();
 	void controladorPrincipal(int);//main switch
 };
 
