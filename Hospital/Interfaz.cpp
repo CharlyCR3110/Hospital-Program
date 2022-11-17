@@ -1505,3 +1505,9 @@ void Interfaz::mostrarFechaQueHanHabidoMasCitas()
 	cout << "La fecha con mas citas es el: " << hospital->getListaDeCitas()->fechaConMasCitas()->toString() << endl;
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarTipoDeTransporteMasUtilizado()
+{
+	cout << hospital->getListaDeTransportes()->tipoDeTransporteMasUtilizado();
+	pausarYLimpiar();
+}

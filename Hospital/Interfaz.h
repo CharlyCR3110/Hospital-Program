@@ -63,4 +63,5 @@ public:
 	static void mostrarCostoDeLosTaxis();
 	static void mostrarPersonaConMasCitas();
 	static void mostrarFechaQueHanHabidoMasCitas();
+	static void mostrarTipoDeTransporteMasUtilizado();
 };
