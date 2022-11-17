@@ -18,103 +18,20 @@ int Interfaz::menuPrincipal()
 int Interfaz::menuCita()
 {
 	int opcion = 0;
-	cout << "1) Citas" << endl;
-	cout << "2) Mantenimiento" << endl;
-	cout << "3) Busquedas" << endl;
-	cout << "4) Extra" << endl;
-	cout << "5) Salir" << endl;
+	cout << "1) Agregar cita" << endl;
+	cout << "2) Buscar cita" << endl;
+	cout << "3) Eliminar cita" << endl;
+	cout << "4) Mostrar citas de un paciente" << endl;
+	cout << "5) Mostrar todas las citas" << endl;
+	cout << "6) Regresar" << endl;
 	cout << "Ingrese una opcion: ";
 	cin >> opcion;
 	return opcion;
 }
 
-int Interfaz::menuMantenimiento()
-{
-	int opcion = 0;
-	cout << "1) Mantenimiento de Pacientes" << endl;
-	cout << "2) Mantenimiento de Medicos" << endl;
-	cout << "3) Mantenimiento de Ambulancias" << endl;
-	cout << "4) Mantenimiento de Taxis" << endl;
-	cout << "5) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
 
-int Interfaz::menuMantenimientoPacientes()
-{
-	int opcion = 0;
-	cout << "1) Agregar Paciente" << endl;
-	cout << "2) Eliminar Paciente" << endl;
-	cout << "3) Modificar Paciente" << endl;
-	cout << "4) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
 
-void Interfaz::menuEditarPaciente()
-{
-	cout << "1) Nombre" << endl;
-	cout << "2) Apellido" << endl;
-	cout << "3) Edad" << endl;
-	cout << "4) Universidad" << endl;
-}
 
-int Interfaz::menuEditarEstudianteNacional()
-{
-	int opcion = 0;
-	menuEditarPaciente();
-	cout << "5) Codigo de carrera" << endl;
-	cout << "6) Ultimo nivel cursado" << endl;
-	cout << "7) Numero de telefono" << endl;
-	cout << "8) Estado" << endl;
-	cout << "9) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuEditarEstudianteInternacional()
-{
-	int opcion = 0;
-	menuEditarPaciente();
-	cout << "5) Codigo de carrera" << endl;
-	cout << "6) Ultimo nivel cursado" << endl;
-	cout << "7) Numero de telefono" << endl;
-	cout << "8) Nacionalidad" << endl;
-	cout << "9) Condicion" << endl;
-	cout << "10) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuEditarPacienteProfesorConPropiedad()
-{
-	int opcion = 0;
-	menuEditarPaciente();
-	cout << "5) Titulo" << endl;
-	cout << "6) Anios laborados" << endl;
-	cout << "7) Numero de propiedad" << endl;
-	cout << "8) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuEditarPacienteProfesorInterino()
-{
-	int opcion = 0;
-	menuEditarPaciente();
-	cout << "5) Titulo" << endl;
-	cout << "6) Anios laborados" << endl;
-	cout << "7) Calificacion" << endl;
-	cout << "8) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
 
 int Interfaz::menuMantenimientoMedicos()
 {
@@ -161,74 +78,6 @@ int Interfaz::menuEditarAmbulancia()
 	cout << "2) Marca" << endl;
 	cout << "3) Codigo" << endl;
 	cout << "4) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuMantenimientoTaxis()
-{
-	int opcion = 0;
-	cout << "1) Agregar Taxi" << endl;
-	cout << "2) Eliminar Taxi" << endl;
-	cout << "3) Modificar Taxi" << endl;
-	cout << "4) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuEditarTaxi()
-{
-	int opcion = 0;
-	cout << "1) Numero de placa" << endl;
-	cout << "2) Marca" << endl;
-	cout << "3) Codigo" << endl;
-	cout << "4) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuBusquedas()
-{
-	int opcion = 0;
-	cout << "1) Mostrar Pacientes" << endl;
-	cout << "2) Mostrar Medicos" << endl;
-	cout << "3) Mostrar Transportes" << endl;
-	cout << "4) Buscar Elemento Especifico" << endl;
-	cout << "5) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return opcion;
-}
-
-int Interfaz::menuBusquedasEspecifica()
-{
-	int opcion = 0;
-	cout << "1) Buscar Estudiante" << endl;
-	cout << "2) Buscar Profesor" << endl;
-	cout << "3) Buscar Medico" << endl;
-	cout << "4) Buscar Ambulancia" << endl;
-	cout << "5) Buscar Taxi" << endl;
-	cout << "6) Regresar" << endl;
-	cout << "Ingrese una opcion: ";
-	cin >> opcion;
-	return 0;
-}
-
-int Interfaz::menuExtra()
-{
-	int opcion = 0;
-	cout << "1) Reportar de los datos de la empresa." << endl;
-	cout << "2) Reportar el monto total a pagar por parte del hospital por concepto de taxis." << endl;
-	cout << "3) Reporte de la persona que ha realizado mas citas en el hospital." << endl;
-	cout << "4) Reportar la fecha en que han asistido mayor numero de pacientes." << endl;
-	cout << "5) Reportar el tipo de transporte mas utilizado por los paciente (propio, taxi, ambulancia)" << endl;
-	cout << "6) Reportar lista de ambulancias que se encuentran ocupadas." << endl;
-	cout << "7) Reportar lista de tres profesores interinos con la mejor calificacion." << endl;
-	cout << "8) Reportar lista de todos los estudiantes internacionales que tengan condicion de exiliado" << endl;
-	cout << "9) Regresar" << endl;
 	cout << "Ingrese una opcion: ";
 	cin >> opcion;
 	return opcion;
@@ -515,6 +364,95 @@ void Interfaz::mostrarTodasLasCitasDelHospital()
 	pausarYLimpiar();
 }
 //mantenimiento pacientes
+//main
+int Interfaz::menuMantenimiento()
+{
+	int opcion = 0;
+	cout << "1) Mantenimiento de Pacientes" << endl;
+	cout << "2) Mantenimiento de Medicos" << endl;
+	cout << "3) Mantenimiento de Ambulancias" << endl;
+	cout << "4) Mantenimiento de Taxis" << endl;
+	cout << "5) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+//pacientes
+int Interfaz::menuMantenimientoPacientes()
+{
+	int opcion = 0;
+	cout << "1) Agregar Paciente" << endl;
+	cout << "2) Eliminar Paciente" << endl;
+	cout << "3) Modificar Paciente" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+//auxiliares
+void Interfaz::menuEditarPaciente()
+{
+	cout << "1) Nombre" << endl;
+	cout << "2) Apellido" << endl;
+	cout << "3) Edad" << endl;
+	cout << "4) Universidad" << endl;
+}
+
+int Interfaz::menuEditarEstudianteNacional()
+{
+	int opcion = 0;
+	menuEditarPaciente();
+	cout << "5) Codigo de carrera" << endl;
+	cout << "6) Ultimo nivel cursado" << endl;
+	cout << "7) Numero de telefono" << endl;
+	cout << "8) Estado" << endl;
+	cout << "9) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
+int Interfaz::menuEditarEstudianteInternacional()
+{
+	int opcion = 0;
+	menuEditarPaciente();
+	cout << "5) Codigo de carrera" << endl;
+	cout << "6) Ultimo nivel cursado" << endl;
+	cout << "7) Numero de telefono" << endl;
+	cout << "8) Nacionalidad" << endl;
+	cout << "9) Condicion" << endl;
+	cout << "10) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
+int Interfaz::menuEditarPacienteProfesorConPropiedad()
+{
+	int opcion = 0;
+	menuEditarPaciente();
+	cout << "5) Titulo" << endl;
+	cout << "6) Anios laborados" << endl;
+	cout << "7) Numero de propiedad" << endl;
+	cout << "8) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
+int Interfaz::menuEditarPacienteProfesorInterino()
+{
+	int opcion = 0;
+	menuEditarPaciente();
+	cout << "5) Titulo" << endl;
+	cout << "6) Anios laborados" << endl;
+	cout << "7) Calificacion" << endl;
+	cout << "8) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+//
 void Interfaz::agregarPaciente()
 {
 	string nombre = "";
@@ -1282,6 +1220,31 @@ void Interfaz::modificarAmbulancia()
 	pausarYLimpiar();
 }
 //matenimineto de taxis
+
+int Interfaz::menuMantenimientoTaxis()
+{
+	int opcion = 0;
+	cout << "1) Agregar Taxi" << endl;
+	cout << "2) Eliminar Taxi" << endl;
+	cout << "3) Modificar Taxi" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
+int Interfaz::menuEditarTaxi()
+{
+	int opcion = 0;
+	cout << "1) Numero de placa" << endl;
+	cout << "2) Marca" << endl;
+	cout << "3) Codigo" << endl;
+	cout << "4) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
 void Interfaz::agregarTaxi()
 {
 	string placa, marca, volverAIntentar = "";
@@ -1393,6 +1356,19 @@ void Interfaz::modificarTaxi()
 	}
 }
 
+int Interfaz::menuBusquedas()
+{
+	int opcion = 0;
+	cout << "1) Mostrar Pacientes" << endl;
+	cout << "2) Mostrar Medicos" << endl;
+	cout << "3) Mostrar Transportes" << endl;
+	cout << "4) Buscar Elemento Especifico" << endl;
+	cout << "5) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
+}
+
 void Interfaz::mostrarTodosLosPacientes()
 {
 	cout << hospital->getListaDePacientes()->mostrarPacientes();
@@ -1409,6 +1385,21 @@ void Interfaz::mostrarTodosLosTransportes()
 {
 	cout << hospital->getListaDeTransportes()->mostrarTransportes();
 	pausarYLimpiar();
+}
+
+//busquedas
+int Interfaz::menuBusquedasEspecifica()
+{
+	int opcion = 0;
+	cout << "1) Buscar Estudiante" << endl;
+	cout << "2) Buscar Profesor" << endl;
+	cout << "3) Buscar Medico" << endl;
+	cout << "4) Buscar Ambulancia" << endl;
+	cout << "5) Buscar Taxi" << endl;
+	cout << "6) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return 0;
 }
 
 void Interfaz::buscarEstudiante()
@@ -1479,6 +1470,23 @@ void Interfaz::buscarTaxi()
 		cout << "No existe un taxi con esa placa" << endl;
 	}
 	pausarYLimpiar();
+}
+//extra menu
+int Interfaz::menuExtra()
+{
+	int opcion = 0;
+	cout << "1) Reportar de los datos de la empresa." << endl;
+	cout << "2) Reportar el monto total a pagar por parte del hospital por concepto de taxis." << endl;
+	cout << "3) Reporte de la persona que ha realizado mas citas en el hospital." << endl;
+	cout << "4) Reportar la fecha en que han asistido mayor numero de pacientes." << endl;
+	cout << "5) Reportar el tipo de transporte mas utilizado por los paciente (propio, taxi, ambulancia)" << endl;
+	cout << "6) Reportar lista de ambulancias que se encuentran ocupadas." << endl;
+	cout << "7) Reportar lista de tres profesores interinos con la mejor calificacion." << endl;
+	cout << "8) Reportar lista de todos los estudiantes internacionales que tengan condicion de exiliado" << endl;
+	cout << "9) Regresar" << endl;
+	cout << "Ingrese una opcion: ";
+	cin >> opcion;
+	return opcion;
 }
 
 void Interfaz::mostrarDatosDeLaEmpresa()

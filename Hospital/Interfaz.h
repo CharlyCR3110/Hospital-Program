@@ -13,22 +13,10 @@ public:
 	static SaludUni* hospital;
 	static int menuPrincipal();
 	static int menuCita();
-	static int menuMantenimiento();
-	static int menuMantenimientoPacientes();
-	static void menuEditarPaciente();
-	static int menuEditarEstudianteNacional();
-	static int menuEditarEstudianteInternacional();
-	static int menuEditarPacienteProfesorConPropiedad();
-	static int menuEditarPacienteProfesorInterino();
-	static int menuMantenimientoMedicos();
-	static int menuEditarMedico();
-	static int menuMantenimientoAmbulancias();
-	static int menuEditarAmbulancia();
-	static int menuMantenimientoTaxis();
-	static int menuEditarTaxi();
-	static int menuBusquedas();
-	static int menuBusquedasEspecifica();
-	static int menuExtra();
+
+
+
+
 	//globales
 	static void regresar();
 	static void opcionInvalida();
@@ -39,26 +27,44 @@ public:
 	static void mostrarCitasDeUnPaciente();
 	static void mostrarTodasLasCitasDelHospital();
 	//menu mantenimiento de pacientes
+	//main
+	static int menuMantenimiento();
+	//pacientes
+	static int menuMantenimientoPacientes();
+	//funcionales
 	static void agregarPaciente();
 	static void eliminarPaciente();
 	static void modificarPaciente();
+	//auxiliares para la misma clase vista
+	static void menuEditarPaciente();
+	static int menuEditarEstudianteNacional();
+	static int menuEditarEstudianteInternacional();
+	static int menuEditarPacienteProfesorConPropiedad();
+	static int menuEditarPacienteProfesorInterino();
 	//menu mantenimineto de medicos
+	static int menuMantenimientoMedicos();
+	static int menuEditarMedico();
 	static void agregarMedico();
 	static void eliminarMedico();
 	static void modificarMedico();
 	//menu matenimineto de ambulancias
+	static int menuMantenimientoAmbulancias();
+	static int menuEditarAmbulancia();
 	static void agregarAmbulancia();
 	static void eliminarAmbulancia();
 	static void modificarAmbulancia();
 	//menu matenimineto de taxis
+	static int menuMantenimientoTaxis();
+	static int menuEditarTaxi();
 	static void agregarTaxi();
 	static void eliminarTaxi();
 	static void modificarTaxi();
 	//menu busquedas
+	static int menuBusquedas();
 	static void mostrarTodosLosPacientes(); //case 1
 	static void mostrarTodosLosMedicos(); //case 2
 	static void mostrarTodosLosTransportes(); //case 3
-	static void busquedaEspecifica(); //case 4
+	static int menuBusquedasEspecifica(); //case 4
 	//busque especifica 
 	static void buscarEstudiante();
 	static void buscarProfesor();
@@ -66,6 +72,7 @@ public:
 	static void buscarAmbulancia();
 	static void buscarTaxi();
 	//extra menu
+	static int menuExtra();
 	static void mostrarDatosDeLaEmpresa();
 	static void mostrarCostoDeLosTaxis();
 	static void mostrarPersonaConMasCitas();
