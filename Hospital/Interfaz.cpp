@@ -1388,3 +1388,9 @@ void Interfaz::mostrarTodosLosPacientes()
 	cout << hospital->getListaDePacientes()->mostrarPacientes();
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarTodosLosMedicos()
+{
+	cout << hospital->getListaDeMedicos()->mostrarMedicos();
+	pausarYLimpiar();
+}
