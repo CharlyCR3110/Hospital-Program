@@ -1401,83 +1401,72 @@ void Interfaz::mostrarTodosLosTransportes()
 	pausarYLimpiar();
 }
 
-void Interfaz::busquedaEspecifica()
+void Interfaz::buscarEstudiante()
 {
-	int opcionBusquedasEspecifica = 0;
-	string identificacion, codigo, placa = "";
-
-	opcionBusquedasEspecifica = menuBusquedasEspecifica();
+	string identificacion = "";
+	cout << "Digite la identificacion del estudiante: ";
+	cin >> identificacion;
+	if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+		cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
+	}
+	else {
+		cout << "No existe un paciente con esa identificacion" << endl;
+	}
 	pausarYLimpiar();
-	switch (opcionBusquedasEspecifica) {
-	case 1:
-		//Buscar estudiante
-		cout << "Digite la identificacion del estudiante: ";
-		cin >> identificacion;
-		if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
-			cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
-		}
-		else {
-			cout << "No existe un paciente con esa identificacion" << endl;
-		}
-		pausarYLimpiar();
-		break;
-	case 2:
-		//buscar profesor
-		cout << "Digite la identificacion del profesor: ";
-		cin >> identificacion;
-		if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
-			cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
-		}
-		else {
-			cout << "No existe un medico con esa identificacion" << endl;
-		}
-		pausarYLimpiar();
-		break;
-	case 3:
-		//buscar medico
-		cout << "Digite la identificacion del medico: ";
-		cin >> identificacion;
-		if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
-			cout << hospital->getListaDeMedicos()->buscarMedico(identificacion)->toString() << endl;
-		}
-		else {
-			cout << "No existe un medico con esa identificacion" << endl;
-		}
-		pausarYLimpiar();
-		break;
-	case 4:
-		//buscar ambulancia
-		cout << "Digite el codigo de la ambulancia: ";
-		cin >> codigo;
-		if (hospital->getListaDeTransportes()->existeTransporte(codigo)) {
-			cout << hospital->getListaDeTransportes()->getAmbulancia(codigo)->toString() << endl;
-		}
-		else {
-			cout << "No existe una ambulancia con ese codigos" << endl;
-		}
-		pausarYLimpiar();
-		break;
-	case 5:
-		//buscar taxi
-		cout << "Digite la placa del taxi: ";
-		cin >> placa;
-		if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
-			cout << hospital->getListaDeTransportes()->getTransporte(placa)->toString() << endl;
-		}
-		else {
-			cout << "No existe un taxi con esa placa" << endl;
-		}
-		pausarYLimpiar();
-		break;
-	case 6:
-		//Regresar
-		cout << "REGRESANDO..." << endl;
-		pausarYLimpiar();
-		break;
-	default:
-		cout << "Opcion invalida" << endl;
-		pausarYLimpiar();
-		break;
+}
+
+void Interfaz::buscarProfesor()
+{
+	string identificacion = "";
+	cout << "Digite la identificacion del profesor: ";
+	cin >> identificacion;
+	if (hospital->getListaDePacientes()->existePaciente(identificacion)) {
+		cout << hospital->getListaDePacientes()->buscarPaciente(identificacion)->toString() << endl;
+	}
+	else {
+		cout << "No existe un medico con esa identificacion" << endl;
+	}
+	pausarYLimpiar();
+}
+
+void Interfaz::buscarMedico()
+{
+	string identificacion = "";
+	cout << "Digite la identificacion del medico: ";
+	cin >> identificacion;
+	if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
+		cout << hospital->getListaDeMedicos()->buscarMedico(identificacion)->toString() << endl;
+	}
+	else {
+		cout << "No existe un medico con esa identificacion" << endl;
+	}
+	pausarYLimpiar();
+
+}
+
+void Interfaz::buscarAmbulancia()
+{
+	string codigo = "";
+	cout << "Digite el codigo de la ambulancia: ";
+	cin >> codigo;
+	if (hospital->getListaDeTransportes()->existeTransporte(codigo)) {
+		cout << hospital->getListaDeTransportes()->getAmbulancia(codigo)->toString() << endl;
+	}
+	else {
+		cout << "No existe una ambulancia con ese codigos" << endl;
+	}
+}
+
+void Interfaz::buscarTaxi()
+{
+	string placa = "";
+	cout << "Digite la placa del taxi: ";
+	cin >> placa;
+	if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+		cout << hospital->getListaDeTransportes()->getTransporte(placa)->toString() << endl;
+	}
+	else {
+		cout << "No existe un taxi con esa placa" << endl;
 	}
 	pausarYLimpiar();
 }
