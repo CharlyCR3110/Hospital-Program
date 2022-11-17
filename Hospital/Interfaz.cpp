@@ -1525,3 +1525,10 @@ void Interfaz::mostrarTresMejoresInterinos()
 	cout << hospital->getListaDeTransportes()->mostrarAmbulanciasOcupadas() << endl;
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarEstInternacionales()
+{
+	cout << "Exiliados: " << endl;
+	cout << hospital->getListaDePacientes()->mostrarEstInternacionalesExiliados() << endl;
+	pausarYLimpiar();
+}

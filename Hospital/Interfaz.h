@@ -66,4 +66,5 @@ public:
 	static void mostrarTipoDeTransporteMasUtilizado();
 	static void mostrarAmbulanciasOcupadas();
 	static void mostrarTresMejoresInterinos();
+	static void mostrarEstInternacionales();
 };
