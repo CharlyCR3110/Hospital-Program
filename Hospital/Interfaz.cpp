@@ -218,38 +218,14 @@ void Interfaz::agregarCita()
 			cout << "Ingrese los kilometros totales que se deben recorrer: ";
 			cin >> kilometrosRecorridos;
 			transporte->setKilometrosRecorridos(kilometrosRecorridos);
-			if (paciente != NULL) {
-				cout << paciente->toString();
-			}
-			else {
-				cout << "No hay" << endl;
-			}
-			if (medico != NULL) {
-				cout << medico->toString();
-			}
-			else {
-				cout << "No hay" << endl;
-			}
-			if (transporte != NULL) {
-				cout << transporte->toString();
-			}
-			else {
-				cout << "No hay" << endl;
-			}
-			if (fechaCita != NULL) {
-				cout << fechaCita->toString();
-			}
-			else {
-				cout << "No hay" << endl;
-			}
-			if (horaCita != NULL) {
-				cout << horaCita->toString();
-			}
-			else {
-				cout << "No hay" << endl;
-			}
-			cout << "Tipo de viaje" << endl;
-			hospital->insertarCita(new Cita(paciente, medico, fechaCita, horaCita, transporte, tipoDeViaje));
+
+			Cita* cita = new Cita(paciente, medico, fechaCita, horaCita, transporte, tipoDeViaje);
+			hospital->insertarCita(cita);
+			pausarYLimpiar();
+			cout << "Cita registrada exitosamente" << endl << endl;
+			cout << "GUARDE BIEN EL CODIGO DE LA CITA" << endl << endl;
+			cout << cita->toString();
+			pausarYLimpiar();
 		}
 		else if (tipoTransporte == "Taxi" || tipoTransporte == "taxi") {
 			do {
@@ -275,49 +251,31 @@ void Interfaz::agregarCita()
 			cin >> numeroDePasajeros;
 			transporte->setKilometrosRecorridos(kilometrosRecorridos);
 			transporte->setNumeroDePasajeros(numeroDePasajeros);
-
-			if (paciente != NULL) {
-				cout << paciente->toString();
-			}
-			else {
-				cout << "ERROR PACIENTE" << endl;
-			}
-			if (medico != NULL) {
-				cout << medico->toString();
-			}
-			else {
-				cout << "ERROR MEDICO" << endl;
-			}
-			if (transporte != NULL) {
-				cout << transporte->toString();
-			}
-			else {
-				cout << "ERROR TRASNPORTE" << endl;
-			}
-			if (fechaCita != NULL) {
-				cout << fechaCita->toString();
-			}
-			else {
-				cout << "ERROR FECHA" << endl;
-			}
-			if (horaCita != NULL) {
-				cout << horaCita->toString();
-			}
-			else {
-				cout << "ERROR HORA" << endl;
-			}
-			cout << "Tipo de viaje" << tipoDeViaje << endl;
-			hospital->insertarCita(new Cita(paciente, medico, fechaCita, horaCita, transporte, tipoDeViaje));
+			Cita* cita = new Cita(paciente, medico, fechaCita, horaCita, transporte, tipoDeViaje);
+			hospital->insertarCita(cita);
+			pausarYLimpiar();
+			cout << "Cita registrada exitosamente" << endl << endl;
+			cout << "GUARDE BIEN EL CODIGO DE LA CITA" << endl << endl;
+			cout << cita->toString();
+			pausarYLimpiar();
 		}
 		else {
 			cout << "Opcion invalida" << endl;
 		}
 	}
 	else if (necesitaTransporte == "no" || necesitaTransporte == "No") {
-		hospital->insertarCita(new Cita(paciente, medico, fechaCita, horaCita));
+		Cita* cita = new Cita(paciente, medico, fechaCita, horaCita);
+		hospital->insertarCita(cita);
+		pausarYLimpiar();
+		cout << "Cita registrada exitosamente" << endl << endl;
+		cout << "GUARDE BIEN EL CODIGO DE LA CITA" << endl << endl;
+		cout << cita->toString();
+		pausarYLimpiar();
 	}
 	else {
 		cout << "Opcion invalida" << endl;
+		cout << "Saliendo..." << endl;
+		pausarYLimpiar();
 	}
 }
 
