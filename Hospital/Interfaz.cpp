@@ -232,7 +232,7 @@ void Interfaz::opcionInvalida()
 	cout << "Opcion invalida" << endl;
 	pausarYLimpiar();
 }
-
+//menu cita
 void Interfaz::agregarCita()
 {
 	Paciente* paciente = NULL;
@@ -501,7 +501,7 @@ void Interfaz::mostrarTodasLasCitasDelHospital()
 	cout << hospital->getListaDeCitas()->mostrarCitas();
 	pausarYLimpiar();
 }
-
+//mantenimiento pacientes
 void Interfaz::agregarPaciente()
 {
 	string nombre = "";
@@ -961,7 +961,7 @@ void Interfaz::modificarPaciente()
 	} while (!done);
 	pausarYLimpiar();
 }
-
+//mantenimiento medicos
 void Interfaz::agregarMedico()
 {
 	string nombre, apellido, universidad, cedula, especialidad, numeroDeTelefono = "";
@@ -1106,5 +1106,45 @@ void Interfaz::modificarMedico()
 		}
 		pausarYLimpiar();
 	} while (opcionEditarMedico != 6);
+	pausarYLimpiar();
+}
+
+void Interfaz::agregarAmbulancia()
+{
+	string placa, codigo, marca = "";
+	bool done = false;
+	do {
+		//verificar que no exista otra ambulancia con la misma placa
+		cout << "Digite la placa: ";
+		cin >> placa;
+		if (hospital->getListaDeTransportes()->existeTransporte(placa)) {
+			cout << "Ya existe una vehiculo con esa placa" << endl;
+			pausarYLimpiar();
+			cout << "Intente con una placa diferente" << endl;
+			pausarYLimpiar();
+			done = false;
+		}
+		else {
+			done = true;
+		}
+	} while (!done);
+	cout << "Digite la marca: ";
+	cin >> marca;
+	do {
+		cout << "Digite el codigo de la ambulancia: ";
+		cin >> codigo;
+		if (hospital->getListaDeTransportes()->existeAmbulancia(codigo)) {
+			cout << "Ya existe una ambulancia con ese codigo" << endl;
+			pausarYLimpiar();
+			cout << "Intente con un codigo diferente" << endl;
+			pausarYLimpiar();
+			done = false;
+		}
+		else {
+			done = true;
+		}
+	} while (!done);
+	hospital->getListaDeTransportes()->insertarTransporte(new Ambulancia(placa, marca, 0, codigo, false));
+	cout << "Ambulancia agregada" << endl;
 	pausarYLimpiar();
 }
