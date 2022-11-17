@@ -1493,3 +1493,9 @@ void Interfaz::mostrarCostoDeLosTaxis()
 	cout << hospital->mostrarCostoTotalPorTaxis() << endl;
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarPersonaConMasCitas()
+{
+	cout << hospital->getListaDeCitas()->mostrarPersonaConMasCitas() << endl;
+	pausarYLimpiar();
+}
