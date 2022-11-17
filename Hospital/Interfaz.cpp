@@ -1295,3 +1295,18 @@ void Interfaz::agregarTaxi()
 	hospital->getListaDeTransportes()->insertarTransporte(new Taxi(placa, marca));
 	pausarYLimpiar();
 }
+
+void Interfaz::eliminarTaxi()
+{
+	string placa;
+	cout << "Digite la placa del taxi a eliminar: ";
+	cin >> placa;
+	if (hospital->getListaDeTransportes()->existeTransporte(placa) && hospital->getListaDeTransportes()->getTransporte(placa)->getTipo() == "Taxi") {
+		hospital->getListaDeTransportes()->eliminarTransporte(placa);
+		cout << "Taxi eliminado" << endl;
+	}
+	else {
+		cout << "No existe un taxi con esa placa" << endl;
+	}
+	pausarYLimpiar();
+}
