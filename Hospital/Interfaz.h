@@ -64,4 +64,5 @@ public:
 	static void mostrarPersonaConMasCitas();
 	static void mostrarFechaQueHanHabidoMasCitas();
 	static void mostrarTipoDeTransporteMasUtilizado();
+	static void mostrarAmbulanciasOcupadas();
 };

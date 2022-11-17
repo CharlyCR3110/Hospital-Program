@@ -1511,3 +1511,10 @@ void Interfaz::mostrarTipoDeTransporteMasUtilizado()
 	cout << hospital->getListaDeTransportes()->tipoDeTransporteMasUtilizado();
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarAmbulanciasOcupadas()
+{
+	cout << "Ambulancias ocupadas: " << endl;
+	cout << hospital->getListaDeTransportes()->mostrarAmbulanciasOcupadas() << endl;
+	pausarYLimpiar();
+}
