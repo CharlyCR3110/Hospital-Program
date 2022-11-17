@@ -1481,3 +1481,9 @@ void Interfaz::busquedaEspecifica()
 	}
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarDatosDeLaEmpresa()
+{
+	cout << hospital->toString() << endl;
+	pausarYLimpiar();
+}

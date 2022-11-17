@@ -58,4 +58,6 @@ public:
 	static void mostrarTodosLosMedicos(); //case 2
 	static void mostrarTodosLosTransportes(); //case 3
 	static void busquedaEspecifica(); //case 4
+	//extra menu
+	static void mostrarDatosDeLaEmpresa();
 };
