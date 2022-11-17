@@ -5,11 +5,10 @@ class Controlador
 {
 public:
 	void iniciar();
-	int menuPrincipal();
-
+	void agregarDatosDePrueba();
+	//case 1 (menu citas)
 	void controladorCitas();
 	//case 2 (menu mantenimiento)
-	int menuMantenimiento();
 	void controladorMantenimiento();
 	void controladorMantenimientoPacientes();
 	void controladorMatenimientoMedicos();
@@ -18,7 +17,7 @@ public:
 	//case 3 (menu busquedas)
 	void controladorBusquedas();
 	void controladorBusquedaEspecifica();
-	//case 5 (menu extra)
+	//case 4 (menu extra)
 	void controladorExtra();
 	void controladorPrincipal(int);//main switch
 };
