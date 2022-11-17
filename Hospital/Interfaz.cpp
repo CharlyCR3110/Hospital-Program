@@ -1030,3 +1030,81 @@ void Interfaz::eliminarMedico()
 	} while (!done);
 	pausarYLimpiar();
 }
+
+void Interfaz::modificarMedico()
+{
+	int opcionEditarMedico = 0;
+	int edad = 0;
+	bool done = false;
+	string identificacion, nombre, apellido, universidad, especialidad, volverAIntentar, numeroDeTelefono = "";
+	do {
+		cout << "Digite el numero de cedula o de pasaporte del paciente a eliminar: ";
+		cin >> identificacion;
+		if (hospital->getListaDeMedicos()->existeMedico(identificacion)) {
+			done = true;
+		}
+		else {
+			cout << "El medico no existe" << endl;
+			pausarYLimpiar();
+			cout << "Desea intentarlo de nuevo? (si/no): ";
+			cin >> volverAIntentar;
+			if (volverAIntentar == "si" || volverAIntentar == "Si") {
+				done = false;
+			}
+			else if (volverAIntentar == "no" || volverAIntentar == "No") {
+				done = true;
+			}
+			else {
+				cout << "Opcion invalida" << endl;
+				done = true;
+			}
+		}
+	} while (!done);
+	do {
+		opcionEditarMedico = menuEditarMedico();
+		pausarYLimpiar();
+		switch (opcionEditarMedico) {
+		case 1:
+			//Editar nombre
+			cout << "Digite el nuevo nombre: ";
+			cin >> nombre;
+			hospital->getListaDeMedicos()->buscarMedico(identificacion)->setNombre(nombre);
+			cout << "Nombre editado" << endl;
+			break;
+		case 2:
+			//Editar apellido
+			cout << "Digite el nuevo apellido: ";
+			cin >> apellido;
+			hospital->getListaDeMedicos()->buscarMedico(identificacion)->setApellido(apellido);
+			cout << "Apellido editado" << endl;
+			break;
+		case 3:
+			//Editar edad
+			cout << "Digite la nueva edad: ";
+			cin >> edad;
+			hospital->getListaDeMedicos()->buscarMedico(identificacion)->setEdad(edad);
+			cout << "Edad editada" << endl;
+			break;
+		case 4:
+			cout << "Digite la nueva especialidad: ";
+			cin >> especialidad;
+			hospital->getListaDeMedicos()->buscarMedico(identificacion)->setEspecialidad(especialidad);
+			cout << "Especialidad editada" << endl;
+			break;
+		case 5:
+			cout << "Digite el nuevo numero telefonico: ";
+			cin >> numeroDeTelefono;
+			hospital->getListaDeMedicos()->buscarMedico(identificacion)->setNumTelefonico(numeroDeTelefono);
+			cout << "Numero telefonico editado" << endl;
+			break;
+		case 6:
+			cout << "Regresando..." << endl;
+			break;
+		default:
+			cout << "Opcion invalida" << endl;
+			break;
+		}
+		pausarYLimpiar();
+	} while (opcionEditarMedico != 6);
+	pausarYLimpiar();
+}
