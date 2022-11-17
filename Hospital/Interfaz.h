@@ -47,4 +47,5 @@ public:
 	static void modificarMedico();
 	//menu matenimineto de ambulancias
 	static void agregarAmbulancia();
+	static void eliminarAmbulancia();
 };

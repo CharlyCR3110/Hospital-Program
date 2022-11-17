@@ -1148,3 +1148,35 @@ void Interfaz::agregarAmbulancia()
 	cout << "Ambulancia agregada" << endl;
 	pausarYLimpiar();
 }
+
+void Interfaz::eliminarAmbulancia()
+{
+	string placa, volverAIntentar = "";
+	bool done = false;
+	do {
+		cout << "Digite la placa de la ambulancia a eliminar: ";
+		cin >> placa;
+		if (hospital->getListaDeTransportes()->existeTransporte(placa)) {
+			hospital->getListaDeTransportes()->eliminarTransporte(placa);
+			cout << "Ambulancia eliminada" << endl;
+			done = true;
+		}
+		else {
+			cout << "La ambulancia placa" << placa << " no esta registrada en el sistema" << endl;
+			cout << "Desea intentarlo de nuevo? (si/no): ";
+			pausarYLimpiar();
+			cin >> volverAIntentar;
+			if (volverAIntentar == "si" || volverAIntentar == "Si") {
+				done = false;
+			}
+			else if (volverAIntentar == "no" || volverAIntentar == "No") {
+				done = true;
+			}
+			else {
+				cout << "Opcion invalida" << endl;
+				done = true;
+			}
+		}
+	} while (!done);
+	pausarYLimpiar();
+}
