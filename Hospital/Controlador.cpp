@@ -168,3 +168,73 @@ void Controlador::controladorMantenimientoTaxi()
 	} while (opcion != 4);
 }
 
+void Controlador::controladorBusquedas()
+{
+	// "1) Mostrar Pacientes" << endl;
+	// "2) Mostrar Medicos" << endl;
+	// "3) Mostrar Transportes" << endl;
+	// "4) Buscar Elemento Especifico" << endl;
+	// "5) Regresar" << endl;
+	int opcion = 0;
+	do {
+		opcion = Interfaz::menuBusquedas();
+		switch (opcion)
+		{
+		case 1:
+			Interfaz::mostrarTodosLosPacientes();
+			break;
+		case 2:
+			Interfaz::mostrarTodosLosMedicos();
+			break;
+		case 3:
+			Interfaz::mostrarTodosLosTransportes();
+			break;
+		case 4:
+			Controlador::controladorBusquedaEspecifica();
+			break;
+		case 5:
+			Interfaz::regresar();
+			break;
+		default:
+			Interfaz::opcionInvalida();
+			break;
+		}
+	} while (opcion != 5);
+}
+
+void Controlador::controladorBusquedaEspecifica()
+{
+	// "1) Buscar Estudiante" << endl;
+	// "2) Buscar Profesor" << endl;
+	// "3) Buscar Medico" << endl;
+	// "4) Buscar Ambulancia" << endl;
+	// "5) Buscar Taxi" << endl;
+	// "6) Regresar" << endl;
+	int opcion = 0;
+	do {
+		opcion = Interfaz::menuBusquedasEspecifica();
+		switch (opcion)
+		{
+		case 1:
+			Interfaz::buscarEstudiante();
+			break;
+		case 2:
+			Interfaz::buscarProfesor();
+		case 3:
+			Interfaz::buscarMedico();
+			break;
+		case 4:
+			Interfaz::buscarAmbulancia();
+			break;
+		case 5:
+			Interfaz::buscarTaxi();
+			break;
+		case 6:
+			Interfaz::regresar();
+			break;
+		default:
+			Interfaz::opcionInvalida();
+			break;
+		}
+	} while (opcion != 6);
+}
