@@ -1487,3 +1487,9 @@ void Interfaz::mostrarDatosDeLaEmpresa()
 	cout << hospital->toString() << endl;
 	pausarYLimpiar();
 }
+
+void Interfaz::mostrarCostoDeLosTaxis()
+{
+	cout << hospital->mostrarCostoTotalPorTaxis() << endl;
+	pausarYLimpiar();
+}

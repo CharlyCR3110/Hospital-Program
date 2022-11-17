@@ -60,4 +60,5 @@ public:
 	static void busquedaEspecifica(); //case 4
 	//extra menu
 	static void mostrarDatosDeLaEmpresa();
+	static void mostrarCostoDeLosTaxis();
 };
