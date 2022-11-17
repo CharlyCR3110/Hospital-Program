@@ -56,4 +56,5 @@ public:
 	//menu busquedas
 	static void mostrarTodosLosPacientes(); //case 1
 	static void mostrarTodosLosMedicos(); //case 2
+	static void mostrarTodosLosTransportes(); //case 3
 };
