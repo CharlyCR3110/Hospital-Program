@@ -1460,7 +1460,7 @@ void Interfaz::buscarAmbulancia()
 	string codigo = "";
 	cout << "Digite el codigo de la ambulancia: ";
 	cin >> codigo;
-	if (hospital->getListaDeTransportes()->existeTransporte(codigo)) {
+	if (hospital->getListaDeTransportes()->existeAmbulancia(codigo)) {
 		cout << hospital->getListaDeTransportes()->getAmbulancia(codigo)->toString() << endl;
 	}
 	else {
