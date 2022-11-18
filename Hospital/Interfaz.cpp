@@ -261,6 +261,7 @@ void Interfaz::agregarCita()
 		}
 		else {
 			cout << "Opcion invalida" << endl;
+			pausarYLimpiar();
 		}
 	}
 	else if (necesitaTransporte == "no" || necesitaTransporte == "No") {
@@ -305,6 +306,7 @@ void Interfaz::eliminarCita()
 	else {
 		cout << "La cita no existe" << endl;
 	}
+	pausarYLimpiar();
 }
 
 void Interfaz::mostrarCitasDeUnPaciente()
@@ -904,6 +906,7 @@ void Interfaz::modificarPaciente()
 			cin >> volverAIntentar;
 			if (volverAIntentar == "si" || volverAIntentar == "Si") {
 				done = false;
+				pausarYLimpiar();
 			}
 			else if (volverAIntentar == "no" || volverAIntentar == "No") {
 				done = true;
